@@ -4,11 +4,14 @@ namespace SureCart\Controllers\Admin\Orders;
 
 use SureCart\Models\Order;
 use SureCart\Controllers\Admin\Tables\ListTable;
+use SureCart\Controllers\Admin\Tables\HasModeFilter;
 
 /**
  * Create a new table class that will extend the WP_List_Table
  */
 class OrdersListTable extends ListTable {
+	use HasModeFilter;
+
 	/**
 	 * Prepare the items for the table to process
 	 *
@@ -72,6 +75,7 @@ class OrdersListTable extends ListTable {
 			'all'            => __( 'All', 'surecart' ),
 			'paid'           => __( 'Paid', 'surecart' ),
 			'processing'     => __( 'Processing', 'surecart' ),
+			'draft'          => __( 'Draft', 'surecart' ),
 			'payment_failed' => __( 'Failed', 'surecart' ),
 			'canceled'       => __( 'Canceled', 'surecart' ),
 		];
@@ -159,20 +163,27 @@ class OrdersListTable extends ListTable {
 	 * @return Array
 	 */
 	protected function table_data() {
-		return Order::where(
-			[
-				'status'             => $this->getStatus(),
-				'fulfillment_status' => ! empty( $_GET['fulfillment_status'] ) ? [ $_GET['fulfillment_status'] ] : [],
-				'shipment_status'    => ! empty( $_GET['shipment_status'] ) ? [ $_GET['shipment_status'] ] : [],
-				'query'              => $this->get_search_query(),
-			]
-		)->with( [ 'checkout', 'checkout.charge', 'checkout.customer', 'checkout.payment_method', 'checkout.manual_payment_method', 'checkout.purchases', 'checkout.selected_shipping_choice', 'shipping_choice.shipping_method', 'payment_method.card', 'payment_method.payment_instrument', 'payment_method.paypal_account', 'payment_method.bank_account' ] )
-		->paginate(
-			[
-				'per_page' => $this->get_items_per_page( 'orders' ),
-				'page'     => $this->get_pagenum(),
-			]
-		);
+		$mode = sanitize_text_field( wp_unslash( $_GET['mode'] ?? '' ) );
+
+		$conditions = [
+			'status'             => $this->getStatus(),
+			'fulfillment_status' => ! empty( $_GET['fulfillment_status'] ) ? [ $_GET['fulfillment_status'] ] : [],
+			'shipment_status'    => ! empty( $_GET['shipment_status'] ) ? [ $_GET['shipment_status'] ] : [],
+			'query'              => $this->get_search_query(),
+		];
+
+		if ( ! empty( $mode ) ) {
+			$conditions['live_mode'] = 'live' === $mode;
+		}
+
+		return Order::where( $conditions )
+			->with( [ 'checkout', 'checkout.charge', 'checkout.customer', 'checkout.payment_method', 'checkout.manual_payment_method', 'checkout.purchases', 'checkout.selected_shipping_choice', 'shipping_choice.shipping_method', 'payment_method.card', 'payment_method.payment_instrument', 'payment_method.paypal_account', 'payment_method.bank_account' ] )
+			->paginate(
+				[
+					'per_page' => $this->get_items_per_page( 'orders' ),
+					'page'     => $this->get_pagenum(),
+				]
+			);
 	}
 
 	/**
@@ -193,6 +204,9 @@ class OrdersListTable extends ListTable {
 		}
 		if ( 'canceled' === $status ) {
 			return [ 'void' ];
+		}
+		if ( 'draft' === $status ) {
+			return [ 'draft' ];
 		}
 		if ( 'all' === $status ) {
 			return [];
@@ -321,10 +335,10 @@ class OrdersListTable extends ListTable {
 			#<?php echo sanitize_text_field( $order->number ?? $order->id ); ?>
 		</a>
 		<br />
-		<a  aria-label="<?php echo esc_attr__( 'Edit Order', 'surecart' ); ?>" href="<?php echo esc_url( \SureCart::getUrl()->edit( 'order', $order->id ) ); ?>" style="word-break: break-word">
+		<a aria-label="<?php echo esc_attr__( 'Edit Order', 'surecart' ); ?>" href="<?php echo esc_url( \SureCart::getUrl()->edit( 'order', $order->id ) ); ?>" style="word-break: break-word">
 			<?php
 			// translators: Customer name.
-			echo sprintf( esc_html__( 'By %s', 'surecart' ), esc_html( $order->checkout->customer->name ?? $order->checkout->customer->email ) );
+			echo sprintf( esc_html__( 'By %s', 'surecart' ), esc_html( $order->checkout->name ?? $order->checkout->email ??$order->checkout->customer->name ?? $order->checkout->customer->email ) );
 			?>
 		</a>
 		<?php
@@ -424,6 +438,7 @@ class OrdersListTable extends ListTable {
 			ob_start();
 			$this->fulfillment_dropdown();
 			$this->shipment_dropdown();
+			$this->mode_dropdown();
 
 			/**
 			 * Fires before the Filter button on the Posts and Pages list tables.
