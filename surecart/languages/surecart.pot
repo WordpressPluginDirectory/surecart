@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-11T19:11:39+00:00\n"
+"POT-Creation-Date: 2025-03-14T15:50:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 
@@ -177,7 +177,7 @@ msgstr ""
 #: src/BlockLibrary/ProductSelectedPriceMigrationService.php:57
 #: src/Integrations/Bricks/Elements/SaleBadge.php:71
 #: Blocks/Product/Price/replace.js:82
-#: sc-price2.js:59
+#: sc-price2.js:60
 msgid "Sale"
 msgstr ""
 
@@ -2113,7 +2113,7 @@ msgid "Edit Upsell"
 msgstr ""
 
 #: src/Controllers/Admin/Upsells/UpsellsListTable.php:249
-#: src/Controllers/Web/UpsellPageController.php:53
+#: src/Controllers/Web/UpsellPageController.php:55
 #: upsell-funnels/EditFunnel.js:220
 msgid "Edit Upsell Funnel"
 msgstr ""
@@ -2318,16 +2318,16 @@ msgstr ""
 #: src/WordPress/Admin/SSLCheck/AdminSSLCheckService.php:31
 #: src/WordPress/CompatibilityService.php:198
 #: src/WordPress/HealthService.php:32
-#: src/WordPress/HealthService.php:78
-#: src/WordPress/HealthService.php:87
-#: src/WordPress/HealthService.php:91
-#: src/WordPress/HealthService.php:110
-#: src/WordPress/HealthService.php:113
-#: src/WordPress/HealthService.php:138
-#: src/WordPress/HealthService.php:167
+#: src/WordPress/HealthService.php:83
+#: src/WordPress/HealthService.php:92
+#: src/WordPress/HealthService.php:96
+#: src/WordPress/HealthService.php:115
+#: src/WordPress/HealthService.php:118
+#: src/WordPress/HealthService.php:143
 #: src/WordPress/HealthService.php:172
-#: src/WordPress/HealthService.php:176
-#: src/WordPress/HealthService.php:186
+#: src/WordPress/HealthService.php:177
+#: src/WordPress/HealthService.php:181
+#: src/WordPress/HealthService.php:191
 #: src/WordPress/Templates/TemplatesService.php:154
 #: src/WordPress/ThemeService.php:88
 #: admin/user-profile.php:1
@@ -2806,8 +2806,9 @@ msgid "Price Data"
 msgstr ""
 
 #: src/Integrations/Bricks/Elements/PriceData.php:58
+#: src/Integrations/Bricks/Elements/ProductData.php:45
 #: src/Integrations/Bricks/Elements/ProductData.php:68
-msgid "Product data"
+msgid "Product Pricing"
 msgstr ""
 
 #: src/Integrations/Bricks/Elements/PriceData.php:61
@@ -2869,12 +2870,8 @@ msgstr ""
 msgid "Scratch Price"
 msgstr ""
 
-#: src/Integrations/Bricks/Elements/ProductData.php:45
-msgid "Product Data"
-msgstr ""
-
 #: src/Integrations/Bricks/Elements/ProductData.php:181
-msgid "No product data selected."
+msgid "No product pricing selected."
 msgstr ""
 
 #: src/Integrations/Bricks/Elements/SaleBadge.php:52
@@ -2891,7 +2888,7 @@ msgstr ""
 #: products/modules/Prices/Price/Header.js:130
 #: sc-price-choice-container2.js:52
 #: sc-price-choice.js:806
-#: sc-price2.js:31
+#: sc-price2.js:32
 #: sc-recurring-price-choice-container2.js:77
 msgid "Custom Amount"
 msgstr ""
@@ -2988,7 +2985,7 @@ msgstr ""
 
 #: src/Integrations/LearnDash/LearnDashService.php:55
 #: src/Integrations/LifterLMS/LifterLMSService.php:55
-#: src/Integrations/TutorLMS/TutorLMSService.php:263
+#: src/Integrations/TutorLMS/TutorLMSService.php:267
 msgid "Course Access"
 msgstr ""
 
@@ -3094,25 +3091,25 @@ msgstr ""
 msgid "This trigger will be fired when a subscription plan is changed to something else."
 msgstr ""
 
-#: src/Integrations/TutorLMS/TutorLMSService.php:69
+#: src/Integrations/TutorLMS/TutorLMSService.php:72
 msgid "Enroll Course"
 msgstr ""
 
-#: src/Integrations/TutorLMS/TutorLMSService.php:167
+#: src/Integrations/TutorLMS/TutorLMSService.php:171
 msgid "No price"
 msgstr ""
 
-#: src/Integrations/TutorLMS/TutorLMSService.php:173
+#: src/Integrations/TutorLMS/TutorLMSService.php:177
 #: sc-subscription-switch.js:199
 msgid "Custom amount"
 msgstr ""
 
-#: src/Integrations/TutorLMS/TutorLMSService.php:254
-#: src/Integrations/TutorLMS/TutorLMSService.php:336
+#: src/Integrations/TutorLMS/TutorLMSService.php:258
+#: src/Integrations/TutorLMS/TutorLMSService.php:340
 msgid "TutorLMS Course"
 msgstr ""
 
-#: src/Integrations/TutorLMS/TutorLMSService.php:272
+#: src/Integrations/TutorLMS/TutorLMSService.php:276
 msgid "Enable access to a TutorLMS course."
 msgstr ""
 
@@ -3191,7 +3188,7 @@ msgstr ""
 #: checkouts/modules/SelectShipping.js:130
 #: invoices/modules/SelectShipping.js:95
 #: sc-order-bump2.js:69
-#: sc-price2.js:33
+#: sc-price2.js:34
 #: sc-shipping-choices2.js:69
 #: sc-upsell-totals.js:20
 msgid "Free"
@@ -3422,7 +3419,7 @@ msgstr ""
 
 #. translators: %s is the number of days.
 #: src/Models/Price.php:195
-#: sc-price2.js:59
+#: sc-price2.js:60
 msgid "Starting in %s day."
 msgid_plural "Starting in %s days."
 msgstr[0] ""
@@ -3439,7 +3436,7 @@ msgstr ""
 #: src/blocks/product-selected-price-fees/edit.js:16
 #: sc-price-choice-container2.js:72
 #: sc-price-choice.js:817
-#: sc-price2.js:59
+#: sc-price2.js:60
 #: sc-recurring-price-choice-container2.js:86
 msgid "Setup Fee"
 msgstr ""
@@ -6568,7 +6565,7 @@ msgid "Not registered"
 msgstr ""
 
 #: src/WordPress/HealthService.php:55
-#: src/WordPress/HealthService.php:87
+#: src/WordPress/HealthService.php:92
 msgid "Webhooks Processing"
 msgstr ""
 
@@ -6585,76 +6582,82 @@ msgid "Encryption Key"
 msgstr ""
 
 #: src/WordPress/HealthService.php:61
+#: src/WordPress/HealthService.php:66
 msgid "Defined"
 msgstr ""
 
 #: src/WordPress/HealthService.php:61
+#: src/WordPress/HealthService.php:66
 msgid "Not defined"
 msgstr ""
 
-#: src/WordPress/HealthService.php:78
-#: src/WordPress/HealthService.php:110
+#: src/WordPress/HealthService.php:65
+msgid "Number Formatter"
+msgstr ""
+
+#: src/WordPress/HealthService.php:83
+#: src/WordPress/HealthService.php:115
 msgid "API connectivity"
 msgstr ""
 
-#: src/WordPress/HealthService.php:91
+#: src/WordPress/HealthService.php:96
 msgid "Webhooks Connection"
 msgstr ""
 
-#: src/WordPress/HealthService.php:118
+#: src/WordPress/HealthService.php:123
 msgid "API for is reachable."
 msgstr ""
 
-#: src/WordPress/HealthService.php:118
+#: src/WordPress/HealthService.php:123
 msgid "API for is not reachable."
 msgstr ""
 
-#: src/WordPress/HealthService.php:135
+#: src/WordPress/HealthService.php:140
 msgid "SureCart Webhooks Processing Error"
 msgstr ""
 
-#: src/WordPress/HealthService.php:135
+#: src/WordPress/HealthService.php:140
 msgid "SureCart Webhooks Processing"
 msgstr ""
 
-#: src/WordPress/HealthService.php:143
+#: src/WordPress/HealthService.php:148
 msgid "%d of your webhooks failed to process on your site. Please check your error logs to make sure errors did not occur in webhook processing."
 msgstr ""
 
-#: src/WordPress/HealthService.php:143
+#: src/WordPress/HealthService.php:148
 msgid "Webhook processing is working normally."
 msgstr ""
 
-#: src/WordPress/HealthService.php:148
-#: src/WordPress/HealthService.php:196
+#: src/WordPress/HealthService.php:153
+#: src/WordPress/HealthService.php:201
 msgid "Troubleshoot Connection"
 msgstr ""
 
-#: src/WordPress/HealthService.php:166
+#: src/WordPress/HealthService.php:171
 msgid "Webhooks are working normally."
 msgstr ""
 
-#: src/WordPress/HealthService.php:167
+#: src/WordPress/HealthService.php:172
 msgid "Webhooks"
 msgstr ""
 
-#: src/WordPress/HealthService.php:172
+#: src/WordPress/HealthService.php:177
 msgid "webhook is disabled."
 msgstr ""
 
-#: src/WordPress/HealthService.php:173
+#: src/WordPress/HealthService.php:178
 msgid "The SureCart webhook is currently disabled which can cause issues with integrations. This can happen automatically due to repeated errors, or could have been disabled manually. Please re-enable the webhook and troubleshoot the issue if integrations are important to your store."
 msgstr ""
 
-#: src/WordPress/HealthService.php:176
+#: src/WordPress/HealthService.php:181
 msgid "webhook connection is being monitored for errors."
 msgstr ""
 
-#: src/WordPress/HealthService.php:177
+#: src/WordPress/HealthService.php:182
 msgid "The SureCart webhook has received repeated errors."
 msgstr ""
 
-#: src/WordPress/HealthService.php:179
+#: src/WordPress/HealthService.php:184
 msgid "Please troubleshoot the issue if integrations are important to your store."
 msgstr ""
 
@@ -12676,7 +12679,7 @@ msgstr ""
 #: price.js:32
 #: price.js:65
 #: sc-price-choice-container2.js:57
-#: sc-price2.js:41
+#: sc-price2.js:42
 msgid "every"
 msgstr ""
 
@@ -23154,8 +23157,8 @@ msgstr ""
 #: sc-price-choice-container2.js:69
 #: sc-price-choice.js:790
 #: sc-price-choice.js:814
-#: sc-price2.js:44
-#: sc-price2.js:57
+#: sc-price2.js:45
+#: sc-price2.js:58
 #: sc-product-price-choices.js:28
 #: sc-product-selected-price.js:78
 #: sc-recurring-price-choice-container2.js:54
@@ -23417,12 +23420,12 @@ msgid "Premium"
 msgstr ""
 
 #: sc-price-choice-container2.js:53
-#: sc-price2.js:33
+#: sc-price2.js:34
 msgid "This is a repeating price. Payment will happen"
 msgstr ""
 
 #: sc-price-choice-container2.js:71
-#: sc-price2.js:59
+#: sc-price2.js:60
 msgid "You have a %d-day trial before payment becomes necessary."
 msgstr ""
 
@@ -23446,19 +23449,19 @@ msgstr ""
 msgid "Price range from"
 msgstr ""
 
-#: sc-price2.js:33
+#: sc-price2.js:34
 msgid "The price was"
 msgstr ""
 
-#: sc-price2.js:33
+#: sc-price2.js:34
 msgid "now discounted to"
 msgstr ""
 
-#: sc-price2.js:59
+#: sc-price2.js:60
 msgid "This product is available for sale."
 msgstr ""
 
-#: sc-price2.js:59
+#: sc-price2.js:60
 msgid "This product has"
 msgstr ""
 
