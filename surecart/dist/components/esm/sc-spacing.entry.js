@@ -8,7 +8,7 @@ const ScSpacing = class {
         registerInstance(this, hostRef);
     }
     render() {
-        return (h(Host, { key: 'c0cc8035d03e19620957f4d82f54db2b7546818a' }, h("slot", { key: '641c504ea580a98f6069375697decc6d2c7a0893' })));
+        return (h(Host, { key: '73cf535884173984b05b84c86040ca0c985b76ba' }, h("slot", { key: 'aa705ad61264b862ad554f7b24ff5fec4e67cbad' })));
     }
 };
 ScSpacing.style = ScSpacingStyle0;

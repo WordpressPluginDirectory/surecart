@@ -186,7 +186,7 @@ const ScStripeElement = class {
         this.element.on('blur', () => (this.hasFocus = false));
     }
     render() {
-        return (index.h(index.Fragment, { key: '38200ee9a8f3be8e975395883cfae8ec98c50652' }, index.h("sc-form-control", { key: '408634b78b91e5a8baa6d3429c27d9e33e01c45e', class: "sc-stripe", size: this.size, label: this.label }, index.h("div", { key: 'd6363dc7f2852c56f0dd86ee230301cc232d8943', class: "sc-stripe-element", ref: el => (this.container = el) })), this.error && (index.h("sc-text", { key: '00eb23ea2f5f175a5bcc19f809da0d1ec9335dab', style: {
+        return (index.h(index.Fragment, { key: '3ed0e09535c65c57956621d0f6225ee75c734a8b' }, index.h("sc-form-control", { key: 'db95cc4b5711f73d211e55de188803ba7047c4a0', class: "sc-stripe", size: this.size, label: this.label }, index.h("div", { key: '6ca934fffda029836a11120c715413f86a699d69', class: "sc-stripe-element", ref: el => (this.container = el) })), this.error && (index.h("sc-text", { key: '7ac5a4d38f8b8691f1a0ccc86587b1c5f40b6442', style: {
                 'color': 'var(--sc-color-danger-500)',
                 '--font-size': 'var(--sc-font-size-small)',
                 'marginTop': '0.5em',

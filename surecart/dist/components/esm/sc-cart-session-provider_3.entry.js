@@ -1,9 +1,9 @@
 import { r as registerInstance, c as createEvent, h, a as getElement } from './index-745b6bec.js';
 import { u as updateFormState, s as state } from './mutations-6f9b9a86.js';
-import { d as updateCheckout } from './index-885ece77.js';
+import { d as updateCheckout } from './index-a8c5e1c9.js';
 import { c as createErrorNotice, s as state$1 } from './mutations-ed6d0770.js';
-import { c as clearCheckout } from './mutations-56e6eb22.js';
-import { s as setDefaultAnimation, g as getAnimation, a as animateTo, b as stopAnimations } from './animation-registry-12eed2e3.js';
+import { c as clearCheckout } from './mutations-acb9c3c1.js';
+import { s as setDefaultAnimation, g as getAnimation, b as animateTo, a as stopAnimations } from './animation-registry-adf65203.js';
 import { g as getAdditionalErrorMessages } from './getters-a7eec27c.js';
 import './index-06061d4e.js';
 import './utils-cd1431df.js';
@@ -86,12 +86,12 @@ const ScCartSessionProvider = class {
         }
     }
     render() {
-        return (h("sc-line-items-provider", { key: 'b03bc4282ccee380e290a98d807dbbaf09b327e0', order: state.checkout, onScUpdateLineItems: e => this.loadUpdate({ line_items: e.detail }) }, h("slot", { key: '0083107333007904f65f77fdf09d08836f611041' })));
+        return (h("sc-line-items-provider", { key: '3c185b11c2daa294d6a55d29214767690ce45bb0', order: state.checkout, onScUpdateLineItems: e => this.loadUpdate({ line_items: e.detail }) }, h("slot", { key: '1029f8abac88faf3a363cd2da15b60827f59afad' })));
     }
     get el() { return getElement(this); }
 };
 
-const scDrawerCss = ":host{display:contents}.drawer{top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;font-family:var(--sc-font-sans);font-weight:var(--sc-font-weight-normal)}.drawer--contained{position:absolute;z-index:initial}.drawer--fixed{position:fixed;z-index:var(--sc-z-index-drawer)}.drawer__panel{position:absolute;display:flex;flex-direction:column;z-index:2;max-width:100%;max-height:100%;background-color:var(--sc-panel-background-color);box-shadow:var(--sc-shadow-x-large);transition:var(--sc-transition-medium) transform;overflow:auto;pointer-events:all}.drawer__panel:focus{outline:none}.drawer--top .drawer__panel{top:0;right:auto;bottom:auto;left:0;width:100%;height:var(--sc-drawer-size, 400px)}.drawer--end .drawer__panel{top:0;right:0;bottom:auto;left:auto;width:100%;max-width:var(--sc-drawer-size, 400px);height:100%}.drawer--bottom .drawer__panel{top:auto;right:auto;bottom:0;left:0;width:100%;height:var(--sc-drawer-size, 400px)}.drawer--start .drawer__panel{top:0;right:auto;bottom:auto;left:0;width:var(--sc-drawer-size, 400px);height:100%}.header__sticky{position:sticky;top:0;z-index:10;background:#fff}.drawer__header{display:flex;align-items:center;padding:var(--sc-drawer-header-spacing);border-bottom:var(--sc-drawer-border)}.drawer__title{flex:1 1 auto;font:inherit;font-size:var(--sc-font-size-large);line-height:var(--sc-line-height-dense);margin:0}.drawer__close{flex:0 0 auto;display:flex;align-items:center;font-size:var(--sc-font-size-x-large);color:var(--sc-color-gray-500);cursor:pointer}.drawer__body{flex:1 1 auto}.drawer--has-footer .drawer__footer{border-top:var(--sc-drawer-border);padding:var(--sc-drawer-footer-spacing)}.drawer__overlay{display:block;position:fixed;top:0;right:0;bottom:0;left:0;background-color:var(--sc-overlay-background-color);pointer-events:all}.drawer--contained .drawer__overlay{position:absolute}";
+const scDrawerCss = ":host {\n  display: contents;\n}\n.drawer {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  font-family: var(--sc-font-sans);\n  font-weight: var(--sc-font-weight-normal);\n}\n.drawer--contained {\n  position: absolute;\n  z-index: initial;\n}\n.drawer--fixed {\n  position: fixed;\n  z-index: var(--sc-z-index-drawer);\n}\n.drawer__panel {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  z-index: 2;\n  max-width: 100%;\n  max-height: 100%;\n  background-color: var(--sc-panel-background-color);\n  box-shadow: var(--sc-shadow-x-large);\n  transition: var(--sc-transition-medium) transform;\n  overflow: auto;\n  pointer-events: all;\n}\n.drawer__panel:focus {\n  outline: none;\n}\n.drawer--top .drawer__panel {\n  top: 0;\n  right: auto;\n  bottom: auto;\n  left: 0;\n  width: 100%;\n  height: var(--sc-drawer-size, 400px);\n}\n.drawer--end .drawer__panel {\n  top: 0;\n  right: 0;\n  bottom: auto;\n  left: auto;\n  width: 100%;\n  max-width: var(--sc-drawer-size, 400px);\n  height: 100%;\n}\n.drawer--bottom .drawer__panel {\n  top: auto;\n  right: auto;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: var(--sc-drawer-size, 400px);\n}\n.drawer--start .drawer__panel {\n  top: 0;\n  right: auto;\n  bottom: auto;\n  left: 0;\n  width: var(--sc-drawer-size, 400px);\n  height: 100%;\n}\n.header__sticky {\n  position: sticky;\n  top: 0;\n  z-index: 10;\n  background: #fff;\n}\n.drawer__header {\n  display: flex;\n  align-items: center;\n  padding: var(--sc-drawer-header-spacing);\n  border-bottom: var(--sc-drawer-border);\n}\n\n.drawer__title {\n  flex: 1 1 auto;\n  font: inherit;\n  font-size: var(--sc-font-size-large);\n  line-height: var(--sc-line-height-dense);\n  margin: 0;\n}\n.drawer__close {\n  flex: 0 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: var(--sc-font-size-x-large);\n  color: var(--sc-color-gray-500);\n  cursor: pointer;\n}\n.drawer__body {\n  flex: 1 1 auto;\n}\n\n.drawer--has-footer .drawer__footer {\n  border-top: var(--sc-drawer-border);\n  padding: var(--sc-drawer-footer-spacing);\n\n  &.is-sticky {\n    position: sticky;\n    bottom: 0;\n    background: #fff;\n  }\n}\n\n.drawer__overlay {\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: var(--sc-overlay-background-color);\n  pointer-events: all;\n}\n.drawer--contained .drawer__overlay {\n  position: absolute;\n}\n";
 const ScDrawerStyle0 = scDrawerCss;
 
 const ScDrawer = class {
@@ -109,6 +109,7 @@ const ScDrawer = class {
         this.contained = false;
         this.noHeader = false;
         this.stickyHeader = false;
+        this.stickyFooter = false;
     }
     componentDidLoad() {
         this.drawer.hidden = !this.open;
@@ -215,7 +216,7 @@ const ScDrawer = class {
         }
     }
     render() {
-        return (h("div", { key: '3b376d55970341058b2387575540f94b6d9dc37f', part: "base", class: {
+        return (h("div", { key: '7dadb4070dcaa9961a8157e99539d8f7f7829d2c', part: "base", class: {
                 'drawer': true,
                 'drawer--open': this.open,
                 'drawer--top': this.placement === 'top',
@@ -225,9 +226,9 @@ const ScDrawer = class {
                 'drawer--contained': this.contained,
                 'drawer--fixed': !this.contained,
                 'drawer--has-footer': this.el.querySelector('[slot="footer"]') !== null,
-            }, ref: el => (this.drawer = el), onKeyDown: (e) => this.handleKeyDown(e) }, h("div", { key: 'b1a961d010a9ba0bb61884f26fc7f1539f7fa40b', part: "overlay", class: "drawer__overlay", onClick: () => this.requestClose('overlay'), tabindex: "-1", ref: el => (this.overlay = el) }), h("div", { key: 'a59a152e155b005f98189e31b7a5767d2600e303', part: "panel", class: "drawer__panel", role: "dialog", "aria-modal": "true", "aria-hidden": this.open ? 'false' : 'true', "aria-label": this.noHeader ? this.label : undefined, "aria-labelledby": !this.noHeader ? 'title' : undefined, tabindex: "0", ref: el => (this.panel = el) }, !this.noHeader && (h("header", { key: '732bbf84affe31a6217868f56a723348144d48b2', part: "header", class: this.stickyHeader ? 'header__sticky' : '' }, h("slot", { key: '783ea7f8b998543ab621c0c3b5cd4e3f27268a21', name: "header" }, h("div", { key: '9945daf0fa09dcccce897f781d3642fc8281414b', class: "drawer__header" }, h("h2", { key: '1b72b4fafcdd6c09900d097b7f4e45f2afd4dc67', part: "title", class: "drawer__title", id: "title" }, h("slot", { key: '91b692a39203fe1b7e8efadc85d26f6fdde6c9b0', name: "label" }, this.label.length > 0 ? this.label : ' ', " ")), h("sc-icon", { key: '0583de0b05550664c25d6109c43a7e6305b9e7cf', part: "close-button", exportparts: "base:close-button__base", class: "drawer__close", name: "x", label: 
+            }, ref: el => (this.drawer = el), onKeyDown: (e) => this.handleKeyDown(e) }, h("div", { key: 'bd474c990309f52201fd8a1824ebedc1349b77f5', part: "overlay", class: "drawer__overlay", onClick: () => this.requestClose('overlay'), tabindex: "-1", ref: el => (this.overlay = el) }), h("div", { key: 'd2ca5b4cba978a93e8313aaf69c8c865d5a2b019', part: "panel", class: "drawer__panel", role: "dialog", "aria-modal": "true", "aria-hidden": this.open ? 'false' : 'true', "aria-label": this.noHeader ? this.label : undefined, "aria-labelledby": !this.noHeader ? 'title' : undefined, tabindex: "0", ref: el => (this.panel = el) }, !this.noHeader && (h("header", { key: '2b0e6f172ecd812b77f14a7c9757098cde7e7cac', part: "header", class: this.stickyHeader ? 'header__sticky' : '' }, h("slot", { key: '3d0839a3ed04c2dcae28520c7359a5b8d8b269e6', name: "header" }, h("div", { key: 'd0a8bd55f112e3d52b59b462bd5eac021edfe118', class: "drawer__header" }, h("h2", { key: 'f706738c2b987059bd9e32e4efc8fca528c9a09d', part: "title", class: "drawer__title", id: "title" }, h("slot", { key: '9bc78f0a63eb76e51f93c160d7d2f44269c50d26', name: "label" }, this.label.length > 0 ? this.label : ' ', " ")), h("sc-icon", { key: '4496761c6f252037b8099f53457f322ef69d4037', part: "close-button", exportparts: "base:close-button__base", class: "drawer__close", name: "x", label: 
             /** translators: Close this modal window. */
-            wp.i18n.__('Close', 'surecart'), onClick: () => this.requestClose('close-button') }))))), h("footer", { key: '2deddf4374a4e7116a97d9a86d402c2f5bdf2732', part: "header-suffix", class: "drawer__header-suffix" }, h("slot", { key: 'f8a7a7d0fa6b7e81d78095e62849ed5150f7a10b', name: "header-suffix" })), h("div", { key: 'e5b03244c25e578acb77f73d92664be765ea6b31', part: "body", class: "drawer__body" }, h("slot", { key: 'a0724b2746dce2a735a3945cd1959e7a973f94fd' })), h("footer", { key: 'd484266c11dae46df5c69530f1fbfcb206928fe3', part: "footer", class: "drawer__footer" }, h("slot", { key: 'fc6c39143afab661b825e10292fbcac34853e9cc', name: "footer" })))));
+            wp.i18n.__('Close', 'surecart'), onClick: () => this.requestClose('close-button') }))))), h("footer", { key: '9d40f363879851afa181550d41fe9b5337e0038d', part: "header-suffix", class: "drawer__header-suffix" }, h("slot", { key: '911962643997621d9f276bf908c199f76081ba05', name: "header-suffix" })), h("div", { key: 'ab386152dbdf5341fdefc2335193d7d22c32d3e8', part: "body", class: "drawer__body" }, h("slot", { key: '001144ddd4ac4da72ccc03354171ae03d19ec54c' })), h("footer", { key: 'c6f8a32c1a65513510a139e1cf26881106cad672', part: "footer", class: this.stickyFooter ? 'drawer__footer is-sticky' : 'drawer__footer' }, h("slot", { key: 'a8131ebe2cd87fe8c57b0d5f346b5c3035b5ef38', name: "footer" })))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {

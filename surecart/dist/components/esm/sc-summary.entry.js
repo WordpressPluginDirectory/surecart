@@ -1,6 +1,6 @@
 import { r as registerInstance, c as createEvent, h, a as getElement } from './index-745b6bec.js';
 import { s as speak } from './index-c5a96d53.js';
-import { s as setDefaultAnimation, b as stopAnimations, g as getAnimation, a as animateTo, c as shimKeyframesHeightAuto } from './animation-registry-12eed2e3.js';
+import { s as setDefaultAnimation, a as stopAnimations, g as getAnimation, b as animateTo, c as shimKeyframesHeightAuto } from './animation-registry-adf65203.js';
 
 const scSummaryCss = ":host{display:block;font-family:var(--sc-font-sans);font-size:var(--sc-checkout-font-size, 16px)}.collapse-link{display:flex;align-items:center;gap:0.35em}.summary__content--empty{display:none}.collapse-link__icon{width:18px;height:18px;color:var(--sc-order-collapse-link-icon-color, var(--sc-color-gray-500))}.item__product+.item__product{margin-top:20px}.empty{color:var(--sc-order-summary-color, var(--sc-color-gray-500))}.price{display:inline-block;opacity:0;visibility:hidden;transform:translateY(5px);transition:var(--sc-input-transition, var(--sc-transition-medium)) visibility ease, var(--sc-input-transition, var(--sc-transition-medium)) opacity ease, var(--sc-input-transition, var(--sc-transition-medium)) transform ease}.price--collapsed{opacity:1;visibility:visible;transform:translateY(0)}.summary{position:relative;user-select:none;cursor:pointer}.summary .collapse-link__icon{transition:transform 0.25s ease-in-out}.summary .scratch-price{text-decoration:line-through;color:var(--sc-color-gray-500);font-size:var(--sc-font-size-small);margin-right:var(--sc-spacing-xx-small)}.summary--open .collapse-link__icon{transform:rotate(180deg)}::slotted(*){margin:4px 0 !important}::slotted(sc-divider){margin:16px 0 !important}sc-line-item~sc-line-item{margin-top:14px}.total-price{white-space:nowrap}";
 const ScSummaryStyle0 = scSummaryCss;
@@ -72,9 +72,9 @@ const ScOrderSummary = class {
         }
     }
     render() {
-        return (h("div", { key: 'aef4449865142cbe74d3c9e1fbbe10417c450f4d', class: { 'summary': true, 'summary--open': !this.collapsed } }, this.collapsible && this.renderHeader(), h("div", { key: 'e2b4b5ee3908d70b201ea0a9b05166b657c27ddd', ref: el => (this.body = el), class: {
+        return (h("div", { key: '7acd7576b45cb008112aaf70d0941e1ab1b4fb05', class: { 'summary': true, 'summary--open': !this.collapsed } }, this.collapsible && this.renderHeader(), h("div", { key: '7f39568fd629ca156f893d39f30384f8be35545c', ref: el => (this.body = el), class: {
                 summary__content: true,
-            } }, h("slot", { key: '67e489b5c2ef9bfa4e9383d0335db1f246558535' }))));
+            } }, h("slot", { key: '28ee88870882d22e0e01c8c9edae920328d7af2d' }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {

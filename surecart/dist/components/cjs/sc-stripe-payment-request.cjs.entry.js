@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const index = require('./index-8acc3c89.js');
 const pure = require('./pure-bd6f0a6e.js');
 const mutations = require('./mutations-747a9cc3.js');
-const index$1 = require('./index-4f958947.js');
+const index$1 = require('./index-433de3ad.js');
 const mutations$1 = require('./mutations-11c8f9a8.js');
 const consumer = require('./consumer-9f4ee0e3.js');
 require('./index-bcdafe6e.js');
@@ -297,7 +297,7 @@ const ScStripePaymentRequest = class {
         this.removeCheckoutListener();
     }
     render() {
-        return (index.h("div", { key: 'c3566012e46be1295848dd952d0f94903b8da88c', class: { 'request': true, 'request--loaded': this.loaded } }, this.debug && this.debugError && (index.h("div", { key: 'bc907c5c0f52a8c2ae3f67260eb33e0efd30cf05' }, index.h("slot", { key: '469e353c06a6bcbd22901dde52a69e978cc0ecef', name: "debug-fallback" }), index.h("sc-alert", { key: '5641ff1ab22a5a5157caf75f5baadb38a3f67cb7', type: "info", open: true }, index.h("span", { key: '89a029985bce01c25f9927ad53de6c44dd521840', slot: "title" }, wp.i18n.__('Express Payment', 'surecart')), this.debugError))), index.h("div", { key: 'daeabf74058897dfdffa975936ba64868887fa6e', class: "sc-payment-request-button", part: "button", ref: el => (this.request = el) })));
+        return (index.h("div", { key: '94826b8463a3a060ceabe419d48d7c42f150051d', class: { 'request': true, 'request--loaded': this.loaded } }, this.debug && this.debugError && (index.h("div", { key: '9a3623957e335cb119eb7e7a55d0a5d5778b34e9' }, index.h("slot", { key: '2839c856be54c814234346b0ccbd5ca143ae60ba', name: "debug-fallback" }), index.h("sc-alert", { key: 'b531c6f8f023af34fa5f0116fa7b7470850bc8e0', type: "info", open: true }, index.h("span", { key: '0bf64c1385be3cc57ed789facb2157e739f59935', slot: "title" }, wp.i18n.__('Express Payment', 'surecart')), this.debugError))), index.h("div", { key: '06087c65a05d2487894da1999d49168a7ff38397', class: "sc-payment-request-button", part: "button", ref: el => (this.request = el) })));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {
