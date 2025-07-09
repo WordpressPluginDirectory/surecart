@@ -1,12 +1,12 @@
 import { r as registerInstance, c as createEvent, h, H as Host, a as getElement } from './index-745b6bec.js';
-import { s as state, o as onChange, u as updateFormState } from './mutations-6f9b9a86.js';
-import { d as updateCheckout, e as expand, f as finalizeCheckout, g as fetchCheckout, h as createCheckout, c as createOrUpdateCheckout } from './index-a8c5e1c9.js';
+import { s as state, o as onChange, u as updateFormState } from './mutations-6bbbe793.js';
+import { d as updateCheckout, e as expand, f as finalizeCheckout, g as fetchCheckout, h as createCheckout, c as createOrUpdateCheckout } from './index-a2617916.js';
 import { c as currentFormState } from './getters-487612aa.js';
-import './watchers-876133bf.js';
-import { s as state$1 } from './getters-07c1280c.js';
+import './watchers-efdb5a5b.js';
+import { s as state$1 } from './getters-b5084f91.js';
 import { s as state$2 } from './watchers-38693c1f.js';
-import { c as clearCheckout } from './mutations-acb9c3c1.js';
-import { s as shippingAddressRequired, f as fullShippingAddressRequired } from './getters-3a0d4ac0.js';
+import { c as clearCheckout } from './mutations-68705e5e.js';
+import { s as shippingAddressRequired, f as fullShippingAddressRequired } from './getters-970cdda4.js';
 import { v, c as checkoutMachine, s as state$3 } from './store-627acec4.js';
 import { a as apiFetch } from './fetch-8ecbbe53.js';
 import { s as speak } from './index-c5a96d53.js';
@@ -18,7 +18,7 @@ import './index-06061d4e.js';
 import './utils-cd1431df.js';
 import './google-a86aa761.js';
 import './currency-a0c9bff4.js';
-import './price-7bb626d0.js';
+import './price-af9f0dbf.js';
 import './util-50af2a83.js';
 import './address-b892540d.js';
 

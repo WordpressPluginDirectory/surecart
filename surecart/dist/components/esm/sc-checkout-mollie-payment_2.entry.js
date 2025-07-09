@@ -1,10 +1,10 @@
 import { r as registerInstance, h, F as Fragment } from './index-745b6bec.js';
 import { s as state } from './watchers-38693c1f.js';
-import './watchers-876133bf.js';
-import { s as state$1, c as availableMethodTypes, f as hasMultipleMethodChoices, e as getAvailableProcessor, b as availableManualPaymentMethods } from './getters-07c1280c.js';
-import { e as on, s as state$2, u as updateFormState } from './mutations-6f9b9a86.js';
-import { a as checkoutIsLocked } from './getters-3a0d4ac0.js';
-import { l as lockCheckout, b as unLockCheckout } from './mutations-acb9c3c1.js';
+import './watchers-efdb5a5b.js';
+import { s as state$1, c as availableMethodTypes, f as hasMultipleMethodChoices, e as getAvailableProcessor, b as availableManualPaymentMethods } from './getters-b5084f91.js';
+import { e as on, s as state$2, u as updateFormState } from './mutations-6bbbe793.js';
+import { a as checkoutIsLocked } from './getters-970cdda4.js';
+import { l as lockCheckout, b as unLockCheckout } from './mutations-68705e5e.js';
 import { a as apiFetch } from './fetch-8ecbbe53.js';
 import { a as MockProcessor, M as ManualPaymentMethods } from './MockProcessor-498b60c5.js';
 import { c as createErrorNotice } from './mutations-ed6d0770.js';
@@ -19,9 +19,9 @@ import './remove-query-args-938c53ea.js';
 import './index-c5a96d53.js';
 import './google-a86aa761.js';
 import './currency-a0c9bff4.js';
-import './price-7bb626d0.js';
+import './price-af9f0dbf.js';
 import './address-b892540d.js';
-import './index-a8c5e1c9.js';
+import './index-a2617916.js';
 
 const listenTo = (prop, propKey, callback) => on('set', (key, newValue, oldValue) => {
     // ignore non-keys
