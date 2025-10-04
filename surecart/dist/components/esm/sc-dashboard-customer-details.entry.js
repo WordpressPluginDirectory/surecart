@@ -1,5 +1,5 @@
 import { r as registerInstance, h, a as getElement } from './index-745b6bec.js';
-import { a as apiFetch } from './fetch-8ecbbe53.js';
+import { a as apiFetch } from './fetch-bc141774.js';
 import { o as onFirstVisible } from './lazy-deb42890.js';
 import { a as addQueryArgs } from './add-query-args-0e2a8393.js';
 import './remove-query-args-938c53ea.js';
@@ -47,7 +47,7 @@ const ScDashboardCustomerDetails = class {
         }
     }
     render() {
-        return (h("sc-customer-details", { key: 'ed3eb7a0790566f7fda4b70159844e10ad803013', customer: this.customer, loading: this.loading, error: this.error, heading: this.heading, "edit-link": addQueryArgs(window.location.href, {
+        return (h("sc-customer-details", { key: 'daa6010b4f0b5ace8987b50dfdaa0818df7fd0f8', exportparts: "base, heading, heading-text, heading-title, heading-description, error__base, error__icon, error__text, error__title, error__message, test-tag__base, test-tag__content, button__base, button__label, button__prefix", customer: this.customer, loading: this.loading, error: this.error, heading: this.heading, "edit-link": addQueryArgs(window.location.href, {
                 action: 'edit',
                 model: 'customer',
                 id: this.customerId,

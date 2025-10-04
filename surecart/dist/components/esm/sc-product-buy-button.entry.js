@@ -1,5 +1,5 @@
 import { r as registerInstance, h, H as Host, a as getElement } from './index-745b6bec.js';
-import { g as getProductBuyLink, s as submitCartForm, a as getTopLevelError, b as getAdditionalErrorMessages } from './error-2bb97643.js';
+import { g as getProductBuyLink, s as submitCartForm, a as getTopLevelError, b as getAdditionalErrorMessages } from './error-1ba1f127.js';
 import { s as state, b as setProduct, o as onChange, i as isProductOutOfStock, c as isSelectedVariantMissing } from './watchers-fbf07f32.js';
 import './mutations-6bbbe793.js';
 import './index-06061d4e.js';
@@ -11,10 +11,10 @@ import './google-a86aa761.js';
 import './currency-a0c9bff4.js';
 import './store-627acec4.js';
 import './price-af9f0dbf.js';
-import './mutations-68705e5e.js';
+import './mutations-766c6622.js';
 import './mutations-ed6d0770.js';
-import './index-a2617916.js';
-import './fetch-8ecbbe53.js';
+import './index-5c73a1a2.js';
+import './fetch-bc141774.js';
 import './google-dd89f242.js';
 import './util-50af2a83.js';
 
@@ -73,14 +73,14 @@ const ScProductBuyButton = class {
     }
     render() {
         var _a, _b;
-        return (h(Host, { key: 'f0a2bcfca4d423833c052cf222864069893a1dbc', class: {
+        return (h(Host, { key: '5aeb7e1cb84d33f5eb914168be277d02397e1af8', class: {
                 'is-busy': ((_a = state[this.productId]) === null || _a === void 0 ? void 0 : _a.busy) && !!this.addToCart,
                 'is-disabled': (_b = state[this.productId]) === null || _b === void 0 ? void 0 : _b.disabled,
                 'is-sold-out': isProductOutOfStock(this.productId) && !isSelectedVariantMissing(this.productId),
                 'is-unavailable': isSelectedVariantMissing(this.productId),
-            }, onClick: e => this.handleCartClick(e) }, !!this.error && (h("sc-alert", { key: '99f8fdeb43f53ec697114bdd2ea2fe2149847b71', onClick: event => {
+            }, onClick: e => this.handleCartClick(e) }, !!this.error && (h("sc-alert", { key: '09881cc0ca0689de423624131c7dcfb648641a7b', onClick: event => {
                 event.stopPropagation();
-            }, type: "danger", scrollOnOpen: true, open: !!this.error, closable: false }, !!getTopLevelError(this.error) && h("span", { key: '96532621b9db52b646b0a1491f9cd80f42f0ec60', slot: "title", innerHTML: getTopLevelError(this.error) }), (getAdditionalErrorMessages(this.error) || []).map((message, index) => (h("div", { innerHTML: message, key: index }))))), h("slot", { key: '60ed01cfba9379cc0c6e63b1ecec78d88e3a2b5c' })));
+            }, type: "danger", scrollOnOpen: true, open: !!this.error, closable: false }, !!getTopLevelError(this.error) && h("span", { key: 'a4600aa6606a8326d81df8f0e6b07f59bb2605c7', slot: "title", innerHTML: getTopLevelError(this.error) }), (getAdditionalErrorMessages(this.error) || []).map((message, index) => (h("div", { innerHTML: message, key: index }))))), h("slot", { key: '0d1ea96966d67f039a2954e16f545e96aebb1d44' })));
     }
     get el() { return getElement(this); }
 };

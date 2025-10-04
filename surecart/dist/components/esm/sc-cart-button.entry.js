@@ -50,12 +50,12 @@ const ScCartButton = class {
         this.link.style.display = !this.cartMenuAlwaysShown && !this.getItemsCount() ? 'none' : null;
     }
     render() {
-        return (h(Host, { key: '97f47f5d922c231180199816cfe8c449cf926fa3', tabindex: 0, role: "button", "aria-label": wp.i18n.sprintf(wp.i18n.__('Open Cart Menu Icon with %d items.', 'surecart'), this.getItemsCount()), onKeyDown: e => {
+        return (h(Host, { key: '3d919cd95df20ab9938a8707223416fce61e54ca', tabindex: 0, role: "button", "aria-label": wp.i18n.sprintf(wp.i18n.__('Open Cart Menu Icon with %d items.', 'surecart'), this.getItemsCount()), onKeyDown: e => {
                 if ('Enter' === (e === null || e === void 0 ? void 0 : e.code) || 'Space' === (e === null || e === void 0 ? void 0 : e.code)) {
                     store.state.cart = { ...store.state.cart, open: !store.state.cart.open };
                     e.preventDefault();
                 }
-            } }, h("div", { key: '8aa63905eb6feb644d817040588c3f66337fb04a', class: "cart__button", part: "base" }, h("div", { key: 'ef58918d07b2a807ae97bee36824217e314db9a9', class: "cart__content" }, (this.showEmptyCount || !!this.getItemsCount()) && (h("span", { key: '7055c70e2ad61992382c499770dd4496e5e7a91c', class: "cart__count", part: "count" }, this.getItemsCount())), h("div", { key: 'deeda4073836a254f93ccff796cb20e7bfb0b532', class: "cart__icon" }, h("slot", { key: '7cdadd9b838e136012fdbc0914787561c32783a0' }))))));
+            } }, h("div", { key: '9404f86af797fde59a8626ad87b72682ec2153d2', class: "cart__button", part: "base" }, h("div", { key: '67b1cd559dd3f45f3bdb66b86b0df359c655b53c', class: "cart__content" }, (this.showEmptyCount || !!this.getItemsCount()) && (h("span", { key: '2cd82cdf189564f83873246594102125176fca61', class: "cart__count", part: "count" }, this.getItemsCount())), h("div", { key: '9906c7b68c0c10708314a66f18fa8b4c2bdaa4f5', class: "cart__icon" }, h("slot", { key: '3eb526fcda06085b382a1ab5a55a8cec83f494c5' }))))));
     }
     get el() { return getElement(this); }
 };

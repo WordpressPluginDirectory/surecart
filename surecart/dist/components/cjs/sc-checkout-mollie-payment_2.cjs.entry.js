@@ -4,12 +4,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-8acc3c89.js');
 const watchers = require('./watchers-2ad3abd1.js');
-require('./watchers-f70e33a5.js');
+require('./watchers-06121df7.js');
 const getters = require('./getters-ae03ef93.js');
 const mutations = require('./mutations-10a18c83.js');
 const getters$1 = require('./getters-66ca11f9.js');
-const mutations$1 = require('./mutations-2cb33668.js');
-const fetch = require('./fetch-d644cebd.js');
+const mutations$1 = require('./mutations-2db027c4.js');
+const fetch = require('./fetch-d374a251.js');
 const MockProcessor = require('./MockProcessor-48b83649.js');
 const mutations$2 = require('./mutations-11c8f9a8.js');
 const addQueryArgs = require('./add-query-args-49dcb630.js');
@@ -25,7 +25,7 @@ require('./google-59d23803.js');
 require('./currency-71fce0f0.js');
 require('./price-5b1afcfe.js');
 require('./address-4c70d641.js');
-require('./index-9cef574e.js');
+require('./index-1f9e4c8e.js');
 
 const listenTo = (prop, propKey, callback) => mutations.on('set', (key, newValue, oldValue) => {
     // ignore non-keys
@@ -59,12 +59,12 @@ const ScCheckoutMolliePayment = class {
     componentWillLoad() {
         watchers.state.id = 'mollie';
         this.fetchMethods();
-        listenTo('checkout', ['total_amount', 'currency', 'reusabled_payment_method_required', 'shipping_address'], () => this.fetchMethods());
+        listenTo('checkout', ['total_amount', 'subtotal_amount', 'currency', 'reusabled_payment_method_required', 'shipping_address'], () => this.fetchMethods());
     }
     async fetchMethods() {
         var _a;
         const checkout = mutations.state.checkout;
-        if (!(checkout === null || checkout === void 0 ? void 0 : checkout.currency) || !(checkout === null || checkout === void 0 ? void 0 : checkout.total_amount))
+        if (!(checkout === null || checkout === void 0 ? void 0 : checkout.currency))
             return; // wait until we have a currency.
         try {
             mutations$1.lockCheckout('methods');

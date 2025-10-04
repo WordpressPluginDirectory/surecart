@@ -3,7 +3,7 @@ import { p as pure } from './pure-963214cb.js';
 import { s as state$2 } from './watchers-38693c1f.js';
 import { o as onChange, s as state, u as updateFormState } from './mutations-6bbbe793.js';
 import { o as onChange$1 } from './store-627acec4.js';
-import './watchers-d507e55a.js';
+import './watchers-cee9e5e9.js';
 import { s as state$1, g as getProcessorByType } from './getters-b5084f91.js';
 import { c as currentFormState } from './getters-487612aa.js';
 import { c as createErrorNotice } from './mutations-ed6d0770.js';
@@ -30,6 +30,8 @@ const ScStripePaymentElement = class {
         this.scPaymentInfoAdded = createEvent(this, "scPaymentInfoAdded", 7);
         this.error = undefined;
         this.confirming = false;
+        this.isInitializingStripe = false;
+        this.isCreatingUpdatingStripeElement = false;
         this.loaded = false;
         this.styles = undefined;
     }
@@ -70,9 +72,10 @@ const ScStripePaymentElement = class {
     }
     async initializeStripe() {
         var _a, _b;
-        if (typeof ((_a = state === null || state === void 0 ? void 0 : state.checkout) === null || _a === void 0 ? void 0 : _a.live_mode) === 'undefined' || ((_b = state$1 === null || state$1 === void 0 ? void 0 : state$1.instances) === null || _b === void 0 ? void 0 : _b.stripe)) {
+        if (typeof ((_a = state === null || state === void 0 ? void 0 : state.checkout) === null || _a === void 0 ? void 0 : _a.live_mode) === 'undefined' || ((_b = state$1 === null || state$1 === void 0 ? void 0 : state$1.instances) === null || _b === void 0 ? void 0 : _b.stripe) || this.isInitializingStripe) {
             return;
         }
+        this.isInitializingStripe = true;
         const { processor_data } = getProcessorByType('stripe') || {};
         try {
             state$1.instances.stripe = await pure.loadStripe(processor_data === null || processor_data === void 0 ? void 0 : processor_data.publishable_key, { stripeAccount: processor_data === null || processor_data === void 0 ? void 0 : processor_data.account_id });
@@ -80,6 +83,7 @@ const ScStripePaymentElement = class {
         }
         catch (e) {
             this.error = (e === null || e === void 0 ? void 0 : e.message) || wp.i18n.__('Stripe could not be loaded', 'surecart');
+            this.isInitializingStripe = false;
             // don't continue.
             return;
         }
@@ -100,10 +104,32 @@ const ScStripePaymentElement = class {
                 this.maybeConfirmOrder();
             }
         });
+        this.isInitializingStripe = false;
+    }
+    clearStripeInstances() {
+        var _a, _b, _c, _d;
+        this.isInitializingStripe = false;
+        this.isCreatingUpdatingStripeElement = false;
+        if (this === null || this === void 0 ? void 0 : this.element) {
+            try {
+                (_b = (_a = this.element) === null || _a === void 0 ? void 0 : _a.unmount) === null || _b === void 0 ? void 0 : _b.call(_a); // If Stripe provides this method
+            }
+            catch (e) {
+                console.warn('Could not unmount Stripe element:', e);
+            }
+            this.element = null;
+        }
+        if ((_c = state$1 === null || state$1 === void 0 ? void 0 : state$1.instances) === null || _c === void 0 ? void 0 : _c.stripeElements) {
+            state$1.instances.stripeElements = null;
+        }
+        if ((_d = state$1 === null || state$1 === void 0 ? void 0 : state$1.instances) === null || _d === void 0 ? void 0 : _d.stripe) {
+            state$1.instances.stripe = null;
+        }
     }
     disconnectedCallback() {
         this.unlistenToFormState();
         this.unlistenToCheckout();
+        this.clearStripeInstances();
     }
     getElementsConfig() {
         var _a, _b, _c, _d;
@@ -133,22 +159,35 @@ const ScStripePaymentElement = class {
             },
         };
     }
+    maybeApplyFilters(options) {
+        var _a, _b, _c;
+        if (!((_b = (_a = window === null || window === void 0 ? void 0 : window.wp) === null || _a === void 0 ? void 0 : _a.hooks) === null || _b === void 0 ? void 0 : _b.applyFilters))
+            return options;
+        return {
+            ...options,
+            paymentMethodOrder: window.wp.hooks.applyFilters('surecart_stripe_payment_element_payment_method_order', [], state.checkout),
+            wallets: window.wp.hooks.applyFilters('surecart_stripe_payment_element_wallets', {}, state.checkout),
+            terms: window.wp.hooks.applyFilters('surecart_stripe_payment_element_terms', {}, state.checkout),
+            fields: window.wp.hooks.applyFilters('surecart_stripe_payment_element_fields', (_c = options.fields) !== null && _c !== void 0 ? _c : {}),
+        };
+    }
     /** Update the payment element mode, amount and currency when it changes. */
     createOrUpdateElements() {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
+        var _a, _b, _c, _d, _e, _f;
         // need an order amount, etc.
         if (!((_a = state === null || state === void 0 ? void 0 : state.checkout) === null || _a === void 0 ? void 0 : _a.payment_method_required))
             return;
-        if (!state$1.instances.stripe)
+        if (!state$1.instances.stripe || this.isCreatingUpdatingStripeElement)
             return;
         if (((_b = state.checkout) === null || _b === void 0 ? void 0 : _b.status) && ['paid', 'processing'].includes((_c = state.checkout) === null || _c === void 0 ? void 0 : _c.status))
             return;
+        this.isCreatingUpdatingStripeElement = true;
         // create the elements if they have not yet been created.
         if (!state$1.instances.stripeElements) {
             // we have what we need, load elements.
             state$1.instances.stripeElements = state$1.instances.stripe.elements(this.getElementsConfig());
             const { line1, line2, city, state: state$2, country, postal_code } = (_d = getCompleteAddress('shipping')) !== null && _d !== void 0 ? _d : {};
-            const options = {
+            const options = this.maybeApplyFilters({
                 defaultValues: {
                     billingDetails: {
                         name: (_e = state.checkout) === null || _e === void 0 ? void 0 : _e.name,
@@ -161,17 +200,9 @@ const ScStripePaymentElement = class {
                         email: 'never',
                     },
                 },
-            };
-            if ((_h = (_g = window === null || window === void 0 ? void 0 : window.wp) === null || _g === void 0 ? void 0 : _g.hooks) === null || _h === void 0 ? void 0 : _h.applyFilters) {
-                // apply filters to the options. 
-                options.paymentMethodOrder = window.wp.hooks.applyFilters('surecart_stripe_payment_element_payment_method_order', [], state.checkout);
-                options.wallets = window.wp.hooks.applyFilters('surecart_stripe_payment_element_wallets', {}, state.checkout);
-                options.terms = window.wp.hooks.applyFilters('surecart_stripe_payment_element_terms', {}, state.checkout);
-            }
+            });
             // create the payment element.
-            state$1.instances.stripeElements
-                .create('payment', options)
-                .mount(this.container);
+            state$1.instances.stripeElements.create('payment', options).mount(this.container);
             this.element = state$1.instances.stripeElements.getElement('payment');
             this.element.on('ready', () => (this.loaded = true));
             this.element.on('change', (event) => {
@@ -194,9 +225,11 @@ const ScStripePaymentElement = class {
                     });
                 }
             });
+            this.isCreatingUpdatingStripeElement = false;
             return;
         }
         state$1.instances.stripeElements.update(this.getElementsConfig());
+        this.isCreatingUpdatingStripeElement = false;
     }
     /** Update the default attributes of the element when they cahnge. */
     handleUpdateElement() {
@@ -207,7 +240,7 @@ const ScStripePaymentElement = class {
             return;
         const { name, email } = state.checkout;
         const { line_1: line1, line_2: line2, city, state: state$1, country, postal_code } = ((_b = state.checkout) === null || _b === void 0 ? void 0 : _b.shipping_address) || {};
-        this.element.update({
+        const options = this.maybeApplyFilters({
             defaultValues: {
                 billingDetails: {
                     name,
@@ -228,6 +261,7 @@ const ScStripePaymentElement = class {
                 },
             },
         });
+        this.element.update(options);
     }
     async submit() {
         // this processor is not selected.
@@ -313,11 +347,11 @@ const ScStripePaymentElement = class {
         }
     }
     render() {
-        return (h("div", { key: 'bada65913ad27a8a903d4273025a6f9cf8db20e0', class: "sc-stripe-payment-element", "data-testid": "stripe-payment-element" }, !!this.error && (h("sc-text", { key: '245257a81d156bc058499b0e1619afbc598b99b2', style: {
+        return (h("div", { key: '8404ee66b9443abaa5527663bb18b905f0e43dae', class: "sc-stripe-payment-element", "data-testid": "stripe-payment-element" }, !!this.error && (h("sc-text", { key: '89e4f59fc5b53fea2381a258031dfccb5157d502', style: {
                 'color': 'var(--sc-color-danger-500)',
                 '--font-size': 'var(--sc-font-size-small)',
                 'marginBottom': '0.5em',
-            } }, this.error)), h("div", { key: 'df89322d8e52f6fcf2567eb5620ad48fb5b7de9e', class: "loader", hidden: this.loaded }, h("div", { key: 'e16d434bbe2e86d71722db0bd6fbcd1f664eb8d8', class: "loader__row" }, h("div", { key: '45f1a5d7ca430e1dfe1dcd50335fccb79a7284b5', style: { width: '50%' } }, h("sc-skeleton", { key: 'cbef1afca98f5f7109bbafcfc73af7e8f71214b8', style: { width: '50%', marginBottom: '0.5em' } }), h("sc-skeleton", { key: 'bafe9fe3cbe2cda906f4b4c3462fd51d027e7695' })), h("div", { key: 'efccbbb80eb13692bb6ace31b90284ac80230a37', style: { flex: '1' } }, h("sc-skeleton", { key: '4ff36a474929abc76338b8adf62919abcdf92c1c', style: { width: '50%', marginBottom: '0.5em' } }), h("sc-skeleton", { key: '99939dc84abb0f5ef9e78e39c918e64a91a04334' })), h("div", { key: 'dc54f7c4e586cce6fdf97886dd8219c0166c3236', style: { flex: '1' } }, h("sc-skeleton", { key: 'e8f000fec77b6ce9aaa6fba054659fc0fcfcc629', style: { width: '50%', marginBottom: '0.5em' } }), h("sc-skeleton", { key: '83243f067a3824bb05a1bcecb2c9e0d7c0a7ca66' }))), h("div", { key: 'cd0bf44c079c642b92c2a589aa5849e2ece17881', class: "loader__details" }, h("sc-skeleton", { key: '7f0d7d60327b2816de8558e6fcdb98a28f52aef1', style: { height: '1rem' } }), h("sc-skeleton", { key: '73782e2daae57e9944cfaaf66c2a2783aa13b660', style: { height: '1rem', width: '30%' } }))), h("div", { key: 'f01d6a3e000398bda40700f846239b5ab02d41c3', hidden: !this.loaded, class: "sc-payment-element-container", ref: el => (this.container = el) })));
+            } }, this.error)), h("div", { key: '13fbec6789477830a0997c36cd9d620b4f0a6e90', class: "loader", hidden: this.loaded }, h("div", { key: '898cf40ae4e7fce899eb34621f09866c8749da85', class: "loader__row" }, h("div", { key: '633fa1530745299de63f54bf090e2111c9f50547', style: { width: '50%' } }, h("sc-skeleton", { key: 'b050733a44c6d3f877fbec6dcc02888940e619ad', style: { width: '50%', marginBottom: '0.5em' } }), h("sc-skeleton", { key: 'da8922e14ae3f01b91c57ec64a6ef1240904a68a' })), h("div", { key: '8d902244c29a1306926d9440e9e74cdb174ac129', style: { flex: '1' } }, h("sc-skeleton", { key: 'c72ca453eaf5b17bab1832f276aeb85d4c9d859a', style: { width: '50%', marginBottom: '0.5em' } }), h("sc-skeleton", { key: 'fd02fcce1dbaa19958ebbdf974bd1fb3e2bcb0d5' })), h("div", { key: 'a9a15846f75735d859cb5d3b89e78d87d8746fb5', style: { flex: '1' } }, h("sc-skeleton", { key: '87397b171bc8ed93be88b01f1b498d946cd5a3df', style: { width: '50%', marginBottom: '0.5em' } }), h("sc-skeleton", { key: '7a7bdbf2804a814ab616a60385b92a51503045d4' }))), h("div", { key: 'd0ed4d5f421a836dedb7925b35c9eb625bc90c33', class: "loader__details" }, h("sc-skeleton", { key: 'db805451d58ce348e956f4ecf842c93677aebcc6', style: { height: '1rem' } }), h("sc-skeleton", { key: '08c709d205ace3d89235f6391720e0973c200141', style: { height: '1rem', width: '30%' } }))), h("div", { key: 'fb97c5d48de67df77ba7c404734deb5c0c22c88c', hidden: !this.loaded, class: "sc-payment-element-container", ref: el => (this.container = el) })));
     }
     get el() { return getElement(this); }
     static get watchers() { return {

@@ -1,11 +1,11 @@
 import { r as registerInstance, h, F as Fragment } from './index-745b6bec.js';
 import { s as state } from './watchers-38693c1f.js';
-import './watchers-d507e55a.js';
+import './watchers-cee9e5e9.js';
 import { s as state$1, c as availableMethodTypes, f as hasMultipleMethodChoices, e as getAvailableProcessor, b as availableManualPaymentMethods } from './getters-b5084f91.js';
 import { e as on, s as state$2, u as updateFormState } from './mutations-6bbbe793.js';
 import { a as checkoutIsLocked } from './getters-970cdda4.js';
-import { l as lockCheckout, b as unLockCheckout } from './mutations-68705e5e.js';
-import { a as apiFetch } from './fetch-8ecbbe53.js';
+import { l as lockCheckout, b as unLockCheckout } from './mutations-766c6622.js';
+import { a as apiFetch } from './fetch-bc141774.js';
 import { a as MockProcessor, M as ManualPaymentMethods } from './MockProcessor-498b60c5.js';
 import { c as createErrorNotice } from './mutations-ed6d0770.js';
 import { a as addQueryArgs } from './add-query-args-0e2a8393.js';
@@ -21,7 +21,7 @@ import './google-a86aa761.js';
 import './currency-a0c9bff4.js';
 import './price-af9f0dbf.js';
 import './address-b892540d.js';
-import './index-a2617916.js';
+import './index-5c73a1a2.js';
 
 const listenTo = (prop, propKey, callback) => on('set', (key, newValue, oldValue) => {
     // ignore non-keys
@@ -55,12 +55,12 @@ const ScCheckoutMolliePayment = class {
     componentWillLoad() {
         state.id = 'mollie';
         this.fetchMethods();
-        listenTo('checkout', ['total_amount', 'currency', 'reusabled_payment_method_required', 'shipping_address'], () => this.fetchMethods());
+        listenTo('checkout', ['total_amount', 'subtotal_amount', 'currency', 'reusabled_payment_method_required', 'shipping_address'], () => this.fetchMethods());
     }
     async fetchMethods() {
         var _a;
         const checkout = state$2.checkout;
-        if (!(checkout === null || checkout === void 0 ? void 0 : checkout.currency) || !(checkout === null || checkout === void 0 ? void 0 : checkout.total_amount))
+        if (!(checkout === null || checkout === void 0 ? void 0 : checkout.currency))
             return; // wait until we have a currency.
         try {
             lockCheckout('methods');

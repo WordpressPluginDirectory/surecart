@@ -13,6 +13,10 @@ export declare class ScStripePaymentElement {
     error: string;
     /** Are we confirming the order? */
     confirming: boolean;
+    /** Are we initializing stripe? */
+    isInitializingStripe: boolean;
+    /** Are we creating our updating stripe elements? */
+    isCreatingUpdatingStripeElement: boolean;
     /** Are we loaded? */
     loaded: boolean;
     /** The order/invoice was paid for. */
@@ -34,6 +38,7 @@ export declare class ScStripePaymentElement {
     syncCheckoutMode(): Promise<void>;
     componentDidLoad(): Promise<void>;
     initializeStripe(): Promise<void>;
+    clearStripeInstances(): void;
     disconnectedCallback(): void;
     getElementsConfig(): {
         mode: string;
@@ -59,6 +64,7 @@ export declare class ScStripePaymentElement {
             };
         };
     };
+    maybeApplyFilters(options: any): any;
     /** Update the payment element mode, amount and currency when it changes. */
     createOrUpdateElements(): void;
     /** Update the default attributes of the element when they cahnge. */

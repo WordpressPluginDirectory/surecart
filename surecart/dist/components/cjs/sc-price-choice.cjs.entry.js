@@ -6,7 +6,7 @@ const index = require('./index-8acc3c89.js');
 const consumer = require('./consumer-9f4ee0e3.js');
 const index$1 = require('./index-3d000d76.js');
 const price$1 = require('./price-5b1afcfe.js');
-const fetch = require('./fetch-d644cebd.js');
+const fetch = require('./fetch-d374a251.js');
 const addQueryArgs = require('./add-query-args-49dcb630.js');
 require('./currency-71fce0f0.js');
 require('./remove-query-args-b57e8cd3.js');
@@ -538,6 +538,7 @@ const entities = {
 	invoice: new schema.Entity('invoice'),
 	current_period: new schema.Entity('current_period'),
 	refund: new schema.Entity('refund'),
+	dispute: new schema.Entity('dispute'),
 	charge: new schema.Entity('charge'),
 	coupon: new schema.Entity('coupon'),
 	promotion: new schema.Entity('promotion'),

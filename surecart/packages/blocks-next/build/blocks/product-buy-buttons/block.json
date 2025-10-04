@@ -12,7 +12,8 @@
   ],
   "ancestor": [
     "surecart/product-page",
-    "surecart/product-template"
+    "surecart/product-quick-view",
+    "surecart/sticky-purchase"
   ],
   "supports": {
     "interactivity": true,
@@ -62,7 +63,8 @@
     }
   },
   "style": [
-    "surecart-wp-buttons"
+    "surecart-wp-buttons",
+    "file:./style-index.css"
   ],
   "render": "file:./view.php",
   "editorScript": "file:./index.js"
