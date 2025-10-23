@@ -1,15 +1,33 @@
-import { r as registerInstance, h, a as getElement } from './index-745b6bec.js';
-import { i as isRtl } from './page-align-0cdacf32.js';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+const index = require('./index-8acc3c89.js');
+const pageAlign = require('./page-align-5a2ab493.js');
+
+const scEmptyCss = ":host{display:block}.empty{display:flex;flex-direction:column;align-items:center;padding:var(--sc-spacing-large);text-align:center;gap:var(--sc-spacing-small);color:var(--sc-empty-color, var(--sc-color-gray-500))}.empty sc-icon{font-size:var(--sc-font-size-xx-large);color:var(--sc-empty-icon-color, var(--sc-color-gray-700))}";
+const ScEmptyStyle0 = scEmptyCss;
+
+const ScEmpty = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+        this.icon = undefined;
+    }
+    render() {
+        return (index.h("div", { key: 'a9a79a6829a6b0c0cd813b34309c4f3dd1fcb509', part: "base", class: "empty" }, !!this.icon && index.h("sc-icon", { key: '4cab24882e6679e284f9a723aa5a4a4a69f3e663', exportparts: "base:icon", name: this.icon }), index.h("slot", { key: 'a39dc8fb17cfa8b9d37a079d5e98f21d542ef336' })));
+    }
+};
+ScEmpty.style = ScEmptyStyle0;
 
 const scStackedListCss = ":host{display:block;font-family:var(--sc-font-sans)}:slotted(*){margin:0}";
 const ScStackedListStyle0 = scStackedListCss;
 
 const ScStackedList = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
     render() {
-        return h("slot", { key: 'eeeaf6d6387ce34307c039747b18a53e5316348a' });
+        return index.h("slot", { key: 'eeeaf6d6387ce34307c039747b18a53e5316348a' });
     }
 };
 ScStackedList.style = ScStackedListStyle0;
@@ -19,7 +37,7 @@ const ScStackedListRowStyle0 = scStackedListRowCss;
 
 const ScStackedListRow = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
         this.href = undefined;
         this.target = '_self';
         this.mobileSize = 600;
@@ -44,18 +62,20 @@ const ScStackedListRow = class {
     }
     render() {
         const Tag = this.href ? 'a' : 'div';
-        return (h(Tag, { key: '51dbc98fdb58ab4646550ae92dfd8f05ffe483e9', href: this.href, target: this.target, part: "base", class: {
+        return (index.h(Tag, { key: '51dbc98fdb58ab4646550ae92dfd8f05ffe483e9', href: this.href, target: this.target, part: "base", class: {
                 'list-row': true,
                 'list-row--has-prefix': this.hasPrefix,
                 'list-row--has-suffix': this.hasSuffix,
                 'breakpoint-lg': this.width >= this.mobileSize,
-                'list-row--is-rtl': isRtl()
-            } }, h("span", { key: '776c2821ce026f20568879895749fb8e51927070', class: "list-row__prefix" }, h("slot", { key: '1fc6949ad596368503c9deee3870356e39f3c732', name: "prefix", onSlotchange: () => this.handleSlotChange() })), h("slot", { key: '4c0cd2a16bb0ca9ba7cca72505f4dd307c97aa74', onSlotchange: () => this.handleSlotChange() }), h("span", { key: 'e178b122bedfd4b43ac27a6d0101c7b7a7186b81', class: "list-row__suffix" }, h("slot", { key: '913427e71f661fc363e4676e5f9f88a754e384f9', name: "suffix", onSlotchange: () => this.handleSlotChange() }))));
+                'list-row--is-rtl': pageAlign.isRtl()
+            } }, index.h("span", { key: '776c2821ce026f20568879895749fb8e51927070', class: "list-row__prefix" }, index.h("slot", { key: '1fc6949ad596368503c9deee3870356e39f3c732', name: "prefix", onSlotchange: () => this.handleSlotChange() })), index.h("slot", { key: '4c0cd2a16bb0ca9ba7cca72505f4dd307c97aa74', onSlotchange: () => this.handleSlotChange() }), index.h("span", { key: 'e178b122bedfd4b43ac27a6d0101c7b7a7186b81', class: "list-row__suffix" }, index.h("slot", { key: '913427e71f661fc363e4676e5f9f88a754e384f9', name: "suffix", onSlotchange: () => this.handleSlotChange() }))));
     }
-    get el() { return getElement(this); }
+    get el() { return index.getElement(this); }
 };
 ScStackedListRow.style = ScStackedListRowStyle0;
 
-export { ScStackedList as sc_stacked_list, ScStackedListRow as sc_stacked_list_row };
+exports.sc_empty = ScEmpty;
+exports.sc_stacked_list = ScStackedList;
+exports.sc_stacked_list_row = ScStackedListRow;
 
-//# sourceMappingURL=sc-stacked-list_2.entry.js.map
+//# sourceMappingURL=sc-empty_3.cjs.entry.js.map
