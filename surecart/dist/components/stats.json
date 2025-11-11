@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-27T17:03:16",
+  "timestamp": "2025-11-10T20:40:47",
   "compiler": {
     "name": "node",
     "version": "16.20.2"
@@ -3354,8 +3354,6 @@
           "./dist/surecart/p-2b3a9210.entry.js.map",
           "./dist/surecart/p-2f0c4d5d.entry.js",
           "./dist/surecart/p-2f0c4d5d.entry.js.map",
-          "./dist/surecart/p-2f3768bc.entry.js",
-          "./dist/surecart/p-2f3768bc.entry.js.map",
           "./dist/surecart/p-33927e65.entry.js",
           "./dist/surecart/p-33927e65.entry.js.map",
           "./dist/surecart/p-34c2dec1.entry.js",
@@ -3446,6 +3444,8 @@
           "./dist/surecart/p-5a109f78.entry.js.map",
           "./dist/surecart/p-5a8e136a.js",
           "./dist/surecart/p-5a8e136a.js.map",
+          "./dist/surecart/p-5ababc08.entry.js",
+          "./dist/surecart/p-5ababc08.entry.js.map",
           "./dist/surecart/p-5c1a03e5.js",
           "./dist/surecart/p-5c1a03e5.js.map",
           "./dist/surecart/p-5c357ef0.entry.js",
@@ -3486,8 +3486,6 @@
           "./dist/surecart/p-6d7d20d2.entry.js.map",
           "./dist/surecart/p-6e26b288.entry.js",
           "./dist/surecart/p-6e26b288.entry.js.map",
-          "./dist/surecart/p-70d1e7c0.entry.js",
-          "./dist/surecart/p-70d1e7c0.entry.js.map",
           "./dist/surecart/p-70dd3f7c.entry.js",
           "./dist/surecart/p-70dd3f7c.entry.js.map",
           "./dist/surecart/p-738f9fe9.entry.js",
@@ -3496,6 +3494,8 @@
           "./dist/surecart/p-75555783.entry.js.map",
           "./dist/surecart/p-77407f32.entry.js",
           "./dist/surecart/p-77407f32.entry.js.map",
+          "./dist/surecart/p-7a04ee39.entry.js",
+          "./dist/surecart/p-7a04ee39.entry.js.map",
           "./dist/surecart/p-7a66912e.entry.js",
           "./dist/surecart/p-7a66912e.entry.js.map",
           "./dist/surecart/p-7f01a36e.js",
@@ -3802,8 +3802,6 @@
           "./www/build/p-2b3a9210.entry.js.map",
           "./www/build/p-2f0c4d5d.entry.js",
           "./www/build/p-2f0c4d5d.entry.js.map",
-          "./www/build/p-2f3768bc.entry.js",
-          "./www/build/p-2f3768bc.entry.js.map",
           "./www/build/p-33927e65.entry.js",
           "./www/build/p-33927e65.entry.js.map",
           "./www/build/p-34c2dec1.entry.js",
@@ -3894,6 +3892,8 @@
           "./www/build/p-5a109f78.entry.js.map",
           "./www/build/p-5a8e136a.js",
           "./www/build/p-5a8e136a.js.map",
+          "./www/build/p-5ababc08.entry.js",
+          "./www/build/p-5ababc08.entry.js.map",
           "./www/build/p-5c1a03e5.js",
           "./www/build/p-5c1a03e5.js.map",
           "./www/build/p-5c357ef0.entry.js",
@@ -3934,8 +3934,6 @@
           "./www/build/p-6d7d20d2.entry.js.map",
           "./www/build/p-6e26b288.entry.js",
           "./www/build/p-6e26b288.entry.js.map",
-          "./www/build/p-70d1e7c0.entry.js",
-          "./www/build/p-70d1e7c0.entry.js.map",
           "./www/build/p-70dd3f7c.entry.js",
           "./www/build/p-70dd3f7c.entry.js.map",
           "./www/build/p-738f9fe9.entry.js",
@@ -3944,6 +3942,8 @@
           "./www/build/p-75555783.entry.js.map",
           "./www/build/p-77407f32.entry.js",
           "./www/build/p-77407f32.entry.js.map",
+          "./www/build/p-7a04ee39.entry.js",
+          "./www/build/p-7a04ee39.entry.js.map",
           "./www/build/p-7a66912e.entry.js",
           "./www/build/p-7a66912e.entry.js.map",
           "./www/build/p-7f01a36e.js",
@@ -5852,8 +5852,8 @@
         "components": [
           "sc-subscription-payment-method"
         ],
-        "bundleId": "p-2f3768bc",
-        "fileName": "p-2f3768bc.entry.js",
+        "bundleId": "p-5ababc08",
+        "fileName": "p-5ababc08.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-dd3464cd.js",
@@ -5861,7 +5861,7 @@
           "p-401e165e.js",
           "p-d3366af3.js"
         ],
-        "originalByteSize": 10336
+        "originalByteSize": 9555
       },
       {
         "key": "sc-subscription-switch.entry",
@@ -6712,13 +6712,13 @@
         "components": [
           "sc-purchase-downloads-list"
         ],
-        "bundleId": "p-70d1e7c0",
-        "fileName": "p-70d1e7c0.entry.js",
+        "bundleId": "p-7a04ee39",
+        "fileName": "p-7a04ee39.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-401e165e.js"
         ],
-        "originalByteSize": 4606
+        "originalByteSize": 4779
       },
       {
         "key": "sc-table.sc-table-cell.sc-table-row.entry",
@@ -8896,7 +8896,7 @@
           "add-query-args-0e2a8393.js",
           "remove-query-args-938c53ea.js"
         ],
-        "originalByteSize": 10376
+        "originalByteSize": 9595
       },
       {
         "key": "sc-subscription-switch.entry",
@@ -9753,7 +9753,7 @@
           "index-745b6bec.js",
           "add-query-args-0e2a8393.js"
         ],
-        "originalByteSize": 4623
+        "originalByteSize": 4796
       },
       {
         "key": "sc-table.sc-table-cell.sc-table-row.entry",
@@ -11933,7 +11933,7 @@
           "add-query-args-49dcb630.js",
           "remove-query-args-b57e8cd3.js"
         ],
-        "originalByteSize": 10636
+        "originalByteSize": 9855
       },
       {
         "key": "sc-subscription-switch.entry",
@@ -12790,7 +12790,7 @@
           "index-8acc3c89.js",
           "add-query-args-49dcb630.js"
         ],
-        "originalByteSize": 4843
+        "originalByteSize": 5016
       },
       {
         "key": "sc-table.sc-table-cell.sc-table-row.entry",
