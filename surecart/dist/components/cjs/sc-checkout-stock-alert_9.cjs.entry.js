@@ -10,7 +10,7 @@ require('./watchers-06121df7.js');
 const getters$1 = require('./getters-ae03ef93.js');
 const watchers = require('./watchers-2ad3abd1.js');
 const mutations$1 = require('./mutations-2db027c4.js');
-const getters$2 = require('./getters-66ca11f9.js');
+const getters$2 = require('./getters-1dbd9ae9.js');
 const store = require('./store-4a539aea.js');
 const fetch = require('./fetch-d374a251.js');
 const index$2 = require('./index-fb76df07.js');
@@ -24,9 +24,9 @@ require('./google-59d23803.js');
 require('./currency-71fce0f0.js');
 require('./price-5b1afcfe.js');
 require('./util-b877b2bd.js');
-require('./address-4c70d641.js');
+require('./address-e0c9b577.js');
 
-const scCheckoutStockAlertCss = ":host{display:block}sc-table{height:auto}h4{display:block;margin:0;font-weight:var(--sc-font-weight-bold);font-size:var(--sc-font-size-medium)}.stock-alert{--body-spacing:var(--sc-spacing-x-large);--width:500px}.stock-alert__image{width:50px;height:50px;object-fit:cover;margin-right:10px;display:block}.stock-alert__quantity{color:var(--sc-color-gray-500);font-weight:var(--sc-font-weight-bold);display:flex;align-items:center;justify-content:flex-end;gap:var(--sc-spacing-xx-small)}";
+const scCheckoutStockAlertCss = ":host{display:block}sc-table{height:auto}h4{display:block;margin:0;font-weight:var(--sc-font-weight-bold);font-size:var(--sc-font-size-medium)}.stock-alert{--body-spacing:var(--sc-spacing-x-large);--width:500px}.stock-alert__image{width:50px;height:50px;object-fit:cover;margin-right:10px;display:block}.stock-alert__product-info{display:flex;flex-direction:column;gap:var(--sc-spacing-xx-small)}.stock-alert__variant{color:var(--sc-color-gray-500);font-size:var(--sc-font-size-small)}.stock-alert__quantity{color:var(--sc-color-gray-500);font-weight:var(--sc-font-weight-bold);display:flex;align-items:center;justify-content:flex-end;gap:var(--sc-spacing-xx-small)}";
 const ScCheckoutStockAlertStyle0 = scCheckoutStockAlertCss;
 
 const ScCheckoutStockAlert = class {
@@ -54,39 +54,42 @@ const ScCheckoutStockAlert = class {
         });
     }
     /**
+     * Build line items with adjusted quantities for out-of-stock items.
+     *
+     * Returns all line items, with out-of-stock items adjusted to max available stock.
+     */
+    getStockAdjustedLineItems() {
+        var _a, _b;
+        // Get the IDs of out-of-stock line items and their adjusted quantities.
+        const outOfStockItemsMap = new Map();
+        this.getOutOfStockLineItems().forEach(lineItem => {
+            var _a, _b, _c;
+            const product = (_a = lineItem.price) === null || _a === void 0 ? void 0 : _a.product;
+            const adjustedQuantity = ((_b = lineItem === null || lineItem === void 0 ? void 0 : lineItem.variant) === null || _b === void 0 ? void 0 : _b.id) ? Math.max(((_c = lineItem === null || lineItem === void 0 ? void 0 : lineItem.variant) === null || _c === void 0 ? void 0 : _c.available_stock) || 0, 0) : Math.max((product === null || product === void 0 ? void 0 : product.available_stock) || 0, 0);
+            outOfStockItemsMap.set(lineItem.id, adjustedQuantity);
+        });
+        // Build the complete line items array with all items, adjusting only the out-of-stock ones.
+        return (((_b = (_a = mutations.state.checkout) === null || _a === void 0 ? void 0 : _a.line_items) === null || _b === void 0 ? void 0 : _b.data) || []).map(lineItem => {
+            var _a, _b;
+            const adjustedQuantity = outOfStockItemsMap.get(lineItem.id);
+            return {
+                id: lineItem.id,
+                price_id: (_a = lineItem.price) === null || _a === void 0 ? void 0 : _a.id,
+                quantity: adjustedQuantity !== undefined ? adjustedQuantity : lineItem.quantity,
+                ...(((_b = lineItem === null || lineItem === void 0 ? void 0 : lineItem.variant) === null || _b === void 0 ? void 0 : _b.id) ? { variant: lineItem.variant.id } : {}),
+            };
+        });
+    }
+    /**
      * Update the checkout line items stock to the max available.
      */
     async onSubmit() {
-        const lineItems = this.getOutOfStockLineItems().map(lineItem => {
-            var _a, _b, _c;
-            const product = (_a = lineItem.price) === null || _a === void 0 ? void 0 : _a.product;
-            if ((_b = lineItem === null || lineItem === void 0 ? void 0 : lineItem.variant) === null || _b === void 0 ? void 0 : _b.id) {
-                return {
-                    ...lineItem,
-                    quantity: Math.max(((_c = lineItem === null || lineItem === void 0 ? void 0 : lineItem.variant) === null || _c === void 0 ? void 0 : _c.available_stock) || 0, 0),
-                };
-            }
-            return {
-                ...lineItem,
-                quantity: Math.max((product === null || product === void 0 ? void 0 : product.available_stock) || 0, 0),
-            };
-        });
         try {
             this.busy = true;
             mutations.state.checkout = (await index$1.updateCheckout({
                 id: mutations.state.checkout.id,
                 data: {
-                    line_items: (lineItems || [])
-                        .filter(lineItem => !!lineItem.quantity)
-                        .map(lineItem => {
-                        var _a, _b;
-                        return {
-                            id: lineItem.id,
-                            price_id: (_a = lineItem.price) === null || _a === void 0 ? void 0 : _a.id,
-                            quantity: lineItem.quantity,
-                            ...(((_b = lineItem === null || lineItem === void 0 ? void 0 : lineItem.variant) === null || _b === void 0 ? void 0 : _b.id) ? { variant: lineItem.variant.id } : {}),
-                        };
-                    }),
+                    line_items: this.getStockAdjustedLineItems().filter(lineItem => !!lineItem.quantity),
                 },
             }));
         }
@@ -106,6 +109,7 @@ const ScCheckoutStockAlert = class {
             const available_stock = ((_b = lineItem === null || lineItem === void 0 ? void 0 : lineItem.variant) === null || _b === void 0 ? void 0 : _b.id) ? (_c = lineItem === null || lineItem === void 0 ? void 0 : lineItem.variant) === null || _c === void 0 ? void 0 : _c.available_stock : product === null || product === void 0 ? void 0 : product.available_stock;
             return {
                 name: product === null || product === void 0 ? void 0 : product.name,
+                variant: lineItem === null || lineItem === void 0 ? void 0 : lineItem.variant_display_options,
                 image: lineItem === null || lineItem === void 0 ? void 0 : lineItem.image,
                 quantity: lineItem.quantity,
                 available_stock,
@@ -120,7 +124,7 @@ const ScCheckoutStockAlert = class {
             return (index.h("sc-table-row", { style: {
                     '--columns': '2',
                     ...(isLastChild ? { border: 'none' } : {}),
-                } }, index.h("sc-table-cell", null, index.h("sc-flex", { justifyContent: "flex-start", alignItems: "center" }, (item === null || item === void 0 ? void 0 : item.image) && index.h("img", { ...item.image, class: "stock-alert__image" }), index.h("h4", null, item.name))), index.h("sc-table-cell", { style: { width: '100px', textAlign: 'right' } }, index.h("span", { class: "stock-alert__quantity" }, index.h("span", null, item === null || item === void 0 ? void 0 : item.quantity), " ", index.h("sc-icon", { name: "arrow-right" }), " ", index.h("span", null, Math.max(item === null || item === void 0 ? void 0 : item.available_stock, 0))))));
+                } }, index.h("sc-table-cell", null, index.h("sc-flex", { justifyContent: "flex-start", alignItems: "center" }, (item === null || item === void 0 ? void 0 : item.image) && index.h("img", { ...item.image, class: "stock-alert__image" }), index.h("div", { class: "stock-alert__product-info" }, index.h("h4", null, item.name), (item === null || item === void 0 ? void 0 : item.variant) && index.h("span", { class: "stock-alert__variant" }, item.variant)))), index.h("sc-table-cell", { style: { width: '100px', textAlign: 'right' } }, index.h("span", { class: "stock-alert__quantity" }, index.h("span", null, item === null || item === void 0 ? void 0 : item.quantity), " ", index.h("sc-icon", { name: "arrow-right" }), " ", index.h("span", null, Math.max(item === null || item === void 0 ? void 0 : item.available_stock, 0))))));
         })))), index.h("sc-button", { slot: "footer", type: "primary", loading: this.busy, onClick: () => this.onSubmit() }, wp.i18n.__('Continue', 'surecart'), index.h("sc-icon", { name: "arrow-right", slot: "suffix" })), this.busy && index.h("sc-block-ui", { spinner: true }))));
     }
 };

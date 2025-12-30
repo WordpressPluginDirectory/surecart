@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-11-10T20:40:47",
+  "timestamp": "2025-12-29T14:30:41",
   "compiler": {
     "name": "node",
     "version": "16.20.2"
@@ -9,11 +9,11 @@
     "fsNamespace": "surecart",
     "components": 230,
     "entries": 230,
-    "bundles": 4144,
+    "bundles": 4118,
     "outputs": [
       {
         "name": "dist-collection",
-        "files": 1298,
+        "files": 1292,
         "generatedFiles": [
           "./dist/collection/components/context/consumer/sc-consumer.js",
           "./dist/collection/components/context/consumer/sc-consumer.js.map",
@@ -1125,8 +1125,6 @@
           "./dist/collection/components/util/format-number/test/sc-format-number.spec.js.map",
           "./dist/collection/components/util/visually-hidden/sc-visually-hidden.js",
           "./dist/collection/components/util/visually-hidden/sc-visually-hidden.js.map",
-          "./dist/collection/functions/address-settings.js",
-          "./dist/collection/functions/address-settings.js.map",
           "./dist/collection/functions/address.js",
           "./dist/collection/functions/address.js.map",
           "./dist/collection/functions/animate.js",
@@ -1229,10 +1227,6 @@
           "./dist/collection/store/form/store.js.map",
           "./dist/collection/store/form/watchers.js",
           "./dist/collection/store/form/watchers.js.map",
-          "./dist/collection/store/i18n/index.js",
-          "./dist/collection/store/i18n/index.js.map",
-          "./dist/collection/store/i18n/store.js",
-          "./dist/collection/store/i18n/store.js.map",
           "./dist/collection/store/local/index.js",
           "./dist/collection/store/local/index.js.map",
           "./dist/collection/store/local/storage.js",
@@ -1317,7 +1311,7 @@
       },
       {
         "name": "dist-custom-elements",
-        "files": 1045,
+        "files": 1041,
         "generatedFiles": [
           "./dist/components/add-query-args.js",
           "./dist/components/add-query-args.js.map",
@@ -1329,12 +1323,8 @@
           "./dist/components/checkout-test-complete.js.map",
           "./dist/components/consumer.js",
           "./dist/components/consumer.js.map",
-          "./dist/components/countries.js",
-          "./dist/components/countries.js.map",
           "./dist/components/currency.js",
           "./dist/components/currency.js.map",
-          "./dist/components/data.js",
-          "./dist/components/data.js.map",
           "./dist/components/dropdown.js",
           "./dist/components/dropdown.js.map",
           "./dist/components/error.js",
@@ -2368,26 +2358,22 @@
       },
       {
         "name": "dist-lazy",
-        "files": 1798,
+        "files": 1782,
         "generatedFiles": [
           "./dist/cjs/MockProcessor-48b83649.js",
           "./dist/cjs/MockProcessor-48b83649.js.map",
           "./dist/cjs/add-query-args-49dcb630.js",
           "./dist/cjs/add-query-args-49dcb630.js.map",
-          "./dist/cjs/address-4c70d641.js",
-          "./dist/cjs/address-4c70d641.js.map",
+          "./dist/cjs/address-e0c9b577.js",
+          "./dist/cjs/address-e0c9b577.js.map",
           "./dist/cjs/animation-registry-f7f1a08b.js",
           "./dist/cjs/animation-registry-f7f1a08b.js.map",
           "./dist/cjs/app-globals-9f96f14c.js",
           "./dist/cjs/app-globals-9f96f14c.js.map",
           "./dist/cjs/consumer-9f4ee0e3.js",
           "./dist/cjs/consumer-9f4ee0e3.js.map",
-          "./dist/cjs/countries-367b507a.js",
-          "./dist/cjs/countries-367b507a.js.map",
           "./dist/cjs/currency-71fce0f0.js",
           "./dist/cjs/currency-71fce0f0.js.map",
-          "./dist/cjs/data-2282167f.js",
-          "./dist/cjs/data-2282167f.js.map",
           "./dist/cjs/error-33d3d8b5.js",
           "./dist/cjs/error-33d3d8b5.js.map",
           "./dist/cjs/fetch-d374a251.js",
@@ -2396,10 +2382,10 @@
           "./dist/cjs/form-data-0da9940f.js.map",
           "./dist/cjs/functions-b63256c8.js",
           "./dist/cjs/functions-b63256c8.js.map",
+          "./dist/cjs/getters-1dbd9ae9.js",
+          "./dist/cjs/getters-1dbd9ae9.js.map",
           "./dist/cjs/getters-36e9dc10.js",
           "./dist/cjs/getters-36e9dc10.js.map",
-          "./dist/cjs/getters-66ca11f9.js",
-          "./dist/cjs/getters-66ca11f9.js.map",
           "./dist/cjs/getters-87b7ef91.js",
           "./dist/cjs/getters-87b7ef91.js.map",
           "./dist/cjs/getters-a0ce2d19.js",
@@ -2814,8 +2800,8 @@
           "./dist/cjs/watchers-06121df7.js.map",
           "./dist/cjs/watchers-2ad3abd1.js",
           "./dist/cjs/watchers-2ad3abd1.js.map",
-          "./dist/cjs/watchers-6944a021.js",
-          "./dist/cjs/watchers-6944a021.js.map",
+          "./dist/cjs/watchers-62082d17.js",
+          "./dist/cjs/watchers-62082d17.js.map",
           "./dist/cjs/watchers-db03ec4e.js",
           "./dist/cjs/watchers-db03ec4e.js.map",
           "./dist/cjs/watchers-e8b5d9a0.js",
@@ -2824,20 +2810,16 @@
           "./dist/esm/MockProcessor-498b60c5.js.map",
           "./dist/esm/add-query-args-0e2a8393.js",
           "./dist/esm/add-query-args-0e2a8393.js.map",
-          "./dist/esm/address-b892540d.js",
-          "./dist/esm/address-b892540d.js.map",
+          "./dist/esm/address-fb437e60.js",
+          "./dist/esm/address-fb437e60.js.map",
           "./dist/esm/animation-registry-adf65203.js",
           "./dist/esm/animation-registry-adf65203.js.map",
           "./dist/esm/app-globals-707edcd4.js",
           "./dist/esm/app-globals-707edcd4.js.map",
           "./dist/esm/consumer-e06b16d3.js",
           "./dist/esm/consumer-e06b16d3.js.map",
-          "./dist/esm/countries-c2f41f03.js",
-          "./dist/esm/countries-c2f41f03.js.map",
           "./dist/esm/currency-a0c9bff4.js",
           "./dist/esm/currency-a0c9bff4.js.map",
-          "./dist/esm/data-fed13839.js",
-          "./dist/esm/data-fed13839.js.map",
           "./dist/esm/error-1ba1f127.js",
           "./dist/esm/error-1ba1f127.js.map",
           "./dist/esm/fetch-bc141774.js",
@@ -2850,8 +2832,8 @@
           "./dist/esm/getters-1899e179.js.map",
           "./dist/esm/getters-487612aa.js",
           "./dist/esm/getters-487612aa.js.map",
-          "./dist/esm/getters-970cdda4.js",
-          "./dist/esm/getters-970cdda4.js.map",
+          "./dist/esm/getters-55b5768f.js",
+          "./dist/esm/getters-55b5768f.js.map",
           "./dist/esm/getters-a7eec27c.js",
           "./dist/esm/getters-a7eec27c.js.map",
           "./dist/esm/getters-b5084f91.js",
@@ -3264,10 +3246,10 @@
           "./dist/esm/watchers-38693c1f.js.map",
           "./dist/esm/watchers-c215fc6b.js",
           "./dist/esm/watchers-c215fc6b.js.map",
+          "./dist/esm/watchers-cdceb785.js",
+          "./dist/esm/watchers-cdceb785.js.map",
           "./dist/esm/watchers-cee9e5e9.js",
           "./dist/esm/watchers-cee9e5e9.js.map",
-          "./dist/esm/watchers-e1870de4.js",
-          "./dist/esm/watchers-e1870de4.js.map",
           "./dist/esm/watchers-fbf07f32.js",
           "./dist/esm/watchers-fbf07f32.js.map",
           "./dist/index.cjs.js",
@@ -3290,8 +3272,6 @@
           "./dist/surecart/p-05966dcd.entry.js.map",
           "./dist/surecart/p-061b8617.entry.js",
           "./dist/surecart/p-061b8617.entry.js.map",
-          "./dist/surecart/p-07b1b1ed.js",
-          "./dist/surecart/p-07b1b1ed.js.map",
           "./dist/surecart/p-08d7471a.entry.js",
           "./dist/surecart/p-08d7471a.entry.js.map",
           "./dist/surecart/p-0a79e8d4.entry.js",
@@ -3302,8 +3282,6 @@
           "./dist/surecart/p-0b0c03f7.js.map",
           "./dist/surecart/p-0be09836.entry.js",
           "./dist/surecart/p-0be09836.entry.js.map",
-          "./dist/surecart/p-0c9b470c.entry.js",
-          "./dist/surecart/p-0c9b470c.entry.js.map",
           "./dist/surecart/p-0cc11c0a.entry.js",
           "./dist/surecart/p-0cc11c0a.entry.js.map",
           "./dist/surecart/p-0dbb809f.entry.js",
@@ -3312,14 +3290,14 @@
           "./dist/surecart/p-0e2904d0.entry.js.map",
           "./dist/surecart/p-0e2dfacc.entry.js",
           "./dist/surecart/p-0e2dfacc.entry.js.map",
+          "./dist/surecart/p-0ea40a5d.entry.js",
+          "./dist/surecart/p-0ea40a5d.entry.js.map",
           "./dist/surecart/p-0eb3317d.entry.js",
           "./dist/surecart/p-0eb3317d.entry.js.map",
           "./dist/surecart/p-10aac149.entry.js",
           "./dist/surecart/p-10aac149.entry.js.map",
           "./dist/surecart/p-13f5e4e1.js",
           "./dist/surecart/p-13f5e4e1.js.map",
-          "./dist/surecart/p-167d0146.entry.js",
-          "./dist/surecart/p-167d0146.entry.js.map",
           "./dist/surecart/p-1808c6cc.entry.js",
           "./dist/surecart/p-1808c6cc.entry.js.map",
           "./dist/surecart/p-1b16d197.entry.js",
@@ -3360,8 +3338,6 @@
           "./dist/surecart/p-34c2dec1.entry.js.map",
           "./dist/surecart/p-34d36635.entry.js",
           "./dist/surecart/p-34d36635.entry.js.map",
-          "./dist/surecart/p-3522f29b.entry.js",
-          "./dist/surecart/p-3522f29b.entry.js.map",
           "./dist/surecart/p-368f2233.entry.js",
           "./dist/surecart/p-368f2233.entry.js.map",
           "./dist/surecart/p-36e59877.entry.js",
@@ -3374,6 +3350,8 @@
           "./dist/surecart/p-3941e446.entry.js.map",
           "./dist/surecart/p-3aa9debd.js",
           "./dist/surecart/p-3aa9debd.js.map",
+          "./dist/surecart/p-3ac431c4.entry.js",
+          "./dist/surecart/p-3ac431c4.entry.js.map",
           "./dist/surecart/p-3b33963f.entry.js",
           "./dist/surecart/p-3b33963f.entry.js.map",
           "./dist/surecart/p-3d0e139c.entry.js",
@@ -3384,8 +3362,8 @@
           "./dist/surecart/p-3f6362a4.js.map",
           "./dist/surecart/p-401e165e.js",
           "./dist/surecart/p-401e165e.js.map",
-          "./dist/surecart/p-405b74e6.entry.js",
-          "./dist/surecart/p-405b74e6.entry.js.map",
+          "./dist/surecart/p-41d38143.entry.js",
+          "./dist/surecart/p-41d38143.entry.js.map",
           "./dist/surecart/p-437c5fb1.entry.js",
           "./dist/surecart/p-437c5fb1.entry.js.map",
           "./dist/surecart/p-449324ed.js",
@@ -3406,26 +3384,24 @@
           "./dist/surecart/p-4ea36f1e.js.map",
           "./dist/surecart/p-50c204d1.entry.js",
           "./dist/surecart/p-50c204d1.entry.js.map",
-          "./dist/surecart/p-50f9d3b5.js",
-          "./dist/surecart/p-50f9d3b5.js.map",
           "./dist/surecart/p-514e66d5.entry.js",
           "./dist/surecart/p-514e66d5.entry.js.map",
           "./dist/surecart/p-5198c7ad.entry.js",
           "./dist/surecart/p-5198c7ad.entry.js.map",
-          "./dist/surecart/p-51c2b30e.entry.js",
-          "./dist/surecart/p-51c2b30e.entry.js.map",
           "./dist/surecart/p-51fc6fc4.entry.js",
           "./dist/surecart/p-51fc6fc4.entry.js.map",
-          "./dist/surecart/p-539de363.entry.js",
-          "./dist/surecart/p-539de363.entry.js.map",
           "./dist/surecart/p-53e7f7d7.js",
           "./dist/surecart/p-53e7f7d7.js.map",
+          "./dist/surecart/p-544b8b24.entry.js",
+          "./dist/surecart/p-544b8b24.entry.js.map",
           "./dist/surecart/p-55139f60.entry.js",
           "./dist/surecart/p-55139f60.entry.js.map",
           "./dist/surecart/p-55344643.entry.js",
           "./dist/surecart/p-55344643.entry.js.map",
           "./dist/surecart/p-566c9487.js",
           "./dist/surecart/p-566c9487.js.map",
+          "./dist/surecart/p-571a3ff3.entry.js",
+          "./dist/surecart/p-571a3ff3.entry.js.map",
           "./dist/surecart/p-5841476c.entry.js",
           "./dist/surecart/p-5841476c.entry.js.map",
           "./dist/surecart/p-5848e750.entry.js",
@@ -3438,8 +3414,6 @@
           "./dist/surecart/p-590bc5bd.entry.js.map",
           "./dist/surecart/p-59ca08f9.entry.js",
           "./dist/surecart/p-59ca08f9.entry.js.map",
-          "./dist/surecart/p-59d4e3d6.entry.js",
-          "./dist/surecart/p-59d4e3d6.entry.js.map",
           "./dist/surecart/p-5a109f78.entry.js",
           "./dist/surecart/p-5a109f78.entry.js.map",
           "./dist/surecart/p-5a8e136a.js",
@@ -3458,14 +3432,12 @@
           "./dist/surecart/p-5e4f1fcb.entry.js.map",
           "./dist/surecart/p-5f552a73.entry.js",
           "./dist/surecart/p-5f552a73.entry.js.map",
-          "./dist/surecart/p-6221c1d3.entry.js",
-          "./dist/surecart/p-6221c1d3.entry.js.map",
+          "./dist/surecart/p-5ff7f413.entry.js",
+          "./dist/surecart/p-5ff7f413.entry.js.map",
           "./dist/surecart/p-628321b5.entry.js",
           "./dist/surecart/p-628321b5.entry.js.map",
           "./dist/surecart/p-62b942b3.entry.js",
           "./dist/surecart/p-62b942b3.entry.js.map",
-          "./dist/surecart/p-63498122.entry.js",
-          "./dist/surecart/p-63498122.entry.js.map",
           "./dist/surecart/p-65bb746a.entry.js",
           "./dist/surecart/p-65bb746a.entry.js.map",
           "./dist/surecart/p-664a070c.entry.js",
@@ -3478,8 +3450,6 @@
           "./dist/surecart/p-6abf689f.entry.js.map",
           "./dist/surecart/p-6bd0dd5e.entry.js",
           "./dist/surecart/p-6bd0dd5e.entry.js.map",
-          "./dist/surecart/p-6bedc840.entry.js",
-          "./dist/surecart/p-6bedc840.entry.js.map",
           "./dist/surecart/p-6cbad57b.entry.js",
           "./dist/surecart/p-6cbad57b.entry.js.map",
           "./dist/surecart/p-6d7d20d2.entry.js",
@@ -3494,6 +3464,8 @@
           "./dist/surecart/p-75555783.entry.js.map",
           "./dist/surecart/p-77407f32.entry.js",
           "./dist/surecart/p-77407f32.entry.js.map",
+          "./dist/surecart/p-7886b8e8.entry.js",
+          "./dist/surecart/p-7886b8e8.entry.js.map",
           "./dist/surecart/p-7a04ee39.entry.js",
           "./dist/surecart/p-7a04ee39.entry.js.map",
           "./dist/surecart/p-7a66912e.entry.js",
@@ -3520,20 +3492,18 @@
           "./dist/surecart/p-8b323bfb.js.map",
           "./dist/surecart/p-8c730686.entry.js",
           "./dist/surecart/p-8c730686.entry.js.map",
+          "./dist/surecart/p-8d3fc8b1.entry.js",
+          "./dist/surecart/p-8d3fc8b1.entry.js.map",
           "./dist/surecart/p-8fd91150.entry.js",
           "./dist/surecart/p-8fd91150.entry.js.map",
           "./dist/surecart/p-9092abe2.entry.js",
           "./dist/surecart/p-9092abe2.entry.js.map",
           "./dist/surecart/p-9110e374.entry.js",
           "./dist/surecart/p-9110e374.entry.js.map",
-          "./dist/surecart/p-92774318.js",
-          "./dist/surecart/p-92774318.js.map",
           "./dist/surecart/p-92ef0943.entry.js",
           "./dist/surecart/p-92ef0943.entry.js.map",
           "./dist/surecart/p-93127aa7.js",
           "./dist/surecart/p-93127aa7.js.map",
-          "./dist/surecart/p-9430bd37.entry.js",
-          "./dist/surecart/p-9430bd37.entry.js.map",
           "./dist/surecart/p-94f536d6.js",
           "./dist/surecart/p-94f536d6.js.map",
           "./dist/surecart/p-95325ec5.js",
@@ -3544,14 +3514,16 @@
           "./dist/surecart/p-95ed2184.entry.js.map",
           "./dist/surecart/p-961fbbca.entry.js",
           "./dist/surecart/p-961fbbca.entry.js.map",
+          "./dist/surecart/p-97355490.js",
+          "./dist/surecart/p-97355490.js.map",
           "./dist/surecart/p-97b09709.entry.js",
           "./dist/surecart/p-97b09709.entry.js.map",
+          "./dist/surecart/p-97d5649d.entry.js",
+          "./dist/surecart/p-97d5649d.entry.js.map",
           "./dist/surecart/p-991ed613.entry.js",
           "./dist/surecart/p-991ed613.entry.js.map",
           "./dist/surecart/p-9b9e6bb0.entry.js",
           "./dist/surecart/p-9b9e6bb0.entry.js.map",
-          "./dist/surecart/p-9cca7200.entry.js",
-          "./dist/surecart/p-9cca7200.entry.js.map",
           "./dist/surecart/p-9cdae3e3.entry.js",
           "./dist/surecart/p-9cdae3e3.entry.js.map",
           "./dist/surecart/p-9d1e99a8.entry.js",
@@ -3560,14 +3532,10 @@
           "./dist/surecart/p-9d6b2b61.entry.js.map",
           "./dist/surecart/p-9dbc54d6.js",
           "./dist/surecart/p-9dbc54d6.js.map",
-          "./dist/surecart/p-9e262748.js",
-          "./dist/surecart/p-9e262748.js.map",
-          "./dist/surecart/p-9e98586e.js",
-          "./dist/surecart/p-9e98586e.js.map",
           "./dist/surecart/p-9ef0f73f.js",
           "./dist/surecart/p-9ef0f73f.js.map",
-          "./dist/surecart/p-9f0f1f97.entry.js",
-          "./dist/surecart/p-9f0f1f97.entry.js.map",
+          "./dist/surecart/p-a04b6816.js",
+          "./dist/surecart/p-a04b6816.js.map",
           "./dist/surecart/p-a26b179e.entry.js",
           "./dist/surecart/p-a26b179e.entry.js.map",
           "./dist/surecart/p-a4015278.entry.js",
@@ -3596,8 +3564,12 @@
           "./dist/surecart/p-b12b08e4.entry.js.map",
           "./dist/surecart/p-b3a91f8a.entry.js",
           "./dist/surecart/p-b3a91f8a.entry.js.map",
+          "./dist/surecart/p-b3de5711.entry.js",
+          "./dist/surecart/p-b3de5711.entry.js.map",
           "./dist/surecart/p-b719a497.js",
           "./dist/surecart/p-b719a497.js.map",
+          "./dist/surecart/p-b80843e4.entry.js",
+          "./dist/surecart/p-b80843e4.entry.js.map",
           "./dist/surecart/p-babb004b.entry.js",
           "./dist/surecart/p-babb004b.entry.js.map",
           "./dist/surecart/p-bad5a365.entry.js",
@@ -3622,6 +3594,10 @@
           "./dist/surecart/p-c34593e1.entry.js.map",
           "./dist/surecart/p-c3bb021f.entry.js",
           "./dist/surecart/p-c3bb021f.entry.js.map",
+          "./dist/surecart/p-c3f9d31f.entry.js",
+          "./dist/surecart/p-c3f9d31f.entry.js.map",
+          "./dist/surecart/p-c52acb8a.entry.js",
+          "./dist/surecart/p-c52acb8a.entry.js.map",
           "./dist/surecart/p-c78cd354.entry.js",
           "./dist/surecart/p-c78cd354.entry.js.map",
           "./dist/surecart/p-c96f897c.entry.js",
@@ -3642,6 +3618,8 @@
           "./dist/surecart/p-d01ecdf0.entry.js.map",
           "./dist/surecart/p-d12dccfd.entry.js",
           "./dist/surecart/p-d12dccfd.entry.js.map",
+          "./dist/surecart/p-d2bfe7f4.entry.js",
+          "./dist/surecart/p-d2bfe7f4.entry.js.map",
           "./dist/surecart/p-d3366af3.js",
           "./dist/surecart/p-d3366af3.js.map",
           "./dist/surecart/p-d7c7b076.js",
@@ -3654,6 +3632,8 @@
           "./dist/surecart/p-dd3464cd.js.map",
           "./dist/surecart/p-de37769a.entry.js",
           "./dist/surecart/p-de37769a.entry.js.map",
+          "./dist/surecart/p-de3c4dc6.entry.js",
+          "./dist/surecart/p-de3c4dc6.entry.js.map",
           "./dist/surecart/p-de670037.entry.js",
           "./dist/surecart/p-de670037.entry.js.map",
           "./dist/surecart/p-df0fc918.entry.js",
@@ -3670,20 +3650,20 @@
           "./dist/surecart/p-e2392195.entry.js.map",
           "./dist/surecart/p-e29cda5b.entry.js",
           "./dist/surecart/p-e29cda5b.entry.js.map",
+          "./dist/surecart/p-e3f4d732.js",
+          "./dist/surecart/p-e3f4d732.js.map",
           "./dist/surecart/p-e677365e.js",
           "./dist/surecart/p-e677365e.js.map",
           "./dist/surecart/p-e6957254.entry.js",
           "./dist/surecart/p-e6957254.entry.js.map",
           "./dist/surecart/p-e6b701ab.entry.js",
           "./dist/surecart/p-e6b701ab.entry.js.map",
-          "./dist/surecart/p-e769f5d2.entry.js",
-          "./dist/surecart/p-e769f5d2.entry.js.map",
-          "./dist/surecart/p-e77c7b2c.entry.js",
-          "./dist/surecart/p-e77c7b2c.entry.js.map",
           "./dist/surecart/p-e814ca2e.entry.js",
           "./dist/surecart/p-e814ca2e.entry.js.map",
           "./dist/surecart/p-e885ba5f.js",
           "./dist/surecart/p-e885ba5f.js.map",
+          "./dist/surecart/p-e8affa66.entry.js",
+          "./dist/surecart/p-e8affa66.entry.js.map",
           "./dist/surecart/p-e8ce1ec8.entry.js",
           "./dist/surecart/p-e8ce1ec8.entry.js.map",
           "./dist/surecart/p-e97fde0a.js",
@@ -3692,8 +3672,6 @@
           "./dist/surecart/p-ec182234.js.map",
           "./dist/surecart/p-ece8d7e0.entry.js",
           "./dist/surecart/p-ece8d7e0.entry.js.map",
-          "./dist/surecart/p-f1bbfabc.entry.js",
-          "./dist/surecart/p-f1bbfabc.entry.js.map",
           "./dist/surecart/p-f319abac.entry.js",
           "./dist/surecart/p-f319abac.entry.js.map",
           "./dist/surecart/p-f350e512.entry.js",
@@ -3738,8 +3716,6 @@
           "./www/build/p-05966dcd.entry.js.map",
           "./www/build/p-061b8617.entry.js",
           "./www/build/p-061b8617.entry.js.map",
-          "./www/build/p-07b1b1ed.js",
-          "./www/build/p-07b1b1ed.js.map",
           "./www/build/p-08d7471a.entry.js",
           "./www/build/p-08d7471a.entry.js.map",
           "./www/build/p-0a79e8d4.entry.js",
@@ -3750,8 +3726,6 @@
           "./www/build/p-0b0c03f7.js.map",
           "./www/build/p-0be09836.entry.js",
           "./www/build/p-0be09836.entry.js.map",
-          "./www/build/p-0c9b470c.entry.js",
-          "./www/build/p-0c9b470c.entry.js.map",
           "./www/build/p-0cc11c0a.entry.js",
           "./www/build/p-0cc11c0a.entry.js.map",
           "./www/build/p-0dbb809f.entry.js",
@@ -3760,14 +3734,14 @@
           "./www/build/p-0e2904d0.entry.js.map",
           "./www/build/p-0e2dfacc.entry.js",
           "./www/build/p-0e2dfacc.entry.js.map",
+          "./www/build/p-0ea40a5d.entry.js",
+          "./www/build/p-0ea40a5d.entry.js.map",
           "./www/build/p-0eb3317d.entry.js",
           "./www/build/p-0eb3317d.entry.js.map",
           "./www/build/p-10aac149.entry.js",
           "./www/build/p-10aac149.entry.js.map",
           "./www/build/p-13f5e4e1.js",
           "./www/build/p-13f5e4e1.js.map",
-          "./www/build/p-167d0146.entry.js",
-          "./www/build/p-167d0146.entry.js.map",
           "./www/build/p-1808c6cc.entry.js",
           "./www/build/p-1808c6cc.entry.js.map",
           "./www/build/p-1b16d197.entry.js",
@@ -3808,8 +3782,6 @@
           "./www/build/p-34c2dec1.entry.js.map",
           "./www/build/p-34d36635.entry.js",
           "./www/build/p-34d36635.entry.js.map",
-          "./www/build/p-3522f29b.entry.js",
-          "./www/build/p-3522f29b.entry.js.map",
           "./www/build/p-368f2233.entry.js",
           "./www/build/p-368f2233.entry.js.map",
           "./www/build/p-36e59877.entry.js",
@@ -3822,6 +3794,8 @@
           "./www/build/p-3941e446.entry.js.map",
           "./www/build/p-3aa9debd.js",
           "./www/build/p-3aa9debd.js.map",
+          "./www/build/p-3ac431c4.entry.js",
+          "./www/build/p-3ac431c4.entry.js.map",
           "./www/build/p-3b33963f.entry.js",
           "./www/build/p-3b33963f.entry.js.map",
           "./www/build/p-3d0e139c.entry.js",
@@ -3832,8 +3806,8 @@
           "./www/build/p-3f6362a4.js.map",
           "./www/build/p-401e165e.js",
           "./www/build/p-401e165e.js.map",
-          "./www/build/p-405b74e6.entry.js",
-          "./www/build/p-405b74e6.entry.js.map",
+          "./www/build/p-41d38143.entry.js",
+          "./www/build/p-41d38143.entry.js.map",
           "./www/build/p-437c5fb1.entry.js",
           "./www/build/p-437c5fb1.entry.js.map",
           "./www/build/p-449324ed.js",
@@ -3854,26 +3828,24 @@
           "./www/build/p-4ea36f1e.js.map",
           "./www/build/p-50c204d1.entry.js",
           "./www/build/p-50c204d1.entry.js.map",
-          "./www/build/p-50f9d3b5.js",
-          "./www/build/p-50f9d3b5.js.map",
           "./www/build/p-514e66d5.entry.js",
           "./www/build/p-514e66d5.entry.js.map",
           "./www/build/p-5198c7ad.entry.js",
           "./www/build/p-5198c7ad.entry.js.map",
-          "./www/build/p-51c2b30e.entry.js",
-          "./www/build/p-51c2b30e.entry.js.map",
           "./www/build/p-51fc6fc4.entry.js",
           "./www/build/p-51fc6fc4.entry.js.map",
-          "./www/build/p-539de363.entry.js",
-          "./www/build/p-539de363.entry.js.map",
           "./www/build/p-53e7f7d7.js",
           "./www/build/p-53e7f7d7.js.map",
+          "./www/build/p-544b8b24.entry.js",
+          "./www/build/p-544b8b24.entry.js.map",
           "./www/build/p-55139f60.entry.js",
           "./www/build/p-55139f60.entry.js.map",
           "./www/build/p-55344643.entry.js",
           "./www/build/p-55344643.entry.js.map",
           "./www/build/p-566c9487.js",
           "./www/build/p-566c9487.js.map",
+          "./www/build/p-571a3ff3.entry.js",
+          "./www/build/p-571a3ff3.entry.js.map",
           "./www/build/p-5841476c.entry.js",
           "./www/build/p-5841476c.entry.js.map",
           "./www/build/p-5848e750.entry.js",
@@ -3886,8 +3858,6 @@
           "./www/build/p-590bc5bd.entry.js.map",
           "./www/build/p-59ca08f9.entry.js",
           "./www/build/p-59ca08f9.entry.js.map",
-          "./www/build/p-59d4e3d6.entry.js",
-          "./www/build/p-59d4e3d6.entry.js.map",
           "./www/build/p-5a109f78.entry.js",
           "./www/build/p-5a109f78.entry.js.map",
           "./www/build/p-5a8e136a.js",
@@ -3906,14 +3876,12 @@
           "./www/build/p-5e4f1fcb.entry.js.map",
           "./www/build/p-5f552a73.entry.js",
           "./www/build/p-5f552a73.entry.js.map",
-          "./www/build/p-6221c1d3.entry.js",
-          "./www/build/p-6221c1d3.entry.js.map",
+          "./www/build/p-5ff7f413.entry.js",
+          "./www/build/p-5ff7f413.entry.js.map",
           "./www/build/p-628321b5.entry.js",
           "./www/build/p-628321b5.entry.js.map",
           "./www/build/p-62b942b3.entry.js",
           "./www/build/p-62b942b3.entry.js.map",
-          "./www/build/p-63498122.entry.js",
-          "./www/build/p-63498122.entry.js.map",
           "./www/build/p-65bb746a.entry.js",
           "./www/build/p-65bb746a.entry.js.map",
           "./www/build/p-664a070c.entry.js",
@@ -3926,8 +3894,6 @@
           "./www/build/p-6abf689f.entry.js.map",
           "./www/build/p-6bd0dd5e.entry.js",
           "./www/build/p-6bd0dd5e.entry.js.map",
-          "./www/build/p-6bedc840.entry.js",
-          "./www/build/p-6bedc840.entry.js.map",
           "./www/build/p-6cbad57b.entry.js",
           "./www/build/p-6cbad57b.entry.js.map",
           "./www/build/p-6d7d20d2.entry.js",
@@ -3942,6 +3908,8 @@
           "./www/build/p-75555783.entry.js.map",
           "./www/build/p-77407f32.entry.js",
           "./www/build/p-77407f32.entry.js.map",
+          "./www/build/p-7886b8e8.entry.js",
+          "./www/build/p-7886b8e8.entry.js.map",
           "./www/build/p-7a04ee39.entry.js",
           "./www/build/p-7a04ee39.entry.js.map",
           "./www/build/p-7a66912e.entry.js",
@@ -3968,20 +3936,18 @@
           "./www/build/p-8b323bfb.js.map",
           "./www/build/p-8c730686.entry.js",
           "./www/build/p-8c730686.entry.js.map",
+          "./www/build/p-8d3fc8b1.entry.js",
+          "./www/build/p-8d3fc8b1.entry.js.map",
           "./www/build/p-8fd91150.entry.js",
           "./www/build/p-8fd91150.entry.js.map",
           "./www/build/p-9092abe2.entry.js",
           "./www/build/p-9092abe2.entry.js.map",
           "./www/build/p-9110e374.entry.js",
           "./www/build/p-9110e374.entry.js.map",
-          "./www/build/p-92774318.js",
-          "./www/build/p-92774318.js.map",
           "./www/build/p-92ef0943.entry.js",
           "./www/build/p-92ef0943.entry.js.map",
           "./www/build/p-93127aa7.js",
           "./www/build/p-93127aa7.js.map",
-          "./www/build/p-9430bd37.entry.js",
-          "./www/build/p-9430bd37.entry.js.map",
           "./www/build/p-94f536d6.js",
           "./www/build/p-94f536d6.js.map",
           "./www/build/p-95325ec5.js",
@@ -3992,14 +3958,16 @@
           "./www/build/p-95ed2184.entry.js.map",
           "./www/build/p-961fbbca.entry.js",
           "./www/build/p-961fbbca.entry.js.map",
+          "./www/build/p-97355490.js",
+          "./www/build/p-97355490.js.map",
           "./www/build/p-97b09709.entry.js",
           "./www/build/p-97b09709.entry.js.map",
+          "./www/build/p-97d5649d.entry.js",
+          "./www/build/p-97d5649d.entry.js.map",
           "./www/build/p-991ed613.entry.js",
           "./www/build/p-991ed613.entry.js.map",
           "./www/build/p-9b9e6bb0.entry.js",
           "./www/build/p-9b9e6bb0.entry.js.map",
-          "./www/build/p-9cca7200.entry.js",
-          "./www/build/p-9cca7200.entry.js.map",
           "./www/build/p-9cdae3e3.entry.js",
           "./www/build/p-9cdae3e3.entry.js.map",
           "./www/build/p-9d1e99a8.entry.js",
@@ -4008,14 +3976,10 @@
           "./www/build/p-9d6b2b61.entry.js.map",
           "./www/build/p-9dbc54d6.js",
           "./www/build/p-9dbc54d6.js.map",
-          "./www/build/p-9e262748.js",
-          "./www/build/p-9e262748.js.map",
-          "./www/build/p-9e98586e.js",
-          "./www/build/p-9e98586e.js.map",
           "./www/build/p-9ef0f73f.js",
           "./www/build/p-9ef0f73f.js.map",
-          "./www/build/p-9f0f1f97.entry.js",
-          "./www/build/p-9f0f1f97.entry.js.map",
+          "./www/build/p-a04b6816.js",
+          "./www/build/p-a04b6816.js.map",
           "./www/build/p-a26b179e.entry.js",
           "./www/build/p-a26b179e.entry.js.map",
           "./www/build/p-a4015278.entry.js",
@@ -4044,8 +4008,12 @@
           "./www/build/p-b12b08e4.entry.js.map",
           "./www/build/p-b3a91f8a.entry.js",
           "./www/build/p-b3a91f8a.entry.js.map",
+          "./www/build/p-b3de5711.entry.js",
+          "./www/build/p-b3de5711.entry.js.map",
           "./www/build/p-b719a497.js",
           "./www/build/p-b719a497.js.map",
+          "./www/build/p-b80843e4.entry.js",
+          "./www/build/p-b80843e4.entry.js.map",
           "./www/build/p-babb004b.entry.js",
           "./www/build/p-babb004b.entry.js.map",
           "./www/build/p-bad5a365.entry.js",
@@ -4070,6 +4038,10 @@
           "./www/build/p-c34593e1.entry.js.map",
           "./www/build/p-c3bb021f.entry.js",
           "./www/build/p-c3bb021f.entry.js.map",
+          "./www/build/p-c3f9d31f.entry.js",
+          "./www/build/p-c3f9d31f.entry.js.map",
+          "./www/build/p-c52acb8a.entry.js",
+          "./www/build/p-c52acb8a.entry.js.map",
           "./www/build/p-c78cd354.entry.js",
           "./www/build/p-c78cd354.entry.js.map",
           "./www/build/p-c96f897c.entry.js",
@@ -4090,6 +4062,8 @@
           "./www/build/p-d01ecdf0.entry.js.map",
           "./www/build/p-d12dccfd.entry.js",
           "./www/build/p-d12dccfd.entry.js.map",
+          "./www/build/p-d2bfe7f4.entry.js",
+          "./www/build/p-d2bfe7f4.entry.js.map",
           "./www/build/p-d3366af3.js",
           "./www/build/p-d3366af3.js.map",
           "./www/build/p-d7c7b076.js",
@@ -4102,6 +4076,8 @@
           "./www/build/p-dd3464cd.js.map",
           "./www/build/p-de37769a.entry.js",
           "./www/build/p-de37769a.entry.js.map",
+          "./www/build/p-de3c4dc6.entry.js",
+          "./www/build/p-de3c4dc6.entry.js.map",
           "./www/build/p-de670037.entry.js",
           "./www/build/p-de670037.entry.js.map",
           "./www/build/p-df0fc918.entry.js",
@@ -4118,20 +4094,20 @@
           "./www/build/p-e2392195.entry.js.map",
           "./www/build/p-e29cda5b.entry.js",
           "./www/build/p-e29cda5b.entry.js.map",
+          "./www/build/p-e3f4d732.js",
+          "./www/build/p-e3f4d732.js.map",
           "./www/build/p-e677365e.js",
           "./www/build/p-e677365e.js.map",
           "./www/build/p-e6957254.entry.js",
           "./www/build/p-e6957254.entry.js.map",
           "./www/build/p-e6b701ab.entry.js",
           "./www/build/p-e6b701ab.entry.js.map",
-          "./www/build/p-e769f5d2.entry.js",
-          "./www/build/p-e769f5d2.entry.js.map",
-          "./www/build/p-e77c7b2c.entry.js",
-          "./www/build/p-e77c7b2c.entry.js.map",
           "./www/build/p-e814ca2e.entry.js",
           "./www/build/p-e814ca2e.entry.js.map",
           "./www/build/p-e885ba5f.js",
           "./www/build/p-e885ba5f.js.map",
+          "./www/build/p-e8affa66.entry.js",
+          "./www/build/p-e8affa66.entry.js.map",
           "./www/build/p-e8ce1ec8.entry.js",
           "./www/build/p-e8ce1ec8.entry.js.map",
           "./www/build/p-e97fde0a.js",
@@ -4140,8 +4116,6 @@
           "./www/build/p-ec182234.js.map",
           "./www/build/p-ece8d7e0.entry.js",
           "./www/build/p-ece8d7e0.entry.js.map",
-          "./www/build/p-f1bbfabc.entry.js",
-          "./www/build/p-f1bbfabc.entry.js.map",
           "./www/build/p-f319abac.entry.js",
           "./www/build/p-f319abac.entry.js.map",
           "./www/build/p-f350e512.entry.js",
@@ -4493,20 +4467,20 @@
         "components": [
           "sc-checkout-product-price-variant-selector"
         ],
-        "bundleId": "p-539de363",
-        "fileName": "p-539de363.entry.js",
+        "bundleId": "p-8d3fc8b1",
+        "fileName": "p-8d3fc8b1.entry.js",
         "imports": [
           "p-e97fde0a.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-53e7f7d7.js",
           "p-93127aa7.js",
           "p-be3a018c.js",
           "p-1f60f497.js",
           "p-9dbc54d6.js",
-          "p-07b1b1ed.js",
+          "p-e3f4d732.js",
+          "p-401e165e.js",
           "p-03631502.js",
           "p-d3366af3.js",
-          "p-401e165e.js",
           "p-830ab1a3.js",
           "p-ec182234.js",
           "p-3f6362a4.js",
@@ -4521,12 +4495,12 @@
         "components": [
           "sc-conditional-form"
         ],
-        "bundleId": "p-63498122",
-        "fileName": "p-63498122.entry.js",
+        "bundleId": "p-b3de5711",
+        "fileName": "p-b3de5711.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-fab02ef6.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-03631502.js",
           "p-53e7f7d7.js",
           "p-9dbc54d6.js",
@@ -4537,7 +4511,7 @@
           "p-3f6362a4.js",
           "p-95325ec5.js",
           "p-4df6e0c5.js",
-          "p-07b1b1ed.js"
+          "p-e3f4d732.js"
         ],
         "originalByteSize": 5898
       },
@@ -4574,15 +4548,15 @@
         "components": [
           "sc-customer-edit"
         ],
-        "bundleId": "p-6221c1d3",
-        "fileName": "p-6221c1d3.entry.js",
+        "bundleId": "p-41d38143",
+        "fileName": "p-41d38143.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-dd3464cd.js",
           "p-401e165e.js",
           "p-d3366af3.js"
         ],
-        "originalByteSize": 8290
+        "originalByteSize": 8160
       },
       {
         "key": "sc-customer-email.entry",
@@ -5164,22 +5138,22 @@
         "components": [
           "sc-order-submit"
         ],
-        "bundleId": "p-9430bd37",
-        "fileName": "p-9430bd37.entry.js",
+        "bundleId": "p-3ac431c4",
+        "fileName": "p-3ac431c4.entry.js",
         "imports": [
           "p-e97fde0a.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-566c9487.js",
           "p-fab02ef6.js",
           "p-53e7f7d7.js",
           "p-393cb717.js",
           "p-ff10bfbf.js",
-          "p-07b1b1ed.js",
+          "p-e3f4d732.js",
+          "p-401e165e.js",
           "p-93127aa7.js",
           "p-03631502.js",
           "p-9dbc54d6.js",
           "p-d3366af3.js",
-          "p-401e165e.js",
           "p-830ab1a3.js",
           "p-ec182234.js",
           "p-3f6362a4.js",
@@ -5419,15 +5393,15 @@
         "components": [
           "sc-product-donation-amount-choice"
         ],
-        "bundleId": "p-0c9b470c",
-        "fileName": "p-0c9b470c.entry.js",
+        "bundleId": "p-7886b8e8",
+        "fileName": "p-7886b8e8.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-93127aa7.js",
-          "p-50f9d3b5.js",
+          "p-a04b6816.js",
           "p-03631502.js",
           "p-9dbc54d6.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-53e7f7d7.js",
           "p-d3366af3.js",
           "p-401e165e.js",
@@ -5436,7 +5410,7 @@
           "p-3f6362a4.js",
           "p-95325ec5.js",
           "p-4df6e0c5.js",
-          "p-07b1b1ed.js",
+          "p-e3f4d732.js",
           "p-d7c7b076.js",
           "p-1f60f497.js",
           "p-be3a018c.js",
@@ -5449,14 +5423,14 @@
         "components": [
           "sc-product-donation-choices"
         ],
-        "bundleId": "p-51c2b30e",
-        "fileName": "p-51c2b30e.entry.js",
+        "bundleId": "p-0ea40a5d",
+        "fileName": "p-0ea40a5d.entry.js",
         "imports": [
           "p-e97fde0a.js",
-          "p-50f9d3b5.js",
+          "p-a04b6816.js",
           "p-03631502.js",
           "p-9dbc54d6.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-53e7f7d7.js",
           "p-d3366af3.js",
           "p-401e165e.js",
@@ -5465,7 +5439,7 @@
           "p-3f6362a4.js",
           "p-95325ec5.js",
           "p-4df6e0c5.js",
-          "p-07b1b1ed.js",
+          "p-e3f4d732.js",
           "p-93127aa7.js",
           "p-d7c7b076.js",
           "p-1f60f497.js",
@@ -5479,14 +5453,14 @@
         "components": [
           "sc-product-donation-custom-amount"
         ],
-        "bundleId": "p-9f0f1f97",
-        "fileName": "p-9f0f1f97.entry.js",
+        "bundleId": "p-5ff7f413",
+        "fileName": "p-5ff7f413.entry.js",
         "imports": [
           "p-e97fde0a.js",
-          "p-50f9d3b5.js",
+          "p-a04b6816.js",
           "p-03631502.js",
           "p-9dbc54d6.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-53e7f7d7.js",
           "p-d3366af3.js",
           "p-401e165e.js",
@@ -5495,7 +5469,7 @@
           "p-3f6362a4.js",
           "p-95325ec5.js",
           "p-4df6e0c5.js",
-          "p-07b1b1ed.js",
+          "p-e3f4d732.js",
           "p-93127aa7.js",
           "p-d7c7b076.js",
           "p-1f60f497.js",
@@ -5648,21 +5622,21 @@
         "components": [
           "sc-product-selected-price"
         ],
-        "bundleId": "p-f1bbfabc",
-        "fileName": "p-f1bbfabc.entry.js",
+        "bundleId": "p-571a3ff3",
+        "fileName": "p-571a3ff3.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-4df6e0c5.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-ff10bfbf.js",
           "p-53e7f7d7.js",
           "p-3f6362a4.js",
-          "p-07b1b1ed.js",
+          "p-e3f4d732.js",
+          "p-401e165e.js",
           "p-95325ec5.js",
           "p-03631502.js",
           "p-9dbc54d6.js",
           "p-d3366af3.js",
-          "p-401e165e.js",
           "p-830ab1a3.js",
           "p-ec182234.js"
         ],
@@ -5773,8 +5747,8 @@
         "components": [
           "sc-stripe-payment-element"
         ],
-        "bundleId": "p-59d4e3d6",
-        "fileName": "p-59d4e3d6.entry.js",
+        "bundleId": "p-97d5649d",
+        "fileName": "p-97d5649d.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-9ef0f73f.js",
@@ -5785,7 +5759,7 @@
           "p-566c9487.js",
           "p-ff10bfbf.js",
           "p-1f60f497.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-401e165e.js",
           "p-03631502.js",
           "p-9dbc54d6.js",
@@ -5795,7 +5769,7 @@
           "p-3f6362a4.js",
           "p-4df6e0c5.js",
           "p-93127aa7.js",
-          "p-07b1b1ed.js"
+          "p-e3f4d732.js"
         ],
         "originalByteSize": 19520
       },
@@ -6167,8 +6141,8 @@
           "sc-subscription-next-payment",
           "sc-subscription-reactivate"
         ],
-        "bundleId": "p-167d0146",
-        "fileName": "p-167d0146.entry.js",
+        "bundleId": "p-544b8b24",
+        "fileName": "p-544b8b24.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-dd3464cd.js",
@@ -6176,7 +6150,7 @@
           "p-401e165e.js",
           "p-d3366af3.js"
         ],
-        "originalByteSize": 16923
+        "originalByteSize": 17487
       },
       {
         "key": "sc-cart-session-provider.sc-drawer.sc-error.entry",
@@ -6214,15 +6188,15 @@
           "sc-checkout-mollie-payment",
           "sc-checkout-paystack-payment-provider"
         ],
-        "bundleId": "p-e77c7b2c",
-        "fileName": "p-e77c7b2c.entry.js",
+        "bundleId": "p-c3f9d31f",
+        "fileName": "p-c3f9d31f.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-fab02ef6.js",
           "p-273a6ac5.js",
           "p-566c9487.js",
           "p-53e7f7d7.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-d7c7b076.js",
           "p-dd3464cd.js",
           "p-449324ed.js",
@@ -6239,7 +6213,7 @@
           "p-ec182234.js",
           "p-3f6362a4.js",
           "p-4df6e0c5.js",
-          "p-07b1b1ed.js",
+          "p-e3f4d732.js",
           "p-be3a018c.js"
         ],
         "originalByteSize": 9451
@@ -6257,8 +6231,8 @@
           "sc-order-confirm-provider",
           "sc-session-provider"
         ],
-        "bundleId": "p-e769f5d2",
-        "fileName": "p-e769f5d2.entry.js",
+        "bundleId": "p-b80843e4",
+        "fileName": "p-b80843e4.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-53e7f7d7.js",
@@ -6268,7 +6242,7 @@
           "p-566c9487.js",
           "p-fab02ef6.js",
           "p-d7c7b076.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-95325ec5.js",
           "p-dd3464cd.js",
           "p-830ab1a3.js",
@@ -6282,9 +6256,9 @@
           "p-3f6362a4.js",
           "p-4df6e0c5.js",
           "p-93127aa7.js",
-          "p-07b1b1ed.js"
+          "p-e3f4d732.js"
         ],
-        "originalByteSize": 61469
+        "originalByteSize": 62416
       },
       {
         "key": "sc-fulfillment-shipping-status-badge.entry",
@@ -6578,14 +6552,15 @@
         "components": [
           "sc-customer-details"
         ],
-        "bundleId": "p-405b74e6",
-        "fileName": "p-405b74e6.entry.js",
+        "bundleId": "p-de3c4dc6",
+        "fileName": "p-de3c4dc6.entry.js",
         "imports": [
           "p-e97fde0a.js",
-          "p-07b1b1ed.js",
-          "p-e677365e.js"
+          "p-e3f4d732.js",
+          "p-e677365e.js",
+          "p-401e165e.js"
         ],
-        "originalByteSize": 23130
+        "originalByteSize": 5914
       },
       {
         "key": "sc-compact-address.sc-invoice-details.sc-invoice-memo.sc-line-item-invoice-due-date.sc-line-item-invoice-number.sc-line-item-invoice-receipt-download.sc-line-item-shipping.sc-line-item-tax.sc-line-item-trial.sc-order-billing-address.sc-order-bump.sc-order-bumps.sc-order-shipping-address.sc-order-tax-id-input.sc-radio.sc-radio-group.sc-shipping-choices.entry",
@@ -6608,11 +6583,11 @@
           "sc-radio-group",
           "sc-shipping-choices"
         ],
-        "bundleId": "p-6bedc840",
-        "fileName": "p-6bedc840.entry.js",
+        "bundleId": "p-c52acb8a",
+        "fileName": "p-c52acb8a.entry.js",
         "imports": [
           "p-e97fde0a.js",
-          "p-07b1b1ed.js",
+          "p-e3f4d732.js",
           "p-8b323bfb.js",
           "p-53e7f7d7.js",
           "p-ff10bfbf.js",
@@ -6622,18 +6597,18 @@
           "p-be3a018c.js",
           "p-830ab1a3.js",
           "p-4df6e0c5.js",
-          "p-9e262748.js",
+          "p-97355490.js",
           "p-1f60f497.js",
           "p-b0d8cd6e.js",
+          "p-401e165e.js",
           "p-03631502.js",
           "p-9dbc54d6.js",
           "p-d3366af3.js",
-          "p-401e165e.js",
           "p-ec182234.js",
           "p-3f6362a4.js",
           "p-dd3464cd.js"
         ],
-        "originalByteSize": 61518
+        "originalByteSize": 61570
       },
       {
         "key": "sc-payment-method-choice.sc-payment-selected.entry",
@@ -6847,19 +6822,18 @@
           "sc-checkbox",
           "sc-tax-id-input"
         ],
-        "bundleId": "p-3522f29b",
-        "fileName": "p-3522f29b.entry.js",
+        "bundleId": "p-d2bfe7f4",
+        "fileName": "p-d2bfe7f4.entry.js",
         "imports": [
           "p-e97fde0a.js",
-          "p-07b1b1ed.js",
+          "p-e3f4d732.js",
           "p-8b323bfb.js",
-          "p-03631502.js",
-          "p-9dbc54d6.js",
           "p-b0d8cd6e.js",
           "p-830ab1a3.js",
-          "p-e677365e.js"
+          "p-e677365e.js",
+          "p-401e165e.js"
         ],
-        "originalByteSize": 29317
+        "originalByteSize": 29020
       },
       {
         "key": "sc-format-bytes.entry",
@@ -6947,14 +6921,14 @@
           "sc-menu-label",
           "sc-select"
         ],
-        "bundleId": "p-9cca7200",
-        "fileName": "p-9cca7200.entry.js",
+        "bundleId": "p-e8affa66",
+        "fileName": "p-e8affa66.entry.js",
         "imports": [
           "p-e97fde0a.js",
           "p-8b323bfb.js",
           "p-93127aa7.js"
         ],
-        "originalByteSize": 60217
+        "originalByteSize": 60784
       },
       {
         "key": "sc-cc-logo.sc-tooltip.entry",
@@ -7532,16 +7506,16 @@
         "fileName": "sc-checkout-product-price-variant-selector.entry.js",
         "imports": [
           "index-745b6bec.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "mutations-6bbbe793.js",
           "util-50af2a83.js",
           "index-5c73a1a2.js",
           "mutations-ed6d0770.js",
           "utils-cd1431df.js",
-          "address-b892540d.js",
+          "address-fb437e60.js",
+          "add-query-args-0e2a8393.js",
           "index-06061d4e.js",
           "remove-query-args-938c53ea.js",
-          "add-query-args-0e2a8393.js",
           "index-c5a96d53.js",
           "google-a86aa761.js",
           "currency-a0c9bff4.js",
@@ -7561,7 +7535,7 @@
         "imports": [
           "index-745b6bec.js",
           "watchers-38693c1f.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "index-06061d4e.js",
           "mutations-6bbbe793.js",
           "utils-cd1431df.js",
@@ -7572,7 +7546,7 @@
           "currency-a0c9bff4.js",
           "store-627acec4.js",
           "price-af9f0dbf.js",
-          "address-b892540d.js"
+          "address-fb437e60.js"
         ],
         "originalByteSize": 5990
       },
@@ -7617,7 +7591,7 @@
           "add-query-args-0e2a8393.js",
           "remove-query-args-938c53ea.js"
         ],
-        "originalByteSize": 8327
+        "originalByteSize": 8197
       },
       {
         "key": "sc-customer-email.entry",
@@ -8203,18 +8177,18 @@
         "fileName": "sc-order-submit.entry.js",
         "imports": [
           "index-745b6bec.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "getters-b5084f91.js",
           "watchers-38693c1f.js",
           "mutations-6bbbe793.js",
           "consumer-e06b16d3.js",
           "getters-487612aa.js",
-          "address-b892540d.js",
+          "address-fb437e60.js",
+          "add-query-args-0e2a8393.js",
           "util-50af2a83.js",
           "index-06061d4e.js",
           "utils-cd1431df.js",
           "remove-query-args-938c53ea.js",
-          "add-query-args-0e2a8393.js",
           "index-c5a96d53.js",
           "google-a86aa761.js",
           "currency-a0c9bff4.js",
@@ -8459,10 +8433,10 @@
         "imports": [
           "index-745b6bec.js",
           "util-50af2a83.js",
-          "watchers-e1870de4.js",
+          "watchers-cdceb785.js",
           "index-06061d4e.js",
           "utils-cd1431df.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "mutations-6bbbe793.js",
           "remove-query-args-938c53ea.js",
           "add-query-args-0e2a8393.js",
@@ -8471,7 +8445,7 @@
           "currency-a0c9bff4.js",
           "store-627acec4.js",
           "price-af9f0dbf.js",
-          "address-b892540d.js",
+          "address-fb437e60.js",
           "mutations-766c6622.js",
           "mutations-ed6d0770.js",
           "index-5c73a1a2.js",
@@ -8488,10 +8462,10 @@
         "fileName": "sc-product-donation-choices.entry.js",
         "imports": [
           "index-745b6bec.js",
-          "watchers-e1870de4.js",
+          "watchers-cdceb785.js",
           "index-06061d4e.js",
           "utils-cd1431df.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "mutations-6bbbe793.js",
           "remove-query-args-938c53ea.js",
           "add-query-args-0e2a8393.js",
@@ -8500,7 +8474,7 @@
           "currency-a0c9bff4.js",
           "store-627acec4.js",
           "price-af9f0dbf.js",
-          "address-b892540d.js",
+          "address-fb437e60.js",
           "util-50af2a83.js",
           "mutations-766c6622.js",
           "mutations-ed6d0770.js",
@@ -8518,10 +8492,10 @@
         "fileName": "sc-product-donation-custom-amount.entry.js",
         "imports": [
           "index-745b6bec.js",
-          "watchers-e1870de4.js",
+          "watchers-cdceb785.js",
           "index-06061d4e.js",
           "utils-cd1431df.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "mutations-6bbbe793.js",
           "remove-query-args-938c53ea.js",
           "add-query-args-0e2a8393.js",
@@ -8530,7 +8504,7 @@
           "currency-a0c9bff4.js",
           "store-627acec4.js",
           "price-af9f0dbf.js",
-          "address-b892540d.js",
+          "address-fb437e60.js",
           "util-50af2a83.js",
           "mutations-766c6622.js",
           "mutations-ed6d0770.js",
@@ -8688,16 +8662,16 @@
         "imports": [
           "index-745b6bec.js",
           "price-af9f0dbf.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "getters-487612aa.js",
           "mutations-6bbbe793.js",
           "currency-a0c9bff4.js",
-          "address-b892540d.js",
+          "address-fb437e60.js",
+          "add-query-args-0e2a8393.js",
           "store-627acec4.js",
           "index-06061d4e.js",
           "utils-cd1431df.js",
           "remove-query-args-938c53ea.js",
-          "add-query-args-0e2a8393.js",
           "index-c5a96d53.js",
           "google-a86aa761.js"
         ],
@@ -8820,7 +8794,7 @@
           "getters-b5084f91.js",
           "getters-487612aa.js",
           "mutations-ed6d0770.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "add-query-args-0e2a8393.js",
           "index-06061d4e.js",
           "utils-cd1431df.js",
@@ -8830,7 +8804,7 @@
           "currency-a0c9bff4.js",
           "price-af9f0dbf.js",
           "util-50af2a83.js",
-          "address-b892540d.js"
+          "address-fb437e60.js"
         ],
         "originalByteSize": 19645
       },
@@ -9211,7 +9185,7 @@
           "add-query-args-0e2a8393.js",
           "remove-query-args-938c53ea.js"
         ],
-        "originalByteSize": 16962
+        "originalByteSize": 17526
       },
       {
         "key": "sc-cart-session-provider.sc-drawer.sc-error.entry",
@@ -9257,7 +9231,7 @@
           "watchers-cee9e5e9.js",
           "getters-b5084f91.js",
           "mutations-6bbbe793.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "mutations-766c6622.js",
           "fetch-bc141774.js",
           "MockProcessor-498b60c5.js",
@@ -9274,7 +9248,7 @@
           "google-a86aa761.js",
           "currency-a0c9bff4.js",
           "price-af9f0dbf.js",
-          "address-b892540d.js",
+          "address-fb437e60.js",
           "index-5c73a1a2.js"
         ],
         "originalByteSize": 9606
@@ -9303,7 +9277,7 @@
           "getters-b5084f91.js",
           "watchers-38693c1f.js",
           "mutations-766c6622.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "store-627acec4.js",
           "fetch-bc141774.js",
           "index-c5a96d53.js",
@@ -9317,9 +9291,9 @@
           "currency-a0c9bff4.js",
           "price-af9f0dbf.js",
           "util-50af2a83.js",
-          "address-b892540d.js"
+          "address-fb437e60.js"
         ],
-        "originalByteSize": 61615
+        "originalByteSize": 62562
       },
       {
         "key": "sc-fulfillment-shipping-status-badge.entry",
@@ -9617,10 +9591,11 @@
         "fileName": "sc-customer-details.entry.js",
         "imports": [
           "index-745b6bec.js",
-          "address-b892540d.js",
-          "tax-a03623ca.js"
+          "address-fb437e60.js",
+          "tax-a03623ca.js",
+          "add-query-args-0e2a8393.js"
         ],
-        "originalByteSize": 23142
+        "originalByteSize": 5939
       },
       {
         "key": "sc-compact-address.sc-invoice-details.sc-invoice-memo.sc-line-item-invoice-due-date.sc-line-item-invoice-number.sc-line-item-invoice-receipt-download.sc-line-item-shipping.sc-line-item-tax.sc-line-item-trial.sc-order-billing-address.sc-order-bump.sc-order-bumps.sc-order-shipping-address.sc-order-tax-id-input.sc-radio.sc-radio-group.sc-shipping-choices.entry",
@@ -9647,7 +9622,7 @@
         "fileName": "sc-compact-address_17.entry.js",
         "imports": [
           "index-745b6bec.js",
-          "address-b892540d.js",
+          "address-fb437e60.js",
           "form-data-76641f16.js",
           "mutations-6bbbe793.js",
           "getters-487612aa.js",
@@ -9657,18 +9632,18 @@
           "index-5c73a1a2.js",
           "index-c5a96d53.js",
           "price-af9f0dbf.js",
-          "getters-970cdda4.js",
+          "getters-55b5768f.js",
           "mutations-ed6d0770.js",
           "page-align-0cdacf32.js",
+          "add-query-args-0e2a8393.js",
           "index-06061d4e.js",
           "utils-cd1431df.js",
           "remove-query-args-938c53ea.js",
-          "add-query-args-0e2a8393.js",
           "google-a86aa761.js",
           "currency-a0c9bff4.js",
           "fetch-bc141774.js"
         ],
-        "originalByteSize": 61665
+        "originalByteSize": 61709
       },
       {
         "key": "sc-payment-method-choice.sc-payment-selected.entry",
@@ -9886,15 +9861,14 @@
         "fileName": "sc-address_3.entry.js",
         "imports": [
           "index-745b6bec.js",
-          "address-b892540d.js",
+          "address-fb437e60.js",
           "form-data-76641f16.js",
-          "index-06061d4e.js",
-          "utils-cd1431df.js",
           "page-align-0cdacf32.js",
           "index-c5a96d53.js",
-          "tax-a03623ca.js"
+          "tax-a03623ca.js",
+          "add-query-args-0e2a8393.js"
         ],
-        "originalByteSize": 29361
+        "originalByteSize": 29066
       },
       {
         "key": "sc-format-bytes.entry",
@@ -9989,7 +9963,7 @@
           "form-data-76641f16.js",
           "util-50af2a83.js"
         ],
-        "originalByteSize": 60232
+        "originalByteSize": 60799
       },
       {
         "key": "sc-cc-logo.sc-tooltip.entry",
@@ -10569,16 +10543,16 @@
         "fileName": "sc-checkout-product-price-variant-selector.cjs.entry.js",
         "imports": [
           "index-8acc3c89.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "mutations-10a18c83.js",
           "util-b877b2bd.js",
           "index-1f9e4c8e.js",
           "mutations-11c8f9a8.js",
           "utils-2e91d46c.js",
-          "address-4c70d641.js",
+          "address-e0c9b577.js",
+          "add-query-args-49dcb630.js",
           "index-bcdafe6e.js",
           "remove-query-args-b57e8cd3.js",
-          "add-query-args-49dcb630.js",
           "index-fb76df07.js",
           "google-59d23803.js",
           "currency-71fce0f0.js",
@@ -10598,7 +10572,7 @@
         "imports": [
           "index-8acc3c89.js",
           "watchers-2ad3abd1.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "index-bcdafe6e.js",
           "mutations-10a18c83.js",
           "utils-2e91d46c.js",
@@ -10609,7 +10583,7 @@
           "currency-71fce0f0.js",
           "store-4a539aea.js",
           "price-5b1afcfe.js",
-          "address-4c70d641.js"
+          "address-e0c9b577.js"
         ],
         "originalByteSize": 6104
       },
@@ -10654,7 +10628,7 @@
           "add-query-args-49dcb630.js",
           "remove-query-args-b57e8cd3.js"
         ],
-        "originalByteSize": 8538
+        "originalByteSize": 8408
       },
       {
         "key": "sc-customer-email.entry",
@@ -11240,18 +11214,18 @@
         "fileName": "sc-order-submit.cjs.entry.js",
         "imports": [
           "index-8acc3c89.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "getters-ae03ef93.js",
           "watchers-2ad3abd1.js",
           "mutations-10a18c83.js",
           "consumer-9f4ee0e3.js",
           "getters-87b7ef91.js",
-          "address-4c70d641.js",
+          "address-e0c9b577.js",
+          "add-query-args-49dcb630.js",
           "util-b877b2bd.js",
           "index-bcdafe6e.js",
           "utils-2e91d46c.js",
           "remove-query-args-b57e8cd3.js",
-          "add-query-args-49dcb630.js",
           "index-fb76df07.js",
           "google-59d23803.js",
           "currency-71fce0f0.js",
@@ -11496,10 +11470,10 @@
         "imports": [
           "index-8acc3c89.js",
           "util-b877b2bd.js",
-          "watchers-6944a021.js",
+          "watchers-62082d17.js",
           "index-bcdafe6e.js",
           "utils-2e91d46c.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "mutations-10a18c83.js",
           "remove-query-args-b57e8cd3.js",
           "add-query-args-49dcb630.js",
@@ -11508,7 +11482,7 @@
           "currency-71fce0f0.js",
           "store-4a539aea.js",
           "price-5b1afcfe.js",
-          "address-4c70d641.js",
+          "address-e0c9b577.js",
           "mutations-2db027c4.js",
           "mutations-11c8f9a8.js",
           "index-1f9e4c8e.js",
@@ -11525,10 +11499,10 @@
         "fileName": "sc-product-donation-choices.cjs.entry.js",
         "imports": [
           "index-8acc3c89.js",
-          "watchers-6944a021.js",
+          "watchers-62082d17.js",
           "index-bcdafe6e.js",
           "utils-2e91d46c.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "mutations-10a18c83.js",
           "remove-query-args-b57e8cd3.js",
           "add-query-args-49dcb630.js",
@@ -11537,7 +11511,7 @@
           "currency-71fce0f0.js",
           "store-4a539aea.js",
           "price-5b1afcfe.js",
-          "address-4c70d641.js",
+          "address-e0c9b577.js",
           "util-b877b2bd.js",
           "mutations-2db027c4.js",
           "mutations-11c8f9a8.js",
@@ -11555,10 +11529,10 @@
         "fileName": "sc-product-donation-custom-amount.cjs.entry.js",
         "imports": [
           "index-8acc3c89.js",
-          "watchers-6944a021.js",
+          "watchers-62082d17.js",
           "index-bcdafe6e.js",
           "utils-2e91d46c.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "mutations-10a18c83.js",
           "remove-query-args-b57e8cd3.js",
           "add-query-args-49dcb630.js",
@@ -11567,7 +11541,7 @@
           "currency-71fce0f0.js",
           "store-4a539aea.js",
           "price-5b1afcfe.js",
-          "address-4c70d641.js",
+          "address-e0c9b577.js",
           "util-b877b2bd.js",
           "mutations-2db027c4.js",
           "mutations-11c8f9a8.js",
@@ -11725,16 +11699,16 @@
         "imports": [
           "index-8acc3c89.js",
           "price-5b1afcfe.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "getters-87b7ef91.js",
           "mutations-10a18c83.js",
           "currency-71fce0f0.js",
-          "address-4c70d641.js",
+          "address-e0c9b577.js",
+          "add-query-args-49dcb630.js",
           "store-4a539aea.js",
           "index-bcdafe6e.js",
           "utils-2e91d46c.js",
           "remove-query-args-b57e8cd3.js",
-          "add-query-args-49dcb630.js",
           "index-fb76df07.js",
           "google-59d23803.js"
         ],
@@ -11857,7 +11831,7 @@
           "getters-ae03ef93.js",
           "getters-87b7ef91.js",
           "mutations-11c8f9a8.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "add-query-args-49dcb630.js",
           "index-bcdafe6e.js",
           "utils-2e91d46c.js",
@@ -11867,7 +11841,7 @@
           "currency-71fce0f0.js",
           "price-5b1afcfe.js",
           "util-b877b2bd.js",
-          "address-4c70d641.js"
+          "address-e0c9b577.js"
         ],
         "originalByteSize": 20343
       },
@@ -12248,7 +12222,7 @@
           "add-query-args-49dcb630.js",
           "remove-query-args-b57e8cd3.js"
         ],
-        "originalByteSize": 17468
+        "originalByteSize": 18074
       },
       {
         "key": "sc-cart-session-provider.sc-drawer.sc-error.entry",
@@ -12294,7 +12268,7 @@
           "watchers-06121df7.js",
           "getters-ae03ef93.js",
           "mutations-10a18c83.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "mutations-2db027c4.js",
           "fetch-d374a251.js",
           "MockProcessor-48b83649.js",
@@ -12311,7 +12285,7 @@
           "google-59d23803.js",
           "currency-71fce0f0.js",
           "price-5b1afcfe.js",
-          "address-4c70d641.js",
+          "address-e0c9b577.js",
           "index-1f9e4c8e.js"
         ],
         "originalByteSize": 9898
@@ -12340,7 +12314,7 @@
           "getters-ae03ef93.js",
           "watchers-2ad3abd1.js",
           "mutations-2db027c4.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "store-4a539aea.js",
           "fetch-d374a251.js",
           "index-fb76df07.js",
@@ -12354,9 +12328,9 @@
           "currency-71fce0f0.js",
           "price-5b1afcfe.js",
           "util-b877b2bd.js",
-          "address-4c70d641.js"
+          "address-e0c9b577.js"
         ],
-        "originalByteSize": 63641
+        "originalByteSize": 64610
       },
       {
         "key": "sc-fulfillment-shipping-status-badge.entry",
@@ -12654,10 +12628,11 @@
         "fileName": "sc-customer-details.cjs.entry.js",
         "imports": [
           "index-8acc3c89.js",
-          "address-4c70d641.js",
-          "tax-a4582e73.js"
+          "address-e0c9b577.js",
+          "tax-a4582e73.js",
+          "add-query-args-49dcb630.js"
         ],
-        "originalByteSize": 23465
+        "originalByteSize": 6260
       },
       {
         "key": "sc-compact-address.sc-invoice-details.sc-invoice-memo.sc-line-item-invoice-due-date.sc-line-item-invoice-number.sc-line-item-invoice-receipt-download.sc-line-item-shipping.sc-line-item-tax.sc-line-item-trial.sc-order-billing-address.sc-order-bump.sc-order-bumps.sc-order-shipping-address.sc-order-tax-id-input.sc-radio.sc-radio-group.sc-shipping-choices.entry",
@@ -12684,7 +12659,7 @@
         "fileName": "sc-compact-address_17.cjs.entry.js",
         "imports": [
           "index-8acc3c89.js",
-          "address-4c70d641.js",
+          "address-e0c9b577.js",
           "form-data-0da9940f.js",
           "mutations-10a18c83.js",
           "getters-87b7ef91.js",
@@ -12694,18 +12669,18 @@
           "index-1f9e4c8e.js",
           "index-fb76df07.js",
           "price-5b1afcfe.js",
-          "getters-66ca11f9.js",
+          "getters-1dbd9ae9.js",
           "mutations-11c8f9a8.js",
           "page-align-5a2ab493.js",
+          "add-query-args-49dcb630.js",
           "index-bcdafe6e.js",
           "utils-2e91d46c.js",
           "remove-query-args-b57e8cd3.js",
-          "add-query-args-49dcb630.js",
           "google-59d23803.js",
           "currency-71fce0f0.js",
           "fetch-d374a251.js"
         ],
-        "originalByteSize": 63491
+        "originalByteSize": 63477
       },
       {
         "key": "sc-payment-method-choice.sc-payment-selected.entry",
@@ -12923,15 +12898,14 @@
         "fileName": "sc-address_3.cjs.entry.js",
         "imports": [
           "index-8acc3c89.js",
-          "address-4c70d641.js",
+          "address-e0c9b577.js",
           "form-data-0da9940f.js",
-          "index-bcdafe6e.js",
-          "utils-2e91d46c.js",
           "page-align-5a2ab493.js",
           "index-fb76df07.js",
-          "tax-a4582e73.js"
+          "tax-a4582e73.js",
+          "add-query-args-49dcb630.js"
         ],
-        "originalByteSize": 29880
+        "originalByteSize": 29445
       },
       {
         "key": "sc-format-bytes.entry",
@@ -13026,7 +13000,7 @@
           "form-data-0da9940f.js",
           "util-b877b2bd.js"
         ],
-        "originalByteSize": 60469
+        "originalByteSize": 61036
       },
       {
         "key": "sc-cc-logo.sc-tooltip.entry",
@@ -13481,6 +13455,25 @@
       "listeners": [],
       "methods": [
         {
+          "name": "initCountryChoices",
+          "docs": {
+            "text": "",
+            "tags": []
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "internal": false
+        },
+        {
           "name": "reportValidity",
           "docs": {
             "text": "",
@@ -13700,62 +13693,6 @@
             "text": "Is the name required"
           },
           "internal": false
-        },
-        {
-          "name": "defaultCountryFields",
-          "type": "unknown",
-          "reflect": false,
-          "mutable": true,
-          "required": false,
-          "optional": false,
-          "complexType": {
-            "original": "Array<CountryLocaleFieldValue>",
-            "resolved": "CountryLocaleFieldValue[]",
-            "references": {
-              "Array": {
-                "location": "global",
-                "id": "global::Array"
-              },
-              "CountryLocaleFieldValue": {
-                "location": "import",
-                "path": "../../../types",
-                "id": "src/types.ts::CountryLocaleFieldValue"
-              }
-            }
-          },
-          "docs": {
-            "tags": [],
-            "text": "Default country fields"
-          },
-          "internal": false
-        },
-        {
-          "name": "countryFields",
-          "type": "unknown",
-          "reflect": false,
-          "mutable": true,
-          "required": false,
-          "optional": false,
-          "complexType": {
-            "original": "Array<CountryLocaleField>",
-            "resolved": "CountryLocaleField[]",
-            "references": {
-              "Array": {
-                "location": "global",
-                "id": "global::Array"
-              },
-              "CountryLocaleField": {
-                "location": "import",
-                "path": "../../../types",
-                "id": "src/types.ts::CountryLocaleField"
-              }
-            }
-          },
-          "docs": {
-            "tags": [],
-            "text": "Country fields by country code"
-          },
-          "internal": false
         }
       ],
       "shadowDelegatesFocus": false,
@@ -13767,7 +13704,7 @@
           "name": "showPostal"
         },
         {
-          "name": "regions"
+          "name": "countryDetails"
         },
         {
           "name": "countryChoices"
@@ -21553,7 +21490,11 @@
         }
       ],
       "shadowDelegatesFocus": false,
-      "states": []
+      "states": [
+        {
+          "name": "countryChoices"
+        }
+      ]
     },
     {
       "tag": "sc-customer-edit",
@@ -21688,39 +21629,6 @@
             "original": "string",
             "resolved": "string",
             "references": {}
-          },
-          "docs": {
-            "tags": [],
-            "text": ""
-          },
-          "internal": false
-        },
-        {
-          "name": "i18n",
-          "type": "unknown",
-          "reflect": false,
-          "mutable": false,
-          "required": false,
-          "optional": false,
-          "complexType": {
-            "original": "{\n    defaultCountryFields: Array<CountryLocaleFieldValue>;\n    countryFields: Array<CountryLocaleField>;\n  }",
-            "resolved": "{ defaultCountryFields: CountryLocaleFieldValue[]; countryFields: CountryLocaleField[]; }",
-            "references": {
-              "Array": {
-                "location": "global",
-                "id": "global::Array"
-              },
-              "CountryLocaleFieldValue": {
-                "location": "import",
-                "path": "../../../../types",
-                "id": "src/types.ts::CountryLocaleFieldValue"
-              },
-              "CountryLocaleField": {
-                "location": "import",
-                "path": "../../../../types",
-                "id": "src/types.ts::CountryLocaleField"
-              }
-            }
           },
           "docs": {
             "tags": [],
@@ -45242,7 +45150,7 @@
           "name": "autocomplete",
           "type": "string",
           "attribute": "autocomplete",
-          "reflect": false,
+          "reflect": true,
           "mutable": false,
           "required": false,
           "optional": false,
@@ -59919,39 +59827,6 @@
                 "text": ""
               },
               "internal": false
-            },
-            {
-              "name": "i18n",
-              "type": "unknown",
-              "reflect": false,
-              "mutable": false,
-              "required": false,
-              "optional": false,
-              "complexType": {
-                "original": "{\n    defaultCountryFields: Array<CountryLocaleFieldValue>;\n    countryFields: Array<CountryLocaleField>;\n  }",
-                "resolved": "{ defaultCountryFields: CountryLocaleFieldValue[]; countryFields: CountryLocaleField[]; }",
-                "references": {
-                  "Array": {
-                    "location": "global",
-                    "id": "global::Array"
-                  },
-                  "CountryLocaleFieldValue": {
-                    "location": "import",
-                    "path": "../../../../types",
-                    "id": "src/types.ts::CountryLocaleFieldValue"
-                  },
-                  "CountryLocaleField": {
-                    "location": "import",
-                    "path": "../../../../types",
-                    "id": "src/types.ts::CountryLocaleField"
-                  }
-                }
-              },
-              "docs": {
-                "tags": [],
-                "text": ""
-              },
-              "internal": false
             }
           ],
           "virtualProperties": [],
@@ -60053,10 +59928,9 @@
             "flexDirection",
             "showName",
             "address",
+            "showLine2",
             "required",
             "names",
-            "defaultCountryFields",
-            "countryFields",
             "checked",
             "onScChange",
             "show",
@@ -84292,6 +84166,7 @@
             "sc-table-cell",
             "sc-table-row",
             "img",
+            "div",
             "h4",
             "sc-button",
             "sc-block-ui"
@@ -92549,7 +92424,11 @@
             }
           ],
           "virtualProperties": [],
-          "states": [],
+          "states": [
+            {
+              "name": "countryChoices"
+            }
+          ],
           "methods": [],
           "listeners": [],
           "events": [],
@@ -92641,7 +92520,7 @@
           "sourceFilePath": "/home/runner/work/surecart-wp/surecart-wp/packages/components/src/components/ui/customer-details/sc-customer-details.tsx",
           "sourceMapPath": "/home/runner/work/surecart-wp/surecart-wp/packages/components/src/components/ui/customer-details/sc-customer-details.js.map",
           "hasAttributeChangedCallbackFn": false,
-          "hasComponentWillLoadFn": false,
+          "hasComponentWillLoadFn": true,
           "hasComponentDidLoadFn": false,
           "hasComponentShouldUpdateFn": false,
           "hasComponentWillUpdateFn": false,
@@ -92653,7 +92532,7 @@
           "hasDisconnectedCallbackFn": false,
           "hasElement": false,
           "hasEvent": false,
-          "hasLifecycle": false,
+          "hasLifecycle": true,
           "hasListener": false,
           "hasListenerTarget": false,
           "hasListenerTargetWindow": false,
@@ -92671,7 +92550,7 @@
           "hasPropMutable": false,
           "hasReflect": false,
           "hasRenderFn": true,
-          "hasState": false,
+          "hasState": true,
           "hasStyle": true,
           "hasVdomAttribute": true,
           "hasVdomXlink": false,
@@ -102175,62 +102054,6 @@
                 "text": "Is the name required"
               },
               "internal": false
-            },
-            {
-              "name": "defaultCountryFields",
-              "type": "unknown",
-              "reflect": false,
-              "mutable": true,
-              "required": false,
-              "optional": false,
-              "complexType": {
-                "original": "Array<CountryLocaleFieldValue>",
-                "resolved": "CountryLocaleFieldValue[]",
-                "references": {
-                  "Array": {
-                    "location": "global",
-                    "id": "global::Array"
-                  },
-                  "CountryLocaleFieldValue": {
-                    "location": "import",
-                    "path": "../../../types",
-                    "id": "src/types.ts::CountryLocaleFieldValue"
-                  }
-                }
-              },
-              "docs": {
-                "tags": [],
-                "text": "Default country fields"
-              },
-              "internal": false
-            },
-            {
-              "name": "countryFields",
-              "type": "unknown",
-              "reflect": false,
-              "mutable": true,
-              "required": false,
-              "optional": false,
-              "complexType": {
-                "original": "Array<CountryLocaleField>",
-                "resolved": "CountryLocaleField[]",
-                "references": {
-                  "Array": {
-                    "location": "global",
-                    "id": "global::Array"
-                  },
-                  "CountryLocaleField": {
-                    "location": "import",
-                    "path": "../../../types",
-                    "id": "src/types.ts::CountryLocaleField"
-                  }
-                }
-              },
-              "docs": {
-                "tags": [],
-                "text": "Country fields by country code"
-              },
-              "internal": false
             }
           ],
           "virtualProperties": [],
@@ -102242,13 +102065,32 @@
               "name": "showPostal"
             },
             {
-              "name": "regions"
+              "name": "countryDetails"
             },
             {
               "name": "countryChoices"
             }
           ],
           "methods": [
+            {
+              "name": "initCountryChoices",
+              "docs": {
+                "text": "",
+                "tags": []
+              },
+              "complexType": {
+                "signature": "() => Promise<void>",
+                "parameters": [],
+                "references": {
+                  "Promise": {
+                    "location": "global",
+                    "id": "global::Promise"
+                  }
+                },
+                "return": "Promise<void>"
+              },
+              "internal": false
+            },
             {
               "name": "reportValidity",
               "docs": {
@@ -106036,7 +105878,7 @@
               "name": "autocomplete",
               "type": "string",
               "attribute": "autocomplete",
-              "reflect": false,
+              "reflect": true,
               "mutable": false,
               "required": false,
               "optional": false,
@@ -106912,9 +106754,11 @@
             "helpId",
             "labelId",
             "ref",
-            "aria-hidden",
+            "autocomplete",
+            "tabindex",
             "onBlur",
             "onFocus",
+            "onChange",
             "open",
             "closeOnSelect",
             "position",
@@ -116663,13 +116507,12 @@
   "componentGraph": {
     "sc-sc-address": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
-      "p-03631502.js",
-      "p-9dbc54d6.js",
       "p-b0d8cd6e.js",
       "p-830ab1a3.js",
-      "p-e677365e.js"
+      "p-e677365e.js",
+      "p-401e165e.js"
     ],
     "sc-sc-alert": [
       "p-e97fde0a.js",
@@ -116855,13 +116698,12 @@
     ],
     "sc-sc-checkbox": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
-      "p-03631502.js",
-      "p-9dbc54d6.js",
       "p-b0d8cd6e.js",
       "p-830ab1a3.js",
-      "p-e677365e.js"
+      "p-e677365e.js",
+      "p-401e165e.js"
     ],
     "sc-sc-checkout": [
       "p-e97fde0a.js",
@@ -116898,7 +116740,7 @@
       "p-273a6ac5.js",
       "p-566c9487.js",
       "p-53e7f7d7.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-d7c7b076.js",
       "p-dd3464cd.js",
       "p-449324ed.js",
@@ -116915,7 +116757,7 @@
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-be3a018c.js"
     ],
     "sc-sc-checkout-paystack-payment-provider": [
@@ -116924,7 +116766,7 @@
       "p-273a6ac5.js",
       "p-566c9487.js",
       "p-53e7f7d7.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-d7c7b076.js",
       "p-dd3464cd.js",
       "p-449324ed.js",
@@ -116941,21 +116783,21 @@
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-be3a018c.js"
     ],
     "sc-sc-checkout-product-price-variant-selector": [
       "p-e97fde0a.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-53e7f7d7.js",
       "p-93127aa7.js",
       "p-be3a018c.js",
       "p-1f60f497.js",
       "p-9dbc54d6.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-830ab1a3.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
@@ -116972,7 +116814,7 @@
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-d7c7b076.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-95325ec5.js",
       "p-dd3464cd.js",
       "p-830ab1a3.js",
@@ -116986,7 +116828,7 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-checkout-test-complete": [
       "p-e97fde0a.js",
@@ -116997,7 +116839,7 @@
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-d7c7b076.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-95325ec5.js",
       "p-dd3464cd.js",
       "p-830ab1a3.js",
@@ -117011,7 +116853,7 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-checkout-unsaved-changes-warning": [
       "p-e97fde0a.js",
@@ -117022,7 +116864,7 @@
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-d7c7b076.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-95325ec5.js",
       "p-dd3464cd.js",
       "p-830ab1a3.js",
@@ -117036,7 +116878,7 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-choice": [
       "p-e97fde0a.js",
@@ -117059,7 +116901,7 @@
     ],
     "sc-sc-compact-address": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117069,13 +116911,13 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
@@ -117083,7 +116925,7 @@
     "sc-sc-conditional-form": [
       "p-e97fde0a.js",
       "p-fab02ef6.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-03631502.js",
       "p-53e7f7d7.js",
       "p-9dbc54d6.js",
@@ -117094,7 +116936,7 @@
       "p-3f6362a4.js",
       "p-95325ec5.js",
       "p-4df6e0c5.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-consumer": [
       "p-e97fde0a.js"
@@ -117122,8 +116964,9 @@
     ],
     "sc-sc-customer-details": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
-      "p-e677365e.js"
+      "p-e3f4d732.js",
+      "p-e677365e.js",
+      "p-401e165e.js"
     ],
     "sc-sc-customer-edit": [
       "p-e97fde0a.js",
@@ -117328,7 +117171,7 @@
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-d7c7b076.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-95325ec5.js",
       "p-dd3464cd.js",
       "p-830ab1a3.js",
@@ -117342,7 +117185,7 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-form-control": [
       "p-e97fde0a.js",
@@ -117358,7 +117201,7 @@
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-d7c7b076.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-95325ec5.js",
       "p-dd3464cd.js",
       "p-830ab1a3.js",
@@ -117372,7 +117215,7 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-form-row": [
       "p-e97fde0a.js"
@@ -117386,7 +117229,7 @@
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-d7c7b076.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-95325ec5.js",
       "p-dd3464cd.js",
       "p-830ab1a3.js",
@@ -117400,7 +117243,7 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-format-bytes": [
       "p-e97fde0a.js"
@@ -117441,7 +117284,7 @@
     ],
     "sc-sc-invoice-details": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117451,20 +117294,20 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
     ],
     "sc-sc-invoice-memo": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117474,13 +117317,13 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
@@ -117528,7 +117371,7 @@
     ],
     "sc-sc-line-item-invoice-due-date": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117538,20 +117381,20 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
     ],
     "sc-sc-line-item-invoice-number": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117561,20 +117404,20 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
     ],
     "sc-sc-line-item-invoice-receipt-download": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117584,20 +117427,20 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
     ],
     "sc-sc-line-item-shipping": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117607,20 +117450,20 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
     ],
     "sc-sc-line-item-tax": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117630,13 +117473,13 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
@@ -117657,7 +117500,7 @@
     ],
     "sc-sc-line-item-trial": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117667,13 +117510,13 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
@@ -117716,7 +117559,7 @@
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-d7c7b076.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-95325ec5.js",
       "p-dd3464cd.js",
       "p-830ab1a3.js",
@@ -117730,7 +117573,7 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-manual-payment-method": [
       "p-e97fde0a.js"
@@ -117769,7 +117612,7 @@
     ],
     "sc-sc-order-billing-address": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117779,20 +117622,20 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
     ],
     "sc-sc-order-bump": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117802,20 +117645,20 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
     ],
     "sc-sc-order-bumps": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117825,13 +117668,13 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
@@ -117848,7 +117691,7 @@
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-d7c7b076.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-95325ec5.js",
       "p-dd3464cd.js",
       "p-830ab1a3.js",
@@ -117862,7 +117705,7 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-order-confirmation": [
       "p-e97fde0a.js",
@@ -117933,7 +117776,7 @@
     ],
     "sc-sc-order-shipping-address": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -117943,13 +117786,13 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
@@ -117959,18 +117802,18 @@
     ],
     "sc-sc-order-submit": [
       "p-e97fde0a.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-53e7f7d7.js",
       "p-393cb717.js",
       "p-ff10bfbf.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
+      "p-401e165e.js",
       "p-93127aa7.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-830ab1a3.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
@@ -117994,7 +117837,7 @@
     ],
     "sc-sc-order-tax-id-input": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -118004,13 +117847,13 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
@@ -118187,10 +118030,10 @@
     "sc-sc-product-donation-amount-choice": [
       "p-e97fde0a.js",
       "p-93127aa7.js",
-      "p-50f9d3b5.js",
+      "p-a04b6816.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-53e7f7d7.js",
       "p-d3366af3.js",
       "p-401e165e.js",
@@ -118199,7 +118042,7 @@
       "p-3f6362a4.js",
       "p-95325ec5.js",
       "p-4df6e0c5.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-d7c7b076.js",
       "p-1f60f497.js",
       "p-be3a018c.js",
@@ -118207,10 +118050,10 @@
     ],
     "sc-sc-product-donation-choices": [
       "p-e97fde0a.js",
-      "p-50f9d3b5.js",
+      "p-a04b6816.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-53e7f7d7.js",
       "p-d3366af3.js",
       "p-401e165e.js",
@@ -118219,7 +118062,7 @@
       "p-3f6362a4.js",
       "p-95325ec5.js",
       "p-4df6e0c5.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-93127aa7.js",
       "p-d7c7b076.js",
       "p-1f60f497.js",
@@ -118228,10 +118071,10 @@
     ],
     "sc-sc-product-donation-custom-amount": [
       "p-e97fde0a.js",
-      "p-50f9d3b5.js",
+      "p-a04b6816.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-53e7f7d7.js",
       "p-d3366af3.js",
       "p-401e165e.js",
@@ -118240,7 +118083,7 @@
       "p-3f6362a4.js",
       "p-95325ec5.js",
       "p-4df6e0c5.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-93127aa7.js",
       "p-d7c7b076.js",
       "p-1f60f497.js",
@@ -118363,16 +118206,16 @@
     "sc-sc-product-selected-price": [
       "p-e97fde0a.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-ff10bfbf.js",
       "p-53e7f7d7.js",
       "p-3f6362a4.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
+      "p-401e165e.js",
       "p-95325ec5.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-830ab1a3.js",
       "p-ec182234.js"
     ],
@@ -118407,7 +118250,7 @@
     ],
     "sc-sc-radio": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -118417,20 +118260,20 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
     ],
     "sc-sc-radio-group": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -118440,13 +118283,13 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
@@ -118490,7 +118333,7 @@
       "p-566c9487.js",
       "p-fab02ef6.js",
       "p-d7c7b076.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-95325ec5.js",
       "p-dd3464cd.js",
       "p-830ab1a3.js",
@@ -118504,11 +118347,11 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-shipping-choices": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
       "p-53e7f7d7.js",
       "p-ff10bfbf.js",
@@ -118518,13 +118361,13 @@
       "p-be3a018c.js",
       "p-830ab1a3.js",
       "p-4df6e0c5.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-1f60f497.js",
       "p-b0d8cd6e.js",
+      "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
       "p-d3366af3.js",
-      "p-401e165e.js",
       "p-ec182234.js",
       "p-3f6362a4.js",
       "p-dd3464cd.js"
@@ -118582,7 +118425,7 @@
       "p-566c9487.js",
       "p-ff10bfbf.js",
       "p-1f60f497.js",
-      "p-9e262748.js",
+      "p-97355490.js",
       "p-401e165e.js",
       "p-03631502.js",
       "p-9dbc54d6.js",
@@ -118592,7 +118435,7 @@
       "p-3f6362a4.js",
       "p-4df6e0c5.js",
       "p-93127aa7.js",
-      "p-07b1b1ed.js"
+      "p-e3f4d732.js"
     ],
     "sc-sc-stripe-payment-request": [
       "p-e97fde0a.js",
@@ -118752,13 +118595,12 @@
     ],
     "sc-sc-tax-id-input": [
       "p-e97fde0a.js",
-      "p-07b1b1ed.js",
+      "p-e3f4d732.js",
       "p-8b323bfb.js",
-      "p-03631502.js",
-      "p-9dbc54d6.js",
       "p-b0d8cd6e.js",
       "p-830ab1a3.js",
-      "p-e677365e.js"
+      "p-e677365e.js",
+      "p-401e165e.js"
     ],
     "sc-sc-text": [
       "p-e97fde0a.js",
@@ -120072,7 +119914,6 @@
       "./src/components/util/format-number/sc-format-number"
     ],
     "./src/components/util/visually-hidden/sc-visually-hidden.tsx": [],
-    "./src/functions/address-settings.ts": [],
     "./src/functions/address.ts": [
       "./src/functions/countries.json"
     ],
@@ -120187,8 +120028,6 @@
       "./src/components/providers/form-state-provider/checkout-machine",
       "./src/store/form/store"
     ],
-    "./src/store/i18n/index.ts": [],
-    "./src/store/i18n/store.ts": [],
     "./src/store/local/index.ts": [],
     "./src/store/local/storage.ts": [],
     "./src/store/local/types.ts": [],

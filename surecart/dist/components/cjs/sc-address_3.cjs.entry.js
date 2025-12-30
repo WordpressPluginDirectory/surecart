@@ -2,51 +2,59 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index$1 = require('./index-8acc3c89.js');
-const address = require('./address-4c70d641.js');
+const index = require('./index-8acc3c89.js');
+const address = require('./address-e0c9b577.js');
 const formData = require('./form-data-0da9940f.js');
-const index = require('./index-bcdafe6e.js');
-const utils = require('./utils-2e91d46c.js');
 const pageAlign = require('./page-align-5a2ab493.js');
-const index$2 = require('./index-fb76df07.js');
+const index$1 = require('./index-fb76df07.js');
 const tax = require('./tax-a4582e73.js');
-
-function sortAddressFields(countryCode, defaultCountryFields, countryFields) {
-    const fields = defaultCountryFields || [];
-    const fieldsByCountry = countryFields || {};
-    if (countryCode && (fieldsByCountry === null || fieldsByCountry === void 0 ? void 0 : fieldsByCountry[countryCode])) {
-        fields.forEach(field => {
-            var _a;
-            if ((_a = fieldsByCountry === null || fieldsByCountry === void 0 ? void 0 : fieldsByCountry[countryCode]) === null || _a === void 0 ? void 0 : _a[field === null || field === void 0 ? void 0 : field.name]) {
-                const countryField = fieldsByCountry[countryCode][field.name];
-                field.priority = (countryField === null || countryField === void 0 ? void 0 : countryField.priority) || (field === null || field === void 0 ? void 0 : field.priority);
-                field.label = (countryField === null || countryField === void 0 ? void 0 : countryField.label) || (field === null || field === void 0 ? void 0 : field.label);
-            }
-        });
-    }
-    return fields.sort((a, b) => a.priority - b.priority);
-}
-
-/**
- * External dependencies.
- */
-const { i18n } = utils.getSerializedState();
-const { state, onChange, on, set, get, dispose } = index.createStore({
-    countryFields: [],
-    defaultCountryFields: [],
-    ...i18n,
-}, (newValue, oldValue) => {
-    return JSON.stringify(newValue) !== JSON.stringify(oldValue);
-});
+require('./add-query-args-49dcb630.js');
 
 const scAddressCss = ":host{display:block}.sc-address{display:block;position:relative}.sc-address [hidden]{display:none}.sc-address--loading{min-height:230px}.sc-address sc-skeleton{display:block;margin-bottom:1em}.sc-address__control{display:block}.sc-address__control>*{margin-bottom:var(--sc-address-column-spacing, -1px)}.sc-address__columns{display:flex;flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:space-between}.sc-address__columns>*{flex:1;width:50%;margin-right:var(--sc-address-column-spacing, -1px)}.sc-address__columns>*:last-child{margin-right:0}";
 const ScAddressStyle0 = scAddressCss;
 
+const DEFAULT_COUNTRY_FIELDS = [
+    {
+        name: 'country',
+        priority: 30,
+        label: wp.i18n.__('Country', 'surecart'),
+    },
+    {
+        name: 'name',
+        priority: 40,
+        label: wp.i18n.__('Name or Company Name', 'surecart'),
+    },
+    {
+        name: 'line_1',
+        priority: 50,
+        label: wp.i18n.__('Address', 'surecart'),
+    },
+    {
+        name: 'line_2',
+        priority: 60,
+        label: wp.i18n.__('Line 2', 'surecart'),
+    },
+    {
+        name: 'city',
+        priority: 70,
+        label: wp.i18n.__('City', 'surecart'),
+    },
+    {
+        name: 'state',
+        priority: 80,
+        label: wp.i18n.__('State / County', 'surecart'),
+    },
+    {
+        name: 'postal_code',
+        priority: 90,
+        label: wp.i18n.__('Postal Code', 'surecart'),
+    },
+];
 const ScAddress = class {
     constructor(hostRef) {
-        index$1.registerInstance(this, hostRef);
-        this.scChangeAddress = index$1.createEvent(this, "scChangeAddress", 7);
-        this.scInputAddress = index$1.createEvent(this, "scInputAddress", 7);
+        index.registerInstance(this, hostRef);
+        this.scChangeAddress = index.createEvent(this, "scChangeAddress", 7);
+        this.scInputAddress = index.createEvent(this, "scInputAddress", 7);
         this.address = {
             country: null,
             city: null,
@@ -71,21 +79,19 @@ const ScAddress = class {
         this.showLine2 = undefined;
         this.required = false;
         this.requireName = false;
-        this.defaultCountryFields = undefined;
-        this.countryFields = undefined;
         this.showCity = true;
         this.showPostal = true;
-        this.regions = undefined;
-        this.countryChoices = address.countryChoices;
+        this.countryDetails = null;
+        this.countryChoices = undefined;
     }
     /** When the state changes, we want to update city and postal fields. */
-    handleAddressChange() {
-        var _a;
+    async handleAddressChange() {
+        var _a, _b;
         if (!((_a = this.address) === null || _a === void 0 ? void 0 : _a.country))
             return;
-        this.setRegions();
-        this.showPostal = address.hasPostal(this.address.country);
-        this.showCity = address.hasCity(this.address.country);
+        if (!this.countryDetails || ((_b = this.countryDetails) === null || _b === void 0 ? void 0 : _b.code) !== this.address.country) {
+            this.countryDetails = await address.getCountryDetails(this.address.country);
+        }
         this.scChangeAddress.emit(this.address);
         this.scInputAddress.emit(this.address);
     }
@@ -116,49 +122,43 @@ const ScAddress = class {
             state: null,
         };
     }
-    /** Set the regions based on the country. */
-    setRegions() {
-        Promise.resolve().then(function () { return require('./data-2282167f.js'); }).then(module => {
-            var _a, _b, _c;
-            this.regions = (((_a = module === null || module === void 0 ? void 0 : module[this.address.country]) === null || _a === void 0 ? void 0 : _a[2]) || []).map(region => ({
-                value: region[1],
-                label: this.decodeHtmlEntities(region[0]),
-            }));
-            if ((_c = (_b = window === null || window === void 0 ? void 0 : window.wp) === null || _b === void 0 ? void 0 : _b.hooks) === null || _c === void 0 ? void 0 : _c.applyFilters) {
-                this.regions = window.wp.hooks.applyFilters('surecart_address_regions', this.regions, this.address.country);
-            }
-        });
-    }
     componentWillLoad() {
-        var _a;
+        this.initCountryChoices();
         this.handleAddressChange();
-        const country = ((_a = this.countryChoices.find(country => { var _a; return country.value === ((_a = this.address) === null || _a === void 0 ? void 0 : _a.country); })) === null || _a === void 0 ? void 0 : _a.value) || null;
-        // Set default country fields.
-        this.defaultCountryFields = this.defaultCountryFields || state.defaultCountryFields || [];
-        this.countryFields = this.countryFields || state.countryFields || [];
-        this.updateAddress({ country });
         this.handleNameChange();
+    }
+    async initCountryChoices() {
+        var _a, _b;
+        this.countryChoices = await address.countryChoices();
+        const country = ((_b = (_a = this.countryChoices) === null || _a === void 0 ? void 0 : _a.find(country => { var _a; return country.value === ((_a = this.address) === null || _a === void 0 ? void 0 : _a.country); })) === null || _b === void 0 ? void 0 : _b.value) || null;
+        this.updateAddress({ country });
     }
     async reportValidity() {
         return formData.reportChildrenValidity(this.el);
     }
-    /**
-     * Compute and return the sorted fields based on current country, defaultCountryFields and countryFields.
-     * This method can be used as a computed property.
-     */
     sortedFields() {
-        var _a, _b, _c;
-        const countrySpecificFields = ((_a = this.countryFields) === null || _a === void 0 ? void 0 : _a[(_b = this.address) === null || _b === void 0 ? void 0 : _b.country]) || {};
-        const mergedCountryFields = (this.defaultCountryFields || []).map(field => {
-            if (countrySpecificFields[field.name]) {
-                return {
-                    ...field,
-                    ...countrySpecificFields[field.name],
-                };
-            }
-            return field;
-        });
-        return sortAddressFields((_c = this.address) === null || _c === void 0 ? void 0 : _c.country, mergedCountryFields, this.countryFields);
+        var _a, _b, _c, _d;
+        if (!this.countryDetails || !((_a = this === null || this === void 0 ? void 0 : this.address) === null || _a === void 0 ? void 0 : _a.country)) {
+            return DEFAULT_COUNTRY_FIELDS;
+        }
+        return (((_d = (_c = (_b = this === null || this === void 0 ? void 0 : this.countryDetails) === null || _b === void 0 ? void 0 : _b.address_formats) === null || _c === void 0 ? void 0 : _c.edit) === null || _d === void 0 ? void 0 : _d.match(/{{([^}]+)}}/g).map(match => match.slice(2, -2)).map(field => {
+            var _a, _b, _c;
+            return ({
+                name: field,
+                label: ((_b = (_a = this === null || this === void 0 ? void 0 : this.countryDetails) === null || _a === void 0 ? void 0 : _a.address_labels) === null || _b === void 0 ? void 0 : _b[field]) || ((_c = DEFAULT_COUNTRY_FIELDS === null || DEFAULT_COUNTRY_FIELDS === void 0 ? void 0 : DEFAULT_COUNTRY_FIELDS.find(defaultField => (defaultField === null || defaultField === void 0 ? void 0 : defaultField.name) === field)) === null || _c === void 0 ? void 0 : _c.label),
+            });
+        })) || []);
+    }
+    regions() {
+        var _a, _b, _c, _d, _e;
+        let regions = ((_b = (_a = this === null || this === void 0 ? void 0 : this.countryDetails) === null || _a === void 0 ? void 0 : _a.states) === null || _b === void 0 ? void 0 : _b.map(state => ({
+            value: state === null || state === void 0 ? void 0 : state.code,
+            label: state === null || state === void 0 ? void 0 : state.name,
+        }))) || [];
+        if ((_d = (_c = window === null || window === void 0 ? void 0 : window.wp) === null || _c === void 0 ? void 0 : _c.hooks) === null || _d === void 0 ? void 0 : _d.applyFilters) {
+            regions = window.wp.hooks.applyFilters('surecart_address_regions', regions, (_e = this === null || this === void 0 ? void 0 : this.address) === null || _e === void 0 ? void 0 : _e.country);
+        }
+        return regions;
     }
     getRoundedProps(index, length) {
         const isFirst = index === 0;
@@ -170,30 +170,30 @@ const ScAddress = class {
         };
     }
     render() {
-        var _a;
-        const visibleFields = ((_a = this.sortedFields()) !== null && _a !== void 0 ? _a : []).filter(field => {
+        var _a, _b;
+        const visibleFields = (_b = ((_a = this.sortedFields()) !== null && _a !== void 0 ? _a : [])) === null || _b === void 0 ? void 0 : _b.filter(field => {
             var _a, _b, _c, _d;
             switch (field.name) {
                 case 'name':
                     return this.showName;
-                case 'address_2':
+                case 'line_2':
                     return this.showLine2 || !!((_b = (_a = this === null || this === void 0 ? void 0 : this.address) === null || _a === void 0 ? void 0 : _a.line_2) === null || _b === void 0 ? void 0 : _b.length);
                 case 'city':
                     return this.showCity;
                 case 'state':
-                    return !!((_c = this === null || this === void 0 ? void 0 : this.regions) === null || _c === void 0 ? void 0 : _c.length) && !!((_d = this === null || this === void 0 ? void 0 : this.address) === null || _d === void 0 ? void 0 : _d.country);
-                case 'postcode':
+                    return !!((_c = this === null || this === void 0 ? void 0 : this.regions()) === null || _c === void 0 ? void 0 : _c.length) && !!((_d = this === null || this === void 0 ? void 0 : this.address) === null || _d === void 0 ? void 0 : _d.country);
+                case 'postal_code':
                     return this.showPostal;
                 default:
                     return true;
             }
         });
-        return (index$1.h("div", { class: "sc-address", part: "base" }, index$1.h("sc-form-control", { label: this.label, exportparts: "label, help-text, form-control", class: "sc-address__control", required: this.required }, visibleFields.map((field, index) => {
+        return (index.h("div", { class: "sc-address", part: "base" }, index.h("sc-form-control", { label: this.label, exportparts: "label, help-text, form-control", class: "sc-address__control", required: this.required }, visibleFields.map((field, index$1) => {
             var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
-            const roundedProps = this.getRoundedProps(index, visibleFields.length);
+            const roundedProps = this.getRoundedProps(index$1, visibleFields.length);
             switch (field.name) {
                 case 'country':
-                    return (index$1.h("sc-select", { exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", part: "name__input", value: (_a = this.address) === null || _a === void 0 ? void 0 : _a.country, onScChange: (e) => {
+                    return (index.h("sc-select", { exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", part: "name__input", value: (_a = this.address) === null || _a === void 0 ? void 0 : _a.country, onScChange: (e) => {
                             var _a;
                             if (e.target.value === ((_a = this.address) === null || _a === void 0 ? void 0 : _a.country))
                                 return;
@@ -201,23 +201,23 @@ const ScAddress = class {
                             this.updateAddress({ country: e.target.value });
                         }, choices: this.countryChoices, autocomplete: 'country-name', placeholder: field.label, name: (_b = this.names) === null || _b === void 0 ? void 0 : _b.country, search: true, unselect: false, disabled: this.disabled, required: this.required, "aria-label": field.label, ...roundedProps }));
                 case 'name':
-                    return (index$1.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", value: (_c = this === null || this === void 0 ? void 0 : this.address) === null || _c === void 0 ? void 0 : _c.name, onScChange: (e) => this.updateAddress({ name: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ name: e.target.value || null }), autocomplete: "street-address", placeholder: field.label, name: (_d = this.names) === null || _d === void 0 ? void 0 : _d.name, disabled: this.disabled, required: this.requireName, "aria-label": field.label, ...roundedProps }));
-                case 'address_1':
-                    return (index$1.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", value: (_e = this === null || this === void 0 ? void 0 : this.address) === null || _e === void 0 ? void 0 : _e.line_1, onScChange: (e) => this.updateAddress({ line_1: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ line_1: e.target.value || null }), autocomplete: "street-address", placeholder: field.label, name: (_f = this.names) === null || _f === void 0 ? void 0 : _f.line_1, disabled: this.disabled, required: this.required, "aria-label": field.label, ...roundedProps }));
-                case 'address_2':
-                    return (index$1.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", value: (_g = this === null || this === void 0 ? void 0 : this.address) === null || _g === void 0 ? void 0 : _g.line_2, onScChange: (e) => this.updateAddress({ line_2: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ line_2: e.target.value || null }), autocomplete: "street-address", placeholder: field.label, name: (_h = this.names) === null || _h === void 0 ? void 0 : _h.line_2, disabled: this.disabled, "aria-label": field.label, ...roundedProps }));
+                    return (index.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", value: (_c = this === null || this === void 0 ? void 0 : this.address) === null || _c === void 0 ? void 0 : _c.name, onScChange: (e) => this.updateAddress({ name: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ name: e.target.value || null }), autocomplete: "street-address", placeholder: field.label, name: (_d = this.names) === null || _d === void 0 ? void 0 : _d.name, disabled: this.disabled, required: this.requireName, "aria-label": field.label, ...roundedProps }));
+                case 'line_1':
+                    return (index.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", value: (_e = this === null || this === void 0 ? void 0 : this.address) === null || _e === void 0 ? void 0 : _e.line_1, onScChange: (e) => this.updateAddress({ line_1: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ line_1: e.target.value || null }), autocomplete: "street-address", placeholder: field.label, name: (_f = this.names) === null || _f === void 0 ? void 0 : _f.line_1, disabled: this.disabled, required: this.required, "aria-label": field.label, ...roundedProps }));
+                case 'line_2':
+                    return (index.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", value: (_g = this === null || this === void 0 ? void 0 : this.address) === null || _g === void 0 ? void 0 : _g.line_2, onScChange: (e) => this.updateAddress({ line_2: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ line_2: e.target.value || null }), autocomplete: "street-address", placeholder: field.label, name: (_h = this.names) === null || _h === void 0 ? void 0 : _h.line_2, disabled: this.disabled, "aria-label": field.label, ...roundedProps }));
                 case 'city':
-                    return (index$1.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", placeholder: field.label, name: (_j = this.names) === null || _j === void 0 ? void 0 : _j.city, value: (_k = this === null || this === void 0 ? void 0 : this.address) === null || _k === void 0 ? void 0 : _k.city, onScChange: (e) => this.updateAddress({ city: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ city: e.target.value || null }), required: this.required, disabled: this.disabled, "aria-label": field.label, ...roundedProps }));
+                    return (index.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", placeholder: field.label, name: (_j = this.names) === null || _j === void 0 ? void 0 : _j.city, value: (_k = this === null || this === void 0 ? void 0 : this.address) === null || _k === void 0 ? void 0 : _k.city, onScChange: (e) => this.updateAddress({ city: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ city: e.target.value || null }), required: this.required, disabled: this.disabled, "aria-label": field.label, ...roundedProps }));
                 case 'state':
-                    return (index$1.h("sc-select", { exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", placeholder: field.label, name: (_l = this.names) === null || _l === void 0 ? void 0 : _l.state, autocomplete: 'address-level1', value: (_m = this === null || this === void 0 ? void 0 : this.address) === null || _m === void 0 ? void 0 : _m.state, onScChange: (e) => { var _a; return this.updateAddress({ state: e.target.value || ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.value) || null }); }, choices: this.regions, required: this.required, disabled: this.disabled, search: true, "aria-label": field.label, ...roundedProps }));
-                case 'postcode':
-                    return (index$1.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", placeholder: field.label, name: (_o = this.names) === null || _o === void 0 ? void 0 : _o.postal_code, onScChange: (e) => this.updateAddress({ postal_code: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ postal_code: e.target.value || null }), autocomplete: 'postal-code', required: this.required, value: (_p = this === null || this === void 0 ? void 0 : this.address) === null || _p === void 0 ? void 0 : _p.postal_code, disabled: this.disabled, maxlength: ((_q = this.address) === null || _q === void 0 ? void 0 : _q.country) === 'US' ? 5 : null, "aria-label": field.label, ...roundedProps }));
+                    return (index.h("sc-select", { exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", placeholder: field.label, name: (_l = this.names) === null || _l === void 0 ? void 0 : _l.state, autocomplete: 'address-level1', value: (_m = this === null || this === void 0 ? void 0 : this.address) === null || _m === void 0 ? void 0 : _m.state, onScChange: (e) => { var _a; return this.updateAddress({ state: e.target.value || ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.value) || null }); }, choices: this.regions(), required: this.required, disabled: this.disabled, search: true, "aria-label": field.label, ...roundedProps }));
+                case 'postal_code':
+                    return (index.h("sc-input", { exportparts: "base:input__base, input, form-control, label, help-text", placeholder: field.label, name: (_o = this.names) === null || _o === void 0 ? void 0 : _o.postal_code, onScChange: (e) => this.updateAddress({ postal_code: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ postal_code: e.target.value || null }), autocomplete: 'postal-code', required: this.required, value: (_p = this === null || this === void 0 ? void 0 : this.address) === null || _p === void 0 ? void 0 : _p.postal_code, disabled: this.disabled, maxlength: ((_q = this.address) === null || _q === void 0 ? void 0 : _q.country) === 'US' ? 5 : null, "aria-label": field.label, ...roundedProps }));
                 default:
                     return null;
             }
-        })), this.loading && index$1.h("sc-block-ui", { exportparts: "base:block-ui, content:block-ui__content" })));
+        })), this.loading && index.h("sc-block-ui", { exportparts: "base:block-ui, content:block-ui__content" })));
     }
-    get el() { return index$1.getElement(this); }
+    get el() { return index.getElement(this); }
     static get watchers() { return {
         "address": ["handleAddressChange"],
         "requireName": ["handleNameChange"]
@@ -231,10 +231,10 @@ const ScCheckboxStyle0 = scCheckboxCss;
 let id = 0;
 const ScCheckbox = class {
     constructor(hostRef) {
-        index$1.registerInstance(this, hostRef);
-        this.scBlur = index$1.createEvent(this, "scBlur", 7);
-        this.scChange = index$1.createEvent(this, "scChange", 7);
-        this.scFocus = index$1.createEvent(this, "scFocus", 7);
+        index.registerInstance(this, hostRef);
+        this.scBlur = index.createEvent(this, "scBlur", 7);
+        this.scChange = index.createEvent(this, "scChange", 7);
+        this.scFocus = index.createEvent(this, "scFocus", 7);
         this.inputId = `checkbox-${++id}`;
         this.labelId = `checkbox-label-${id}`;
         this.hasFocus = false;
@@ -305,7 +305,7 @@ const ScCheckbox = class {
     }
     render() {
         const Tag = this.edit ? 'div' : 'label';
-        return (index$1.h(Tag, { key: '3ac07eb97439442d837d0a8cda4136edc3616f2a', part: "base", class: {
+        return (index.h(Tag, { key: '3ac07eb97439442d837d0a8cda4136edc3616f2a', part: "base", class: {
                 'checkbox': true,
                 'checkbox--is-required': this.required,
                 'checkbox--checked': this.checked,
@@ -313,9 +313,9 @@ const ScCheckbox = class {
                 'checkbox--focused': this.hasFocus,
                 'checkbox--indeterminate': this.indeterminate,
                 'checkbox--is-rtl': pageAlign.isRtl()
-            }, htmlFor: this.inputId, onMouseDown: () => this.handleLabelMouseDown() }, index$1.h("span", { key: 'ecd9c8541f7ee252d1a2e3224b109632680d3a15', part: "control", class: "checkbox__control" }, this.checked ? (index$1.h("span", { part: "checked-icon", class: "checkbox__icon" }, index$1.h("svg", { viewBox: "0 0 16 16" }, index$1.h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd", "stroke-linecap": "round" }, index$1.h("g", { stroke: "currentColor", "stroke-width": "2" }, index$1.h("g", { transform: "translate(3.428571, 3.428571)" }, index$1.h("path", { d: "M0,5.71428571 L3.42857143,9.14285714" }), index$1.h("path", { d: "M9.14285714,0 L3.42857143,9.14285714" }))))))) : (''), !this.checked && this.indeterminate ? (index$1.h("span", { part: "indeterminate-icon", class: "checkbox__icon" }, index$1.h("svg", { viewBox: "0 0 16 16" }, index$1.h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd", "stroke-linecap": "round" }, index$1.h("g", { stroke: "currentColor", "stroke-width": "2" }, index$1.h("g", { transform: "translate(2.285714, 6.857143)" }, index$1.h("path", { d: "M10.2857143,1.14285714 L1.14285714,1.14285714" }))))))) : (''), index$1.h("input", { key: '8bf943beb6241b829eea924acb3d9e6edef0f7c4', id: this.inputId, ref: el => (this.input = el), type: "checkbox", name: this.name, value: this.value, checked: this.checked, disabled: this.disabled, required: this.required, role: "checkbox", "aria-checked": this.checked ? 'true' : 'false', "aria-labelledby": this.labelId, onClick: () => this.handleClick(), onBlur: () => this.handleBlur(), onFocus: () => this.handleFocus() })), index$1.h("span", { key: 'c6dc0936a6c90ca0d416cf701ee8277a3045a1a2', part: "label", id: this.labelId, class: "checkbox__label" }, index$1.h("slot", { key: '78426ec19722b27768b493aba35ec99a82679d27' }))));
+            }, htmlFor: this.inputId, onMouseDown: () => this.handleLabelMouseDown() }, index.h("span", { key: 'ecd9c8541f7ee252d1a2e3224b109632680d3a15', part: "control", class: "checkbox__control" }, this.checked ? (index.h("span", { part: "checked-icon", class: "checkbox__icon" }, index.h("svg", { viewBox: "0 0 16 16" }, index.h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd", "stroke-linecap": "round" }, index.h("g", { stroke: "currentColor", "stroke-width": "2" }, index.h("g", { transform: "translate(3.428571, 3.428571)" }, index.h("path", { d: "M0,5.71428571 L3.42857143,9.14285714" }), index.h("path", { d: "M9.14285714,0 L3.42857143,9.14285714" }))))))) : (''), !this.checked && this.indeterminate ? (index.h("span", { part: "indeterminate-icon", class: "checkbox__icon" }, index.h("svg", { viewBox: "0 0 16 16" }, index.h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd", "stroke-linecap": "round" }, index.h("g", { stroke: "currentColor", "stroke-width": "2" }, index.h("g", { transform: "translate(2.285714, 6.857143)" }, index.h("path", { d: "M10.2857143,1.14285714 L1.14285714,1.14285714" }))))))) : (''), index.h("input", { key: '8bf943beb6241b829eea924acb3d9e6edef0f7c4', id: this.inputId, ref: el => (this.input = el), type: "checkbox", name: this.name, value: this.value, checked: this.checked, disabled: this.disabled, required: this.required, role: "checkbox", "aria-checked": this.checked ? 'true' : 'false', "aria-labelledby": this.labelId, onClick: () => this.handleClick(), onBlur: () => this.handleBlur(), onFocus: () => this.handleFocus() })), index.h("span", { key: 'c6dc0936a6c90ca0d416cf701ee8277a3045a1a2', part: "label", id: this.labelId, class: "checkbox__label" }, index.h("slot", { key: '78426ec19722b27768b493aba35ec99a82679d27' }))));
     }
-    get el() { return index$1.getElement(this); }
+    get el() { return index.getElement(this); }
     static get watchers() { return {
         "checked": ["handleStateChange"],
         "indeterminate": ["handleStateChange"]
@@ -328,11 +328,11 @@ const ScTaxIdInputStyle0 = scTaxIdInputCss;
 
 const ScTaxIdInput = class {
     constructor(hostRef) {
-        index$1.registerInstance(this, hostRef);
-        this.scChange = index$1.createEvent(this, "scChange", 7);
-        this.scInput = index$1.createEvent(this, "scInput", 7);
-        this.scInputType = index$1.createEvent(this, "scInputType", 7);
-        this.scSetState = index$1.createEvent(this, "scSetState", 7);
+        index.registerInstance(this, hostRef);
+        this.scChange = index.createEvent(this, "scChange", 7);
+        this.scInput = index.createEvent(this, "scInput", 7);
+        this.scInputType = index.createEvent(this, "scInputType", 7);
+        this.scSetState = index.createEvent(this, "scSetState", 7);
         this.country = undefined;
         this.show = false;
         this.type = 'other';
@@ -363,10 +363,10 @@ const ScTaxIdInput = class {
     }
     renderStatus() {
         if (this.status === 'valid') {
-            return index$1.h("sc-icon", { name: "check", slot: "prefix", style: { color: 'var(--sc-color-success-500)' } });
+            return index.h("sc-icon", { name: "check", slot: "prefix", style: { color: 'var(--sc-color-success-500)' } });
         }
         if (this.status === 'invalid') {
-            return index$1.h("sc-icon", { name: "x", slot: "prefix", style: { color: 'var(--sc-color-danger-500)' } });
+            return index.h("sc-icon", { name: "x", slot: "prefix", style: { color: 'var(--sc-color-danger-500)' } });
         }
     }
     filteredZones() {
@@ -395,7 +395,7 @@ const ScTaxIdInput = class {
     }
     render() {
         var _a, _b, _c, _d, _e;
-        return (index$1.h(index$1.Fragment, { key: '43a7cad8450579f6d5060c612c82f4c72893cbbf' }, index$1.h("sc-input", { key: '00ad99ba8390326c977bd3ea55c8cd0c396d827f', name: "tax_identifier.number_type", required: this.required, value: this.type, style: { display: 'none' } }), index$1.h("sc-input", { key: 'cc9bb4148eae72267fc0f649980ddbef95f43a98', ref: el => (this.input = el), label: this.getZoneLabel(), "aria-label": wp.i18n.__('Tax ID', 'surecart'), placeholder: wp.i18n.__('Enter Tax ID', 'surecart'), name: "tax_identifier.number", value: this.number, onScInput: (e) => {
+        return (index.h(index.Fragment, { key: '43a7cad8450579f6d5060c612c82f4c72893cbbf' }, index.h("sc-input", { key: '00ad99ba8390326c977bd3ea55c8cd0c396d827f', name: "tax_identifier.number_type", required: this.required, value: this.type, style: { display: 'none' } }), index.h("sc-input", { key: 'cc9bb4148eae72267fc0f649980ddbef95f43a98', ref: el => (this.input = el), label: this.getZoneLabel(), "aria-label": wp.i18n.__('Tax ID', 'surecart'), placeholder: wp.i18n.__('Enter Tax ID', 'surecart'), name: "tax_identifier.number", value: this.number, onScInput: (e) => {
                 e.stopImmediatePropagation();
                 this.scInput.emit({
                     number: e.target.value,
@@ -407,7 +407,7 @@ const ScTaxIdInput = class {
                     number: e.target.value,
                     number_type: this.type || 'other',
                 });
-            }, help: this.help, required: this.required }, this.loading && this.type === 'eu_vat' ? index$1.h("sc-spinner", { slot: "prefix", style: { '--spinner-size': '10px' } }) : this.renderStatus(), ((_a = Object.keys(this.filteredZones() || {})) === null || _a === void 0 ? void 0 : _a.length) === 1 ? (index$1.h("span", { slot: "suffix" }, (_c = (_b = Object.values(this.filteredZones() || {})) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c['label_small'])) : (index$1.h("sc-dropdown", { slot: "suffix", position: "bottom-right", role: "select", "aria-multiselectable": "false", "aria-label": wp.i18n.__('Select number type', 'surecart') }, index$1.h("sc-button", { type: "text", slot: "trigger", caret: true, loading: false, style: { color: 'var(--sc-input-label-color)' }, tabindex: "0" }, (_e = (_d = this.filteredZones()) === null || _d === void 0 ? void 0 : _d[(this === null || this === void 0 ? void 0 : this.type) || 'other']) === null || _e === void 0 ? void 0 : _e.label_small), index$1.h("sc-menu", null, Object.keys(this.filteredZones() || {}).map(name => (index$1.h("sc-menu-item", { role: "option", onClick: () => {
+            }, help: this.help, required: this.required }, this.loading && this.type === 'eu_vat' ? index.h("sc-spinner", { slot: "prefix", style: { '--spinner-size': '10px' } }) : this.renderStatus(), ((_a = Object.keys(this.filteredZones() || {})) === null || _a === void 0 ? void 0 : _a.length) === 1 ? (index.h("span", { slot: "suffix" }, (_c = (_b = Object.values(this.filteredZones() || {})) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c['label_small'])) : (index.h("sc-dropdown", { slot: "suffix", position: "bottom-right", role: "select", "aria-multiselectable": "false", "aria-label": wp.i18n.__('Select number type', 'surecart') }, index.h("sc-button", { type: "text", slot: "trigger", caret: true, loading: false, style: { color: 'var(--sc-input-label-color)' }, tabindex: "0" }, (_e = (_d = this.filteredZones()) === null || _d === void 0 ? void 0 : _d[(this === null || this === void 0 ? void 0 : this.type) || 'other']) === null || _e === void 0 ? void 0 : _e.label_small), index.h("sc-menu", null, Object.keys(this.filteredZones() || {}).map(name => (index.h("sc-menu-item", { role: "option", onClick: () => {
                 this.scInput.emit({
                     number: this.number,
                     number_type: name,
@@ -430,7 +430,7 @@ const ScTaxIdInput = class {
                     });
                     this.type = name;
                     (_a = this.input) === null || _a === void 0 ? void 0 : _a.triggerFocus();
-                    index$2.speak(wp.i18n.sprintf(wp.i18n.__('%s selected', 'surecart'), tax.zones[name].label_small, 'assertive'));
+                    index$1.speak(wp.i18n.sprintf(wp.i18n.__('%s selected', 'surecart'), tax.zones[name].label_small, 'assertive'));
                 }
             }, checked: this.type === name, "aria-selected": this.type === name ? 'true' : 'false', "aria-label": tax.zones[name].label_small }, tax.zones[name].label_small)))))))));
     }

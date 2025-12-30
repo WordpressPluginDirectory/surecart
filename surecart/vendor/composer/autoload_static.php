@@ -14,81 +14,81 @@ class ComposerStaticInitde6168bc7e17873548173e515fd8b9ef
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        'T' =>
         array (
             'TypistTech\\Imposter\\Plugin\\' => 27,
             'TypistTech\\Imposter\\' => 20,
         ),
-        'S' => 
+        'S' =>
         array (
             'SureCart\\' => 9,
             'SureCartCore\\' => 13,
             'SureCartBlocks\\' => 15,
             'SureCartAppCore\\' => 16,
         ),
-        'P' => 
+        'P' =>
         array (
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
-        'G' => 
+        'G' =>
         array (
             'GuzzleHttp\\Psr7\\' => 16,
         ),
-        'C' => 
+        'C' =>
         array (
             'Composer\\Installers\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'TypistTech\\Imposter\\Plugin\\' => 
+        'TypistTech\\Imposter\\Plugin\\' =>
         array (
             0 => __DIR__ . '/..' . '/typisttech/imposter-plugin/src',
         ),
-        'TypistTech\\Imposter\\' => 
+        'TypistTech\\Imposter\\' =>
         array (
             0 => __DIR__ . '/..' . '/typisttech/imposter/src',
         ),
-        'SureCart\\' => 
+        'SureCart\\' =>
         array (
             0 => __DIR__ . '/../..' . '/app/src',
         ),
-        'SureCartCore\\' => 
+        'SureCartCore\\' =>
         array (
             0 => __DIR__ . '/../..' . '/core/core/src',
         ),
-        'SureCartBlocks\\' => 
+        'SureCartBlocks\\' =>
         array (
             0 => __DIR__ . '/../..' . '/packages/blocks',
         ),
-        'SureCartAppCore\\' => 
+        'SureCartAppCore\\' =>
         array (
             0 => __DIR__ . '/../..' . '/core/app-core/src',
         ),
-        'Psr\\Http\\Message\\' => 
+        'Psr\\Http\\Message\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/http-factory/src',
             1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
-        'Psr\\Container\\' => 
+        'Psr\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'GuzzleHttp\\Psr7\\' => 
+        'GuzzleHttp\\Psr7\\' =>
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
-        'Composer\\Installers\\' => 
+        'Composer\\Installers\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
         ),
     );
 
     public static $prefixesPsr0 = array (
-        'P' => 
+        'P' =>
         array (
-            'Pimple' => 
+            'Pimple' =>
             array (
                 0 => __DIR__ . '/..' . '/pimple/pimple/src',
             ),
@@ -816,6 +816,10 @@ class ComposerStaticInitde6168bc7e17873548173e515fd8b9ef
         'SureCart\\Integrations\\LifterLMS\\LifterLMSServiceProvider' => __DIR__ . '/../..' . '/app/src/Integrations/LifterLMS/LifterLMSServiceProvider.php',
         'SureCart\\Integrations\\MemberPress\\MemberPressService' => __DIR__ . '/../..' . '/app/src/Integrations/MemberPress/MemberPressService.php',
         'SureCart\\Integrations\\MemberPress\\MemberPressServiceProvider' => __DIR__ . '/../..' . '/app/src/Integrations/MemberPress/MemberPressServiceProvider.php',
+        'SureCart\\Integrations\\RankMath\\RankMathService' => __DIR__ . '/../..' . '/app/src/Integrations/RankMath/RankMathService.php',
+        'SureCart\\Integrations\\RankMath\\RankMathServiceProvider' => __DIR__ . '/../..' . '/app/src/Integrations/RankMath/RankMathServiceProvider.php',
+        'SureCart\\Integrations\\SureRank\\SureRankService' => __DIR__ . '/../..' . '/app/src/Integrations/SureRank/SureRankService.php',
+        'SureCart\\Integrations\\SureRank\\SureRankServiceProvider' => __DIR__ . '/../..' . '/app/src/Integrations/SureRank/SureRankServiceProvider.php',
         'SureCart\\Integrations\\ThriveAutomator\\DataFields\\PreviousProductDataField' => __DIR__ . '/../..' . '/app/src/Integrations/ThriveAutomator/DataFields/PreviousProductDataField.php',
         'SureCart\\Integrations\\ThriveAutomator\\DataFields\\PreviousProductIDDataField' => __DIR__ . '/../..' . '/app/src/Integrations/ThriveAutomator/DataFields/PreviousProductIDDataField.php',
         'SureCart\\Integrations\\ThriveAutomator\\DataFields\\PreviousProductNameField' => __DIR__ . '/../..' . '/app/src/Integrations/ThriveAutomator/DataFields/PreviousProductNameField.php',
@@ -1206,7 +1210,6 @@ class ComposerStaticInitde6168bc7e17873548173e515fd8b9ef
         'SureCart\\WordPress\\CurrencyService' => __DIR__ . '/../..' . '/app/src/WordPress/CurrencyService.php',
         'SureCart\\WordPress\\HealthService' => __DIR__ . '/../..' . '/app/src/WordPress/HealthService.php',
         'SureCart\\WordPress\\LineItemStateService' => __DIR__ . '/../..' . '/app/src/WordPress/LineItemStateService.php',
-        'SureCart\\WordPress\\LocalizationStateService' => __DIR__ . '/../..' . '/app/src/WordPress/LocalizationStateService.php',
         'SureCart\\WordPress\\Pages\\PageSeeder' => __DIR__ . '/../..' . '/app/src/WordPress/Pages/PageSeeder.php',
         'SureCart\\WordPress\\Pages\\PageService' => __DIR__ . '/../..' . '/app/src/WordPress/Pages/PageService.php',
         'SureCart\\WordPress\\Pages\\PageServiceProvider' => __DIR__ . '/../..' . '/app/src/WordPress/Pages/PageServiceProvider.php',

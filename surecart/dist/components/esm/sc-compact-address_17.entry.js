@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h, a as getElement, H as Host, F as Fragment } from './index-745b6bec.js';
-import { c as countryChoices, h as hasState } from './address-b892540d.js';
+import { g as getCountryDetails, c as countryChoices } from './address-fb437e60.js';
 import { r as reportChildrenValidity, F as FormSubmitController } from './form-data-76641f16.js';
 import { s as state, o as onChange, u as updateFormState } from './mutations-6bbbe793.js';
 import { f as formBusy, a as formLoading } from './getters-487612aa.js';
@@ -9,13 +9,13 @@ import { l as lockCheckout, b as unLockCheckout, r as removeCheckoutLineItem, a 
 import { c as createOrUpdateCheckout } from './index-5c73a1a2.js';
 import { s as speak } from './index-c5a96d53.js';
 import { i as intervalString, g as getFormattedPrice } from './price-af9f0dbf.js';
-import { f as fullShippingAddressRequired, s as shippingAddressRequired, a as checkoutIsLocked } from './getters-970cdda4.js';
+import { f as fullShippingAddressRequired, s as shippingAddressRequired, a as checkoutIsLocked } from './getters-55b5768f.js';
 import { c as createErrorNotice } from './mutations-ed6d0770.js';
 import { i as isRtl } from './page-align-0cdacf32.js';
+import './add-query-args-0e2a8393.js';
 import './index-06061d4e.js';
 import './utils-cd1431df.js';
 import './remove-query-args-938c53ea.js';
-import './add-query-args-0e2a8393.js';
 import './google-a86aa761.js';
 import './currency-a0c9bff4.js';
 import './fetch-bc141774.js';
@@ -52,7 +52,7 @@ const ScCompactAddress = class {
         this.label = wp.i18n.__('Country or region', 'surecart');
         this.required = undefined;
         this.loading = undefined;
-        this.countryChoices = countryChoices;
+        this.countryChoices = undefined;
         this.regions = undefined;
         this.showState = undefined;
         this.showPostal = undefined;
@@ -87,43 +87,37 @@ const ScCompactAddress = class {
         };
     }
     /** Set the regions based on the country. */
-    setRegions() {
-        if (hasState(this.address.country)) {
-            import('./countries-c2f41f03.js').then(module => {
-                this.regions = module === null || module === void 0 ? void 0 : module[this.address.country];
-            });
-        }
-        else {
-            this.regions = [];
-        }
+    async setRegions() {
+        var _a, _b;
+        const countryDetails = await getCountryDetails((_a = this.address) === null || _a === void 0 ? void 0 : _a.country);
+        this.regions =
+            ((_b = countryDetails === null || countryDetails === void 0 ? void 0 : countryDetails.states) === null || _b === void 0 ? void 0 : _b.map(state => ({
+                value: state === null || state === void 0 ? void 0 : state.code,
+                label: state === null || state === void 0 ? void 0 : state.name,
+            }))) || [];
+        this.placeholders = countryDetails === null || countryDetails === void 0 ? void 0 : countryDetails.address_labels;
     }
     componentWillLoad() {
-        var _a;
+        var _a, _b;
+        this.initCountryChoices();
         this.handleAddressChange();
-        const country = (_a = this.countryChoices.find(country => country.value === this.address.country)) === null || _a === void 0 ? void 0 : _a.value;
+        const country = (_b = (_a = this.countryChoices) === null || _a === void 0 ? void 0 : _a.find(country => country.value === this.address.country)) === null || _b === void 0 ? void 0 : _b.value;
         if (country) {
             this.updateAddress({ country });
         }
     }
+    async initCountryChoices() {
+        this.countryChoices = await countryChoices();
+    }
     async reportValidity() {
         return reportChildrenValidity(this.el);
     }
-    getStatePlaceholder() {
-        var _a, _b, _c;
-        if ((_a = this.placeholders) === null || _a === void 0 ? void 0 : _a.state)
-            return this.placeholders.state;
-        if (((_b = this.address) === null || _b === void 0 ? void 0 : _b.country) === 'CA')
-            return wp.i18n.__('Province', 'surecart');
-        if (((_c = this.address) === null || _c === void 0 ? void 0 : _c.country) === 'US')
-            return wp.i18n.__('State', 'surecart');
-        return wp.i18n.__('Province/Region', 'surecart');
-    }
     render() {
-        var _a, _b, _c, _d, _e;
-        return (h("div", { key: '1c025a6f2279e5c4c069c55ba7c9605e02a04ca3', class: "sc-address", part: "base" }, h("sc-form-control", { key: '485e8d29f646c6954c840124f98ddf4c9109d9e1', exportparts: "label, help-text, form-control", label: this.label, class: "sc-address__control", part: "control", required: this.required }, h("sc-select", { key: '404c62d2e9096485d28acd79bf61f45a8209c009', exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", value: (_a = this.address) === null || _a === void 0 ? void 0 : _a.country, onScChange: (e) => {
+        var _a, _b, _c, _d, _e, _f;
+        return (h("div", { key: '9693b2bdb9e19af90f62d1c222bdf6c6e0b0f874', class: "sc-address", part: "base" }, h("sc-form-control", { key: '1a7884efc9d5ddc2e60322f1cc300db5b66f1e37', exportparts: "label, help-text, form-control", label: this.label, class: "sc-address__control", part: "control", required: this.required }, h("sc-select", { key: '108f60b661354e8bcb791081f022bf8f029cf839', exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", value: (_a = this.address) === null || _a === void 0 ? void 0 : _a.country, onScChange: (e) => {
                 this.clearAddress();
                 this.updateAddress({ country: e.target.value || null });
-            }, choices: this.countryChoices, autocomplete: 'country-name', placeholder: ((_b = this.placeholders) === null || _b === void 0 ? void 0 : _b.country) || wp.i18n.__('Select Your Country', 'surecart'), name: this.names.country, search: true, unselect: false, "squared-bottom": this.showState || this.showPostal, required: this.required }), h("div", { key: 'b718ea03abca2e3e4f48916df4c8cb928848439d', class: "sc-address__columns" }, this.showState && (h("sc-select", { key: 'fd3d62387349a5adaffe8a112b539352e48a59ce', exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", placeholder: this.getStatePlaceholder(), name: this.names.state, autocomplete: 'address-level1', value: (_c = this === null || this === void 0 ? void 0 : this.address) === null || _c === void 0 ? void 0 : _c.state, onScChange: (e) => this.updateAddress({ state: e.target.value || null }), choices: this.regions, required: this.required, search: true, "squared-top": true, unselect: false, "squared-right": this.showPostal })), this.showPostal && (h("sc-input", { key: '2970292940b4485200f7ef87176cdebe5732dc89', exportparts: "base:input__base, input, form-control, label, help-text", placeholder: ((_d = this.placeholders) === null || _d === void 0 ? void 0 : _d.postal_code) || wp.i18n.__('Postal Code/Zip', 'surecart'), name: this.names.postal_code, onScChange: (e) => this.updateAddress({ postal_code: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ name: e.target.value || null }), autocomplete: 'postal-code', required: this.required, value: (_e = this === null || this === void 0 ? void 0 : this.address) === null || _e === void 0 ? void 0 : _e.postal_code, "squared-top": true, maxlength: 5, "squared-left": this.showState })))), this.loading && h("sc-block-ui", { key: '0694f199bd3f24b6fa6d7ceee752e3f1c58f40a2', exportparts: "base:block-ui, content:block-ui__content" })));
+            }, choices: this.countryChoices, autocomplete: 'country-name', placeholder: ((_b = this.placeholders) === null || _b === void 0 ? void 0 : _b.country) || wp.i18n.__('Select Your Country', 'surecart'), name: this.names.country, search: true, unselect: false, "squared-bottom": this.showState || this.showPostal, required: this.required }), h("div", { key: '7eb44b66505bbf580ac297ed106045dbd48ddb18', class: "sc-address__columns" }, this.showState && (h("sc-select", { key: '26a4c06cc450cac3c29008e4205901201f579a5e', exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", placeholder: (_c = this.placeholders) === null || _c === void 0 ? void 0 : _c.state, name: this.names.state, autocomplete: 'address-level1', value: (_d = this === null || this === void 0 ? void 0 : this.address) === null || _d === void 0 ? void 0 : _d.state, onScChange: (e) => this.updateAddress({ state: e.target.value || null }), choices: this.regions, required: this.required, search: true, "squared-top": true, unselect: false, "squared-right": this.showPostal })), this.showPostal && (h("sc-input", { key: '2a85abf0e011f0a43c31054a7b77a1714db68fc9', exportparts: "base:input__base, input, form-control, label, help-text", placeholder: ((_e = this.placeholders) === null || _e === void 0 ? void 0 : _e.postal_code) || wp.i18n.__('Postal Code/Zip', 'surecart'), name: this.names.postal_code, onScChange: (e) => this.updateAddress({ postal_code: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ name: e.target.value || null }), autocomplete: 'postal-code', required: this.required, value: (_f = this === null || this === void 0 ? void 0 : this.address) === null || _f === void 0 ? void 0 : _f.postal_code, "squared-top": true, maxlength: 5, "squared-left": this.showState })))), this.loading && h("sc-block-ui", { key: 'd728109373b83ceb02b7992fbab1787f4de0a67c', exportparts: "base:block-ui, content:block-ui__content" })));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -281,7 +275,7 @@ const ScLineItemTax = class {
         if (((_b = this === null || this === void 0 ? void 0 : this.order) === null || _b === void 0 ? void 0 : _b.tax_status) === 'calculated') {
             label = ((_c = this.order) === null || _c === void 0 ? void 0 : _c.tax_label) || '';
         }
-        return (h(Fragment, null, `${wp.i18n.__('Tax', 'surecart')} ${label}`));
+        return h(Fragment, null, `${wp.i18n.__('Tax', 'surecart')} ${label}`);
     }
     render() {
         var _a, _b, _c, _d, _e;
@@ -290,7 +284,7 @@ const ScLineItemTax = class {
             return null;
         }
         return (h("sc-line-item", null, h("span", { slot: "description" }, this.renderLabel()), ((_b = this.order) === null || _b === void 0 ? void 0 : _b.tax_exclusive_amount) && h("span", { slot: "price" }, (_c = this.order) === null || _c === void 0 ? void 0 : _c.tax_exclusive_display_amount), ((_d = this.order) === null || _d === void 0 ? void 0 : _d.tax_inclusive_amount) && (h("span", { slot: "price-description" }, '(', (_e = this.order) === null || _e === void 0 ? void 0 :
-            _e.tax_inclusive_display_amount, wp.i18n.__('included', 'surecart'), ')'))));
+            _e.tax_inclusive_display_amount, " ", wp.i18n.__('included', 'surecart'), ')'))));
     }
 };
 openWormhole(ScLineItemTax, ['order', 'loading'], false);
