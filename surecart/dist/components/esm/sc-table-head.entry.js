@@ -8,7 +8,7 @@ const ScTable = class {
         registerInstance(this, hostRef);
     }
     render() {
-        return (h(Host, { key: '75921f9c844a3220c9fb9ff04703a745a0009412' }, h("slot", { key: '8bb7cb2375a985be26049317ab206b033a6c7df8' })));
+        return (h(Host, { key: '635166dacf7b750d56cae6b101e851270c604700' }, h("slot", { key: 'd7e7f01c011c36c65f8fa105d3a1d9868b46fcbd' })));
     }
 };
 ScTable.style = ScTableHeadStyle0;

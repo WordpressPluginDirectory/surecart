@@ -12,7 +12,7 @@ const ScTable = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return (index.h(index.Host, { key: '75921f9c844a3220c9fb9ff04703a745a0009412' }, index.h("slot", { key: '8bb7cb2375a985be26049317ab206b033a6c7df8' })));
+        return (index.h(index.Host, { key: '635166dacf7b750d56cae6b101e851270c604700' }, index.h("slot", { key: 'd7e7f01c011c36c65f8fa105d3a1d9868b46fcbd' })));
     }
 };
 ScTable.style = ScTableHeadStyle0;

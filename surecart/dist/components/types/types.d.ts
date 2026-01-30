@@ -3,6 +3,7 @@ import { IconLibraryMutator, IconLibraryResolver } from './components/ui/icon/li
 import { StripeElementChangeEvent } from '@stripe/stripe-js';
 declare global {
     interface Window {
+        registry: IconLibrary[];
         grecaptcha: any;
         surecart?: {
             product?: {
@@ -78,6 +79,7 @@ declare global {
             user_permissions: {
                 manage_sc_shop_settings: boolean;
             };
+            current_user_roles: string[];
         };
         ceRegisterIconLibrary: any;
         ResizeObserver: any;
@@ -89,6 +91,11 @@ export type RecursivePartial<T> = {
 interface Model {
     created_at: number;
     updated_at: number;
+}
+export interface IconLibrary {
+    name: string;
+    resolver: IconLibraryResolver;
+    mutator?: IconLibraryMutator;
 }
 export interface ChoiceItem extends Object {
     value: string;
@@ -759,6 +766,16 @@ export interface Checkout extends Object {
         object: 'list';
         pagination: Pagination;
         data: Array<Subscription>;
+    };
+    checkout_fees: {
+        object: 'list';
+        pagination: Pagination;
+        data: Array<Fee>;
+    };
+    shipping_fees: {
+        object: 'list';
+        pagination: Pagination;
+        data: Array<Fee>;
     };
     purchases: {
         object: 'list';

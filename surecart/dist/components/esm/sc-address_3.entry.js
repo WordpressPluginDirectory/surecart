@@ -1,5 +1,5 @@
 import { r as registerInstance, c as createEvent, h, a as getElement, F as Fragment } from './index-745b6bec.js';
-import { g as getCountryDetails, c as countryChoices } from './address-fb437e60.js';
+import { g as getCountryDetails, c as countryChoices } from './address-058376bf.js';
 import { r as reportChildrenValidity, F as FormSubmitController } from './form-data-76641f16.js';
 import { i as isRtl } from './page-align-0cdacf32.js';
 import { s as speak } from './index-c5a96d53.js';
@@ -301,7 +301,7 @@ const ScCheckbox = class {
     }
     render() {
         const Tag = this.edit ? 'div' : 'label';
-        return (h(Tag, { key: '3ac07eb97439442d837d0a8cda4136edc3616f2a', part: "base", class: {
+        return (h(Tag, { key: '95fe15ddaa8e032b7cd9f7ef68d7a7904775e7ee', part: "base", class: {
                 'checkbox': true,
                 'checkbox--is-required': this.required,
                 'checkbox--checked': this.checked,
@@ -309,7 +309,7 @@ const ScCheckbox = class {
                 'checkbox--focused': this.hasFocus,
                 'checkbox--indeterminate': this.indeterminate,
                 'checkbox--is-rtl': isRtl()
-            }, htmlFor: this.inputId, onMouseDown: () => this.handleLabelMouseDown() }, h("span", { key: 'ecd9c8541f7ee252d1a2e3224b109632680d3a15', part: "control", class: "checkbox__control" }, this.checked ? (h("span", { part: "checked-icon", class: "checkbox__icon" }, h("svg", { viewBox: "0 0 16 16" }, h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd", "stroke-linecap": "round" }, h("g", { stroke: "currentColor", "stroke-width": "2" }, h("g", { transform: "translate(3.428571, 3.428571)" }, h("path", { d: "M0,5.71428571 L3.42857143,9.14285714" }), h("path", { d: "M9.14285714,0 L3.42857143,9.14285714" }))))))) : (''), !this.checked && this.indeterminate ? (h("span", { part: "indeterminate-icon", class: "checkbox__icon" }, h("svg", { viewBox: "0 0 16 16" }, h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd", "stroke-linecap": "round" }, h("g", { stroke: "currentColor", "stroke-width": "2" }, h("g", { transform: "translate(2.285714, 6.857143)" }, h("path", { d: "M10.2857143,1.14285714 L1.14285714,1.14285714" }))))))) : (''), h("input", { key: '8bf943beb6241b829eea924acb3d9e6edef0f7c4', id: this.inputId, ref: el => (this.input = el), type: "checkbox", name: this.name, value: this.value, checked: this.checked, disabled: this.disabled, required: this.required, role: "checkbox", "aria-checked": this.checked ? 'true' : 'false', "aria-labelledby": this.labelId, onClick: () => this.handleClick(), onBlur: () => this.handleBlur(), onFocus: () => this.handleFocus() })), h("span", { key: 'c6dc0936a6c90ca0d416cf701ee8277a3045a1a2', part: "label", id: this.labelId, class: "checkbox__label" }, h("slot", { key: '78426ec19722b27768b493aba35ec99a82679d27' }))));
+            }, htmlFor: this.inputId, onMouseDown: () => this.handleLabelMouseDown() }, h("span", { key: 'b6cbf51f0b29134944298de88e6aab9acb855da1', part: "control", class: "checkbox__control" }, this.checked ? (h("span", { part: "checked-icon", class: "checkbox__icon" }, h("svg", { viewBox: "0 0 16 16" }, h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd", "stroke-linecap": "round" }, h("g", { stroke: "currentColor", "stroke-width": "2" }, h("g", { transform: "translate(3.428571, 3.428571)" }, h("path", { d: "M0,5.71428571 L3.42857143,9.14285714" }), h("path", { d: "M9.14285714,0 L3.42857143,9.14285714" }))))))) : (''), !this.checked && this.indeterminate ? (h("span", { part: "indeterminate-icon", class: "checkbox__icon" }, h("svg", { viewBox: "0 0 16 16" }, h("g", { stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd", "stroke-linecap": "round" }, h("g", { stroke: "currentColor", "stroke-width": "2" }, h("g", { transform: "translate(2.285714, 6.857143)" }, h("path", { d: "M10.2857143,1.14285714 L1.14285714,1.14285714" }))))))) : (''), h("input", { key: '9132a7cad1df4e1985e11f20c7067d8154e2b7c6', id: this.inputId, ref: el => (this.input = el), type: "checkbox", name: this.name, value: this.value, checked: this.checked, disabled: this.disabled, required: this.required, role: "checkbox", "aria-checked": this.checked ? 'true' : 'false', "aria-labelledby": this.labelId, onClick: () => this.handleClick(), onBlur: () => this.handleBlur(), onFocus: () => this.handleFocus() })), h("span", { key: '67b5a6f149ef03aaee4cba11b8c21218c979bc11', part: "label", id: this.labelId, class: "checkbox__label" }, h("slot", { key: 'c63656f7f6a308092fc48726b5f7675da51a2ab7' }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -391,7 +391,7 @@ const ScTaxIdInput = class {
     }
     render() {
         var _a, _b, _c, _d, _e;
-        return (h(Fragment, { key: '43a7cad8450579f6d5060c612c82f4c72893cbbf' }, h("sc-input", { key: '00ad99ba8390326c977bd3ea55c8cd0c396d827f', name: "tax_identifier.number_type", required: this.required, value: this.type, style: { display: 'none' } }), h("sc-input", { key: 'cc9bb4148eae72267fc0f649980ddbef95f43a98', ref: el => (this.input = el), label: this.getZoneLabel(), "aria-label": wp.i18n.__('Tax ID', 'surecart'), placeholder: wp.i18n.__('Enter Tax ID', 'surecart'), name: "tax_identifier.number", value: this.number, onScInput: (e) => {
+        return (h(Fragment, { key: '7a676950ce58a29b2d7bee09acb65edc7dec7b1d' }, h("sc-input", { key: '382f6f97d099d14938752e8e16e1000fec007107', name: "tax_identifier.number_type", required: this.required, value: this.type, style: { display: 'none' } }), h("sc-input", { key: '746afc6d0888895cd68678d44a6705206a942847', ref: el => (this.input = el), label: this.getZoneLabel(), "aria-label": wp.i18n.__('Tax ID', 'surecart'), placeholder: wp.i18n.__('Enter Tax ID', 'surecart'), name: "tax_identifier.number", value: this.number, onScInput: (e) => {
                 e.stopImmediatePropagation();
                 this.scInput.emit({
                     number: e.target.value,

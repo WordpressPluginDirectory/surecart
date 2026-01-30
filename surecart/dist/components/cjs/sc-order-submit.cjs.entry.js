@@ -3,13 +3,13 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-8acc3c89.js');
-const getters$2 = require('./getters-1dbd9ae9.js');
+const getters$2 = require('./getters-a5fb26bc.js');
 const getters = require('./getters-ae03ef93.js');
 const watchers = require('./watchers-2ad3abd1.js');
 const mutations = require('./mutations-10a18c83.js');
 const consumer = require('./consumer-9f4ee0e3.js');
 const getters$1 = require('./getters-87b7ef91.js');
-require('./address-e0c9b577.js');
+require('./address-258a7497.js');
 require('./add-query-args-49dcb630.js');
 require('./util-b877b2bd.js');
 require('./index-bcdafe6e.js');

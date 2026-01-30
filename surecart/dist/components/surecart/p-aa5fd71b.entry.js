@@ -1,0 +1,2 @@
+import{r as a,h as s,H as t}from"./p-e97fde0a.js";const o=":host{display:block}::slotted(*:not(:last-child)){margin-bottom:var(--spacing)}";const c=o;const r=class{constructor(s){a(this,s)}render(){return s(t,{key:"d2a2fa227fdb5095a9692432baa7d29f87924939"},s("slot",{key:"d087314463390d16e6b810793fa3953c776aab10"}))}};r.style=c;export{r as sc_spacing};
+//# sourceMappingURL=p-aa5fd71b.entry.js.map

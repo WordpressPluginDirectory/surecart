@@ -30,7 +30,7 @@ const ScPayment = class {
     componentWillLoad() {
         state.disabled = {
             ...state.disabled,
-            processors: this.disabledProcessorTypes
+            processors: this.disabledProcessorTypes,
         };
     }
     renderStripe(processor) {
@@ -60,7 +60,7 @@ const ScPayment = class {
         }
         const Tag = hasMultipleProcessorChoices() || (state$2 === null || state$2 === void 0 ? void 0 : state$2.id) === 'paypal' ? 'sc-toggles' : 'div';
         const mollie = getAvailableProcessor('mollie');
-        return (h(Host, null, h("sc-form-control", { label: this.label, exportparts: "label, help-text, form-control" }, h("div", { class: "sc-payment-label", slot: "label" }, h("div", null, this.label), state$1.mode === 'test' && !this.hideTestModeBadge && (h("sc-tag", { type: "warning", size: "small", exportparts: "base:test-badge__base, content:test-badge__content" }, wp.i18n.__('Test Mode', 'surecart')))), (mollie === null || mollie === void 0 ? void 0 : mollie.id) ? (h("sc-checkout-mollie-payment", { "processor-id": mollie === null || mollie === void 0 ? void 0 : mollie.id })) : (h(Tag, { collapsible: false, theme: "container" }, !((_b = availableProcessors()) === null || _b === void 0 ? void 0 : _b.length) && !((_c = availableManualPaymentMethods()) === null || _c === void 0 ? void 0 : _c.length) && (h("sc-alert", { type: "info", open: true }, ((_e = (_d = window === null || window === void 0 ? void 0 : window.scData) === null || _d === void 0 ? void 0 : _d.user_permissions) === null || _e === void 0 ? void 0 : _e.manage_sc_shop_settings) ? (h(Fragment, null, wp.i18n.__('You do not have any processors enabled for this mode and cart. ', 'surecart'), h("a", { href: addQueryArgs(`${(_f = window === null || window === void 0 ? void 0 : window.scData) === null || _f === void 0 ? void 0 : _f.admin_url}admin.php`, {
+        return (h(Host, null, h("sc-form-control", { label: this.label, exportparts: "label, help-text, form-control" }, h("div", { class: "sc-payment-label", slot: "label" }, h("div", null, this.label), h("slot", { name: "label-end" })), (mollie === null || mollie === void 0 ? void 0 : mollie.id) ? (h("sc-checkout-mollie-payment", { "processor-id": mollie === null || mollie === void 0 ? void 0 : mollie.id })) : (h(Tag, { collapsible: false, theme: "container" }, !((_b = availableProcessors()) === null || _b === void 0 ? void 0 : _b.length) && !((_c = availableManualPaymentMethods()) === null || _c === void 0 ? void 0 : _c.length) && (h("sc-alert", { type: "info", open: true }, ((_e = (_d = window === null || window === void 0 ? void 0 : window.scData) === null || _d === void 0 ? void 0 : _d.user_permissions) === null || _e === void 0 ? void 0 : _e.manage_sc_shop_settings) ? (h(Fragment, null, wp.i18n.__('You do not have any processors enabled for this mode and cart. ', 'surecart'), h("a", { href: addQueryArgs(`${(_f = window === null || window === void 0 ? void 0 : window.scData) === null || _f === void 0 ? void 0 : _f.admin_url}admin.php`, {
                 page: 'sc-settings',
                 tab: 'processors',
             }), style: { color: 'var(--sc-color-gray-700)' } }, wp.i18n.__('Please configure your processors', 'surecart')), ".")) : (wp.i18n.__('Please contact us for payment.', 'surecart')))), (availableProcessors() || []).map(processor => {
