@@ -218,6 +218,7 @@ const ScFormComponentsValidator = class {
         this.hasInvoiceDetails = undefined;
         this.hasInvoiceMemo = undefined;
         this.hasTrialLineItem = undefined;
+        this.hasCustomerPhone = undefined;
     }
     handleOrderChange() {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j;
@@ -268,9 +269,14 @@ const ScFormComponentsValidator = class {
         this.hasInvoiceDetails = !!this.el.querySelector('sc-invoice-details');
         this.hasInvoiceMemo = !!this.el.querySelector('sc-invoice-memo');
         this.hasTrialLineItem = !!this.el.querySelector('sc-line-item-trial');
+        this.hasCustomerPhone = !!this.el.querySelector('sc-customer-phone');
         // if eu vat is required, add the tax id field.
         if (((_a = this.taxProtocol) === null || _a === void 0 ? void 0 : _a.tax_enabled) && ((_b = this.taxProtocol) === null || _b === void 0 ? void 0 : _b.eu_vat_required)) {
             this.addTaxIDField();
+        }
+        // if razorpay is available, add the customer phone field.
+        if (getters$1.getAvailableProcessor('razorpay')) {
+            this.addCustomerPhone();
         }
         this.handleOrderChange();
         this.removeCheckoutListener = mutations.onChange('checkout', () => this.handleOrderChange());
@@ -336,6 +342,18 @@ const ScFormComponentsValidator = class {
         const taxInput = document.createElement('sc-order-tax-id-input');
         payment.parentNode.insertBefore(taxInput, payment);
         this.hasTaxIDField = true;
+    }
+    addCustomerPhone() {
+        if (this.hasCustomerPhone)
+            return;
+        const payment = this.el.querySelector('sc-payment');
+        if (!payment)
+            return;
+        const customerPhone = document.createElement('sc-customer-phone');
+        customerPhone.label = wp.i18n.__('Phone', 'surecart');
+        customerPhone.required = true;
+        payment.parentNode.insertBefore(customerPhone, payment);
+        this.hasCustomerPhone = true;
     }
     addBumps() {
         if (this.hasBumpsField)
@@ -428,7 +446,7 @@ const ScFormComponentsValidator = class {
         this.hasTrialLineItem = true;
     }
     render() {
-        return index.h("slot", { key: 'f82228bd71a4252d2f2b7d857633524dda436229' });
+        return index.h("slot", { key: '099e75171b953f9a65b3c111ad043b2acbe6d58a' });
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {

@@ -11,6 +11,7 @@ const ScSubscriptionAdHocConfirm = class {
         registerInstance(this, hostRef);
         this.heading = undefined;
         this.price = undefined;
+        this.currencyCode = undefined;
         this.busy = false;
     }
     async handleSubmit(e) {
@@ -22,7 +23,7 @@ const ScSubscriptionAdHocConfirm = class {
         }));
     }
     render() {
-        return (h("sc-dashboard-module", { key: '32e8c6be4af146b63d425d602eac48f07668e10e', heading: this.heading || wp.i18n.__('Enter An Amount', 'surecart'), class: "subscription-switch" }, h("sc-card", { key: '2f64c708ce6a28ea424b4249a49ee120aaa5d91f' }, h("sc-form", { key: 'c4e9286bfe8bb007acd9aceb10f743a47815fb8c', onScSubmit: e => this.handleSubmit(e) }, h("sc-price-input", { key: 'f233141f3077ebefbac95d7a8c5d2a757198cad2', label: "Amount", name: "ad_hoc_amount", autofocus: true, required: true }, h("span", { key: '8fae917f4487547cfea3c3b4a4ffee2095dad1ea', slot: "suffix", style: { opacity: '0.75' } }, intervalString(this.price))), h("sc-button", { key: '2ea768fec371d0f5d81c82ea797df35deeff2bf7', type: "primary", full: true, submit: true, loading: this.busy }, wp.i18n.__('Next', 'surecart'), " ", h("sc-icon", { key: '8111a2e4cb64316027d486ff99a1dae6d47444b2', name: "arrow-right", slot: "suffix" })))), this.busy && h("sc-block-ui", { key: '8ff9e6934238daa04e9f02c45740b9b1add68073', style: { zIndex: '9' } })));
+        return (h("sc-dashboard-module", { key: '51ca290dd886772effeca7841cc97d4bcbd7e424', heading: this.heading || wp.i18n.__('Enter An Amount', 'surecart'), class: "subscription-switch" }, h("sc-card", { key: '1683e69007e4c5f43ef4bfcdf4e057881d727e75' }, h("sc-form", { key: 'a504914cb231d522e2c44d82d73b48f5302867e3', onScSubmit: e => this.handleSubmit(e) }, h("sc-price-input", { key: '7ed288d92779ba07458f59d1c3070a437d9c4e68', label: "Amount", name: "ad_hoc_amount", currencyCode: this.currencyCode, autofocus: true, required: true }, h("span", { key: 'f95a3af0f428d943eab306134ac26e016721f665', slot: "suffix", style: { opacity: '0.75' } }, intervalString(this.price))), h("sc-button", { key: 'fbdf3c8845ca5d1febbc49461947c59fd2a61cdd', type: "primary", full: true, submit: true, loading: this.busy }, wp.i18n.__('Next', 'surecart'), " ", h("sc-icon", { key: '050d76862a1b972997bd9dfeb6122a9094149bfe', name: "arrow-right", slot: "suffix" })))), this.busy && h("sc-block-ui", { key: '64ae11019d7add7539ad51dce5faf4259e8fd816', style: { zIndex: '9' } })));
     }
 };
 ScSubscriptionAdHocConfirm.style = ScSubscriptionAdHocConfirmStyle0;

@@ -12,7 +12,7 @@ const ScVisuallyHidden = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return index.h("slot", { key: 'f335ab27c2b502e3a17a0a820b49d932e069d007' });
+        return index.h("slot", { key: 'c936259b18d6a63ba5619be2858ea25e4edb0b50' });
     }
 };
 ScVisuallyHidden.style = ScVisuallyHiddenStyle0;

@@ -3,7 +3,7 @@ import { s as state, o as onChange, u as updateFormState } from './mutations-6bb
 import { d as updateCheckout, e as expand, f as finalizeCheckout, g as fetchCheckout, h as createCheckout, c as createOrUpdateCheckout } from './index-a7f5e198.js';
 import { c as currentFormState } from './getters-487612aa.js';
 import './watchers-cee9e5e9.js';
-import { s as state$1 } from './getters-b5084f91.js';
+import { s as state$1, e as getAvailableProcessor } from './getters-b5084f91.js';
 import { s as state$2 } from './watchers-38693c1f.js';
 import { c as clearCheckout } from './mutations-404760eb.js';
 import { s as shippingAddressRequired, f as fullShippingAddressRequired } from './getters-5eb19bdc.js';
@@ -214,6 +214,7 @@ const ScFormComponentsValidator = class {
         this.hasInvoiceDetails = undefined;
         this.hasInvoiceMemo = undefined;
         this.hasTrialLineItem = undefined;
+        this.hasCustomerPhone = undefined;
     }
     handleOrderChange() {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j;
@@ -264,9 +265,14 @@ const ScFormComponentsValidator = class {
         this.hasInvoiceDetails = !!this.el.querySelector('sc-invoice-details');
         this.hasInvoiceMemo = !!this.el.querySelector('sc-invoice-memo');
         this.hasTrialLineItem = !!this.el.querySelector('sc-line-item-trial');
+        this.hasCustomerPhone = !!this.el.querySelector('sc-customer-phone');
         // if eu vat is required, add the tax id field.
         if (((_a = this.taxProtocol) === null || _a === void 0 ? void 0 : _a.tax_enabled) && ((_b = this.taxProtocol) === null || _b === void 0 ? void 0 : _b.eu_vat_required)) {
             this.addTaxIDField();
+        }
+        // if razorpay is available, add the customer phone field.
+        if (getAvailableProcessor('razorpay')) {
+            this.addCustomerPhone();
         }
         this.handleOrderChange();
         this.removeCheckoutListener = onChange('checkout', () => this.handleOrderChange());
@@ -332,6 +338,18 @@ const ScFormComponentsValidator = class {
         const taxInput = document.createElement('sc-order-tax-id-input');
         payment.parentNode.insertBefore(taxInput, payment);
         this.hasTaxIDField = true;
+    }
+    addCustomerPhone() {
+        if (this.hasCustomerPhone)
+            return;
+        const payment = this.el.querySelector('sc-payment');
+        if (!payment)
+            return;
+        const customerPhone = document.createElement('sc-customer-phone');
+        customerPhone.label = wp.i18n.__('Phone', 'surecart');
+        customerPhone.required = true;
+        payment.parentNode.insertBefore(customerPhone, payment);
+        this.hasCustomerPhone = true;
     }
     addBumps() {
         if (this.hasBumpsField)
@@ -424,7 +442,7 @@ const ScFormComponentsValidator = class {
         this.hasTrialLineItem = true;
     }
     render() {
-        return h("slot", { key: 'f82228bd71a4252d2f2b7d857633524dda436229' });
+        return h("slot", { key: '099e75171b953f9a65b3c111ad043b2acbe6d58a' });
     }
     get el() { return getElement(this); }
     static get watchers() { return {

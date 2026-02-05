@@ -384,12 +384,12 @@ const ScTextarea = class {
     }
     render() {
         var _a;
-        return (h("div", { key: '2fbd95cd6912a0c0104d2aa9d3817a5091f26fd4', part: "form-control", class: {
+        return (h("div", { key: 'b94cb75a2c4c6b1c6aae653e55ef17c3a4f9eabf', part: "form-control", class: {
                 'form-control': true,
                 'form-control--small': this.size === 'small',
                 'form-control--medium': this.size === 'medium',
                 'form-control--large': this.size === 'large',
-            } }, h("sc-form-control", { key: 'b27fc2c98be5a8ba76cc696fbcba9c2da33cf3e0', exportparts: "label, help-text, form-control", size: this.size, required: this.required, label: this.label, showLabel: this.showLabel, help: this.help, inputId: this.inputId, helpId: this.helpId, labelId: this.labelId, name: this.name }, h("div", { key: '7e786835f7137c17f1e6021ddcdc29d8da63adcc', part: "form-control-input", class: "form-control-input" }, h("div", { key: '470f49ae20d477e63a51565365b3ab024e612b91', part: "base", class: {
+            } }, h("sc-form-control", { key: '4d824ed69e6c3e8c15677102bffd2a0b2efa7137', exportparts: "label, help-text, form-control", size: this.size, required: this.required, label: this.label, showLabel: this.showLabel, help: this.help, inputId: this.inputId, helpId: this.helpId, labelId: this.labelId, name: this.name }, h("div", { key: '577ab4b479af00b1bea53a71207c9f43979bdab0', part: "form-control-input", class: "form-control-input" }, h("div", { key: 'ac2725150c4551c29a0062ab95e34a406458e185', part: "base", class: {
                 'textarea': true,
                 'textarea--small': this.size === 'small',
                 'textarea--medium': this.size === 'medium',
@@ -403,7 +403,7 @@ const ScTextarea = class {
                 'textarea--resize-none': this.resize === 'none',
                 'textarea--resize-vertical': this.resize === 'vertical',
                 'textarea--resize-auto': this.resize === 'auto',
-            } }, h("textarea", { key: '9d0abdeb05d27d76c3c333972286297ae5d31238', part: "textarea", ref: el => (this.input = el), id: "input", class: "textarea__control", name: this.name, value: this.value, disabled: this.disabled, readonly: this.readonly, required: this.required, placeholder: this.placeholder, rows: this.rows, minlength: this.minlength, maxlength: this.maxlength, autocapitalize: this.autocapitalize, autocorrect: this.autocorrect, autofocus: this.autofocus, spellcheck: this.spellcheck, enterkeyhint: this.enterkeyhint, inputmode: this.inputmode, "aria-describedby": "help-text", onChange: () => this.handleChange(), onInput: () => this.handleInput(), onFocus: () => this.handleFocus(), onBlur: () => this.handleBlur(), onKeyDown: (e) => e.stopPropagation() })), this.showCharLimit && (h("div", { key: 'c46c09a365f2840c16cdbc586644b2c5a02faa85', slot: "help", class: 'textarea__char-limit-warning' }, wp.i18n.sprintf(wp.i18n.__('%d characters remaining', 'surecart'), this.maxlength && ((_a = this.input) === null || _a === void 0 ? void 0 : _a.value) ? this.maxlength - this.input.value.length : this.maxlength)))))));
+            } }, h("textarea", { key: 'c459f3c4a97b446206e6dcb2417a778f58764e71', part: "textarea", ref: el => (this.input = el), id: "input", class: "textarea__control", name: this.name, value: this.value, disabled: this.disabled, readonly: this.readonly, required: this.required, placeholder: this.placeholder, rows: this.rows, minlength: this.minlength, maxlength: this.maxlength, autocapitalize: this.autocapitalize, autocorrect: this.autocorrect, autofocus: this.autofocus, spellcheck: this.spellcheck, enterkeyhint: this.enterkeyhint, inputmode: this.inputmode, "aria-describedby": "help-text", onChange: () => this.handleChange(), onInput: () => this.handleInput(), onFocus: () => this.handleFocus(), onBlur: () => this.handleBlur(), onKeyDown: (e) => e.stopPropagation() })), this.showCharLimit && (h("div", { key: '94f0922f5d9ac65c7961f9badff88ee239253485', slot: "help", class: 'textarea__char-limit-warning' }, wp.i18n.sprintf(wp.i18n.__('%d characters remaining', 'surecart'), this.maxlength && ((_a = this.input) === null || _a === void 0 ? void 0 : _a.value) ? this.maxlength - this.input.value.length : this.maxlength)))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {

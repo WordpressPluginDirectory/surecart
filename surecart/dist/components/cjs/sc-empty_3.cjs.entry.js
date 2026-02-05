@@ -27,7 +27,7 @@ const ScStackedList = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return index.h("slot", { key: '223839c66a6ffaa34e4e0710ad1eb6f3563b6718' });
+        return index.h("slot", { key: '71cb80a01bcaf54dd736c80dacc6dc678d4ad53d' });
     }
 };
 ScStackedList.style = ScStackedListStyle0;
@@ -62,13 +62,13 @@ const ScStackedListRow = class {
     }
     render() {
         const Tag = this.href ? 'a' : 'div';
-        return (index.h(Tag, { key: '94418988b0d87b837047b4eb6e8d1b9519ceca1d', href: this.href, target: this.target, part: "base", class: {
+        return (index.h(Tag, { key: '3f03a07f2e09e8039b1c16aeb4fd2cd242a2840c', href: this.href, target: this.target, part: "base", class: {
                 'list-row': true,
                 'list-row--has-prefix': this.hasPrefix,
                 'list-row--has-suffix': this.hasSuffix,
                 'breakpoint-lg': this.width >= this.mobileSize,
                 'list-row--is-rtl': pageAlign.isRtl()
-            } }, index.h("span", { key: '14487aaa8d407f624e6e829945efaf7fd5a8087a', class: "list-row__prefix" }, index.h("slot", { key: 'e79a0ca2398f52f881a7dad9a5e59920dacf2b13', name: "prefix", onSlotchange: () => this.handleSlotChange() })), index.h("slot", { key: '5733ceeb393e8d7ede1a55ab1652f33349990b6e', onSlotchange: () => this.handleSlotChange() }), index.h("span", { key: '807e23478615d5d66f0c966426f843085bcbaba7', class: "list-row__suffix" }, index.h("slot", { key: 'e21d059ee630cd9a1019bfbfae5df92e55214fab', name: "suffix", onSlotchange: () => this.handleSlotChange() }))));
+            } }, index.h("span", { key: 'd881a96e60c4b1388a4e83514e4ed6608d86e72b', class: "list-row__prefix" }, index.h("slot", { key: 'dbd1e724a736ca0e2a4e0f445a96885dbe7d9fd4', name: "prefix", onSlotchange: () => this.handleSlotChange() })), index.h("slot", { key: 'e9f3c586349cd04520a8e3e190888280c21c8b0f', onSlotchange: () => this.handleSlotChange() }), index.h("span", { key: 'da9171c3c3b01bd135314fe23bb3f6d86ce9c8e9', class: "list-row__suffix" }, index.h("slot", { key: '7de0e52ac4950909eae59e15ba85d7066fbd2d28', name: "suffix", onSlotchange: () => this.handleSlotChange() }))));
     }
     get el() { return index.getElement(this); }
 };

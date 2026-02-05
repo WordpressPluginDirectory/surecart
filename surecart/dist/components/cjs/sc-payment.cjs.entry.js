@@ -56,6 +56,14 @@ const ScPayment = class {
         }
         return (index.h("sc-payment-method-choice", { key: processor === null || processor === void 0 ? void 0 : processor.id, "processor-id": "paystack" }, index.h("span", { slot: "summary", class: "sc-payment-toggle-summary" }, index.h("sc-icon", { name: "credit-card", style: { fontSize: '24px' }, "aria-hidden": "true" }), index.h("span", null, title)), index.h("sc-card", null, index.h("sc-payment-selected", { label: wp.i18n.__('Credit Card selected for check out.', 'surecart') }, index.h("sc-icon", { slot: "icon", name: "credit-card", "aria-hidden": "true" }), wp.i18n.__('Another step will appear after submitting your order to complete your purchase details.', 'surecart'))), index.h("sc-checkout-paystack-payment-provider", null)));
     }
+    renderRazorpay(processor) {
+        var _a, _b;
+        // if system currency is not in the supported currency list, then stop.
+        if (!((_a = processor === null || processor === void 0 ? void 0 : processor.supported_currencies) !== null && _a !== void 0 ? _a : []).includes((_b = window === null || window === void 0 ? void 0 : window.scData) === null || _b === void 0 ? void 0 : _b.currency)) {
+            return;
+        }
+        return (index.h("sc-payment-method-choice", { key: processor === null || processor === void 0 ? void 0 : processor.id, "processor-id": "razorpay" }, index.h("span", { slot: "summary", class: "sc-payment-toggle-summary" }, index.h("sc-icon", { name: "razorpay", style: { fontSize: '24px' }, "aria-hidden": "true" }), index.h("span", null, wp.i18n.__('Cards, Netbanking, Wallet & UPI', 'surecart'))), index.h("sc-card", null, index.h("sc-payment-selected", { label: wp.i18n.__('Credit Card selected for check out.', 'surecart') }, index.h("sc-icon", { slot: "icon", name: "credit-card", "aria-hidden": "true" }), wp.i18n.__('Another step will appear after submitting your order to complete your purchase details.', 'surecart'))), index.h("sc-checkout-razorpay-payment-provider", null)));
+    }
     render() {
         var _a, _b, _c, _d, _e, _f;
         // payment is not required for this order.
@@ -75,6 +83,8 @@ const ScPayment = class {
                     return this.renderPayPal(processor);
                 case 'paystack':
                     return this.renderPaystack(processor);
+                case 'razorpay':
+                    return this.renderRazorpay(processor);
                 case 'mock':
                     return this.renderMock(processor);
             }
