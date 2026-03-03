@@ -72,10 +72,12 @@
   "style": [
     "file:./style-index.css",
     "surecart-drawer",
-    "surecart-block-ui"
+    "surecart-block-ui",
+    "wp-a11y"
   ],
   "render": "file:./view.php",
   "viewScriptModule": [
-    "@surecart/sidebar"
+    "@surecart/sidebar",
+    "wp-a11y"
   ]
 }

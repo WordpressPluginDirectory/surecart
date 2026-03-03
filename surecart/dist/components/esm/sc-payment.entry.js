@@ -1,8 +1,8 @@
 import { r as registerInstance, h, F as Fragment, H as Host, a as getElement } from './index-745b6bec.js';
 import { s as state$1 } from './mutations-6bbbe793.js';
-import './watchers-cee9e5e9.js';
+import './watchers-8bf2246f.js';
 import { s as state, h as hasOtherAvailableCreditCardProcessor, d as hasMultipleProcessorChoices, e as getAvailableProcessor, a as availableProcessors, b as availableManualPaymentMethods } from './getters-b5084f91.js';
-import { s as state$2 } from './watchers-38693c1f.js';
+import { s as state$2 } from './watchers-86705798.js';
 import { M as ManualPaymentMethods, a as MockProcessor } from './MockProcessor-498b60c5.js';
 import { a as addQueryArgs } from './add-query-args-0e2a8393.js';
 import './index-06061d4e.js';
@@ -58,7 +58,7 @@ const ScPayment = class {
         if (!((_a = processor === null || processor === void 0 ? void 0 : processor.supported_currencies) !== null && _a !== void 0 ? _a : []).includes((_b = window === null || window === void 0 ? void 0 : window.scData) === null || _b === void 0 ? void 0 : _b.currency)) {
             return;
         }
-        return (h("sc-payment-method-choice", { key: processor === null || processor === void 0 ? void 0 : processor.id, "processor-id": "razorpay" }, h("span", { slot: "summary", class: "sc-payment-toggle-summary" }, h("sc-icon", { name: "razorpay", style: { fontSize: '24px' }, "aria-hidden": "true" }), h("span", null, wp.i18n.__('Cards, Netbanking, Wallet & UPI', 'surecart'))), h("sc-card", null, h("sc-payment-selected", { label: wp.i18n.__('Credit Card selected for check out.', 'surecart') }, h("sc-icon", { slot: "icon", name: "credit-card", "aria-hidden": "true" }), wp.i18n.__('Another step will appear after submitting your order to complete your purchase details.', 'surecart'))), h("sc-checkout-razorpay-payment-provider", null)));
+        return (h("sc-payment-method-choice", { key: processor === null || processor === void 0 ? void 0 : processor.id, "processor-id": "razorpay" }, h("span", { slot: "summary", class: "sc-payment-toggle-summary" }, h("sc-icon", { name: "razorpay", style: { fontSize: '24px' }, "aria-hidden": "true" }), h("span", null, wp.i18n.__('Cards, Netbanking, Wallet & UPI', 'surecart'))), h("sc-card", null, h("sc-payment-selected", { label: wp.i18n.__('Cards, Netbanking, Wallet & UPI selected for check out.', 'surecart') }, h("sc-icon", { slot: "icon", name: "razorpay", "aria-hidden": "true" }), wp.i18n.__('Another step will appear after submitting your order to complete your purchase details.', 'surecart'))), h("sc-checkout-razorpay-payment-provider", null)));
     }
     render() {
         var _a, _b, _c, _d, _e, _f;
