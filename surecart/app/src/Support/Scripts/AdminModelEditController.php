@@ -105,7 +105,7 @@ abstract class AdminModelEditController {
 		// enqueue dependencies.
 		$this->enqueueScriptDependencies();
 
-		// fix shitty jetpack issues key hijacking issues.
+		// Fix Jetpack script key hijacking issues.
 		add_filter(
 			'admin_head',
 			function () {
@@ -130,21 +130,22 @@ abstract class AdminModelEditController {
 		);
 
 		// pass app url.
-		$this->data['upgrade_url']          = \SureCart::config()->links->purchase;
-		$this->data['surecart_app_url']     = defined( 'SURECART_APP_URL' ) ? SURECART_APP_URL : '';
-		$this->data['account_id']           = \SureCart::account()->id ?? '';
-		$this->data['account_slug']         = \SureCart::account()->slug ?? '';
-		$this->data['api_url']              = \SureCart::requests()->getBaseUrl();
-		$this->data['plugin_url']           = \SureCart::core()->assets()->getUrl();
-		$this->data['locale']               = str_replace( '_', '-', get_locale() );
-		$this->data['root_url']             = esc_url_raw( get_rest_url() );
-		$this->data['home_url']             = untrailingslashit( get_home_url() );
-		$this->data['buy_page_slug']        = untrailingslashit( \SureCart::settings()->permalinks()->getBase( 'buy_page' ) );
-		$this->data['product_page_slug']    = untrailingslashit( \SureCart::settings()->permalinks()->getBase( 'product_page' ) );
-		$this->data['collection_page_slug'] = untrailingslashit( \SureCart::settings()->permalinks()->getBase( 'collection_page' ) );
-		$this->data['is_block_theme']       = \SureCart::utility()->blockTemplates()->isFSETheme();
-		$this->data['claim_url']            = ! \SureCart::account()->claimed ? \SureCart::routeUrl( 'account.claim' ) : '';
-		$this->data['claim_expired']        = \SureCart::account()->claim_expired ?? false;
+		$this->data['upgrade_url']           = \SureCart::config()->links->purchase;
+		$this->data['surecart_app_url']      = defined( 'SURECART_APP_URL' ) ? SURECART_APP_URL : '';
+		$this->data['account_id']            = \SureCart::account()->id ?? '';
+		$this->data['account_slug']          = \SureCart::account()->slug ?? '';
+		$this->data['api_url']               = \SureCart::requests()->getBaseUrl();
+		$this->data['plugin_url']            = \SureCart::core()->assets()->getUrl();
+		$this->data['locale']                = str_replace( '_', '-', get_locale() );
+		$this->data['root_url']              = esc_url_raw( get_rest_url() );
+		$this->data['home_url']              = untrailingslashit( get_home_url() );
+		$this->data['buy_page_slug']         = untrailingslashit( \SureCart::settings()->permalinks()->getBase( 'buy_page' ) );
+		$this->data['product_page_slug']     = untrailingslashit( \SureCart::settings()->permalinks()->getBase( 'product_page' ) );
+		$this->data['collection_page_slug']  = untrailingslashit( \SureCart::settings()->permalinks()->getBase( 'collection_page' ) );
+		$this->data['is_block_theme']        = \SureCart::utility()->blockTemplates()->isFSETheme();
+		$this->data['claim_url']             = ! \SureCart::account()->claimed ? \SureCart::routeUrl( 'account.claim' ) : '';
+		$this->data['claim_expired']         = \SureCart::account()->claim_expired ?? false;
+		$this->data['is_woocommerce_active'] = class_exists( 'WooCommerce' );
 
 		if ( in_array( 'currency', $this->with_data ) ) {
 			$this->data['currency_code'] = \SureCart::account()->currency;
@@ -170,10 +171,13 @@ abstract class AdminModelEditController {
 				$this->data['links'][ $name ] = esc_url_raw( add_query_arg( [ 'action' => 'edit' ], \SureCart::getUrl()->index( $name ) ) );
 			}
 		}
+		if ( in_array( 'google_map_api_key', $this->with_data ) ) {
+			$this->data['google_map_api_key'] = \SureCart::googleMaps()->getApiKey();
+		}
 
 		// pass entitlements to page.
 		$this->data['entitlements'] = \SureCart::account()->entitlements;
-		$this->data['get_locale']   = str_replace( '_', '-', get_locale() );
+		$this->data['get_locale']   = str_replace( '_', '-', determine_locale() );
 
 		// pass wp user roles to page.
 		$this->data['wp_user_roles'] = get_editable_roles();

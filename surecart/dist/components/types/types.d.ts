@@ -79,6 +79,7 @@ declare global {
             user_permissions: {
                 manage_sc_shop_settings: boolean;
             };
+            google_map_api_key: string;
             current_user_roles: string[];
         };
         ceRegisterIconLibrary: any;
@@ -359,6 +360,14 @@ export interface Variant {
     product: string | Product;
     sku?: string | null;
     display_amount?: string;
+    has_unlimited_stock?: boolean | null;
+    downloads_enabled?: boolean | null;
+    current_release_download?: string | Download | null;
+    downloads?: {
+        object: 'list';
+        pagination: Pagination;
+        data: Array<Download>;
+    };
     created_at: number;
     updated_at: number;
 }
@@ -418,9 +427,11 @@ export interface Product extends Object {
     };
     stock_enabled: boolean;
     allow_out_of_stock_purchases: boolean;
+    has_unlimited_stock: boolean;
     stock: number;
     available_stock: number;
     held_stock: number;
+    review_url?: string;
     created_at: number;
     updated_at: number;
 }
@@ -928,6 +939,7 @@ export interface Purchase {
     line_item: string | LineItem;
     order: string | Order;
     product: string | Product;
+    variant?: string | Variant;
     refund: string | Refund;
     subscription: string | Subscription;
     license: string | License;
@@ -1206,13 +1218,33 @@ export interface Customer extends Object {
     updated_at: number;
 }
 export interface Address extends Object {
-    name?: string;
-    line_1?: string;
-    line_2?: string;
-    city?: string;
-    state?: string;
-    postal_code?: string;
-    country?: string;
+    name?: string | null;
+    line_1?: string | null;
+    line_2?: string | null;
+    city?: string | null;
+    state?: string | null;
+    postal_code?: string | null;
+    country?: string | null;
+}
+export interface GoogleMapAddressComponents extends Object {
+    languageCode: string;
+    longText: string;
+    shortText: string;
+    types: string[];
+}
+export interface GoogleMapPlace extends Object {
+    id?: string;
+    displayName: {
+        languageCode: string;
+        text: string;
+    };
+    addressComponents: Array<GoogleMapAddressComponents>;
+}
+export interface AddressSuggestion extends Object {
+    displayName: string;
+    fullDisplayName: string;
+    placeId: string;
+    addressComponents?: GoogleMapAddressComponents[];
 }
 export interface Fulfillment {
     id: string;
@@ -1253,7 +1285,7 @@ export type TaxZone = {
 export type TaxZones = {
     [key in 'ca_gst' | 'au_abn' | 'gb_vat' | 'eu_vat' | 'other']: TaxZone;
 };
-export type RuleName = 'total' | 'coupons' | 'products' | 'shipping_country' | 'billing_country' | 'processors';
+export type RuleName = 'total' | 'coupons' | 'products' | 'prices' | 'shipping_country' | 'billing_country' | 'processors';
 export type ArrayOperators = 'all' | 'any' | 'none' | 'exist' | 'not_exist';
 export type NumberOperators = '==' | '!=' | '<' | '>' | '<=' | '>=';
 export interface RuleGroup {

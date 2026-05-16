@@ -1,17 +1,18 @@
 import { r as registerInstance, h, H as Host } from './index-745b6bec.js';
-import { g as getProcessorByType } from './getters-b5084f91.js';
-import { f as formBusy } from './getters-487612aa.js';
+import { g as getProcessorByType } from './getters-680a7848.js';
+import { f as formBusy } from './getters-2e8ab64f.js';
 import './util-50af2a83.js';
 import './index-06061d4e.js';
-import './utils-cd1431df.js';
-import './mutations-6bbbe793.js';
+import './utils-f84b2118.js';
+import './mutations-bf2ff1cb.js';
 import './remove-query-args-938c53ea.js';
 import './add-query-args-0e2a8393.js';
 import './index-c5a96d53.js';
 import './google-a86aa761.js';
 import './currency-a0c9bff4.js';
-import './store-627acec4.js';
-import './price-af9f0dbf.js';
+import './store-7766e96f.js';
+import './price-1ff6aa07.js';
+import './watchers-86705798.js';
 
 const scExpressPaymentCss = "sc-express-payment{display:block}";
 const ScExpressPaymentStyle0 = scExpressPaymentCss;

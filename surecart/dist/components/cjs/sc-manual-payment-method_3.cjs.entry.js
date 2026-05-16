@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-8acc3c89.js');
+const razorpay = require('./razorpay-88fe8897.js');
 
 const scManualPaymentMethodCss = ":host {\n  display: block;\n}\n\n.manual-payment-method {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: var(--sc-spacing-x-small);\n  flex-wrap: wrap;\n\n  &__title {\n    font-weight: var(--sc-font-weight-bold);\n    color: var(--sc-primary-color-900);\n  }\n\n  &__description {\n    color: var(--sc-primary-color-600);\n  }\n}\n";
 const ScManualPaymentMethodStyle0 = scManualPaymentMethodCss;
@@ -15,7 +16,7 @@ const ScManualPaymentMethod = class {
     }
     render() {
         var _a, _b;
-        return (index.h("div", { key: '0dcfde285b90d8f922c9da77242f35e1747e511a', class: "manual-payment-method", part: "card" }, index.h("div", { key: '5eeff7a1539d59ce63593242ed73ba03e2c26deb', class: "payment-method__title" }, (_a = this.paymentMethod) === null || _a === void 0 ? void 0 : _a.name), this.showDescription && index.h("sc-prose", { key: '16d708912b6121ead63e2e66ddf866ef0aa26fda', class: "payment-method__description", innerHTML: (_b = this.paymentMethod) === null || _b === void 0 ? void 0 : _b.description })));
+        return (index.h("div", { key: '29d11bf202b428636775e16bb34feb6cdb8e51f0', class: "manual-payment-method", part: "card" }, index.h("div", { key: 'b71e571a9b34aeb51e35da434fff3ebde7e28c80', class: "payment-method__title" }, (_a = this.paymentMethod) === null || _a === void 0 ? void 0 : _a.name), this.showDescription && index.h("sc-prose", { key: '107824c1b4dc610a70b66f5cf7d334737bc7ad2d', class: "payment-method__description", innerHTML: (_b = this.paymentMethod) === null || _b === void 0 ? void 0 : _b.description })));
     }
 };
 ScManualPaymentMethod.style = ScManualPaymentMethodStyle0;
@@ -52,10 +53,15 @@ const ScPaymentMethod = class {
         if ((_e = (_d = this === null || this === void 0 ? void 0 : this.paymentMethod) === null || _d === void 0 ? void 0 : _d.payment_instrument) === null || _e === void 0 ? void 0 : _e.instrument_type) {
             const type = (_g = (_f = this === null || this === void 0 ? void 0 : this.paymentMethod) === null || _f === void 0 ? void 0 : _f.payment_instrument) === null || _g === void 0 ? void 0 : _g.instrument_type;
             if (!!((_h = this === null || this === void 0 ? void 0 : this.paymentMethod) === null || _h === void 0 ? void 0 : _h.payment_method_name)) {
-                return (index.h("div", { class: "payment-method", part: "instrument" }, index.h("div", { class: "payment-method-icon" }, index.h("sc-icon", { style: { fontSize: '36px', '--height': '0.63em' }, name: type })), index.h("span", null, (_j = this === null || this === void 0 ? void 0 : this.paymentMethod) === null || _j === void 0 ? void 0 : _j.payment_method_name), this.renderExternalLink()));
+                return (index.h("div", { class: "payment-method", part: "instrument" }, index.h("div", { class: "payment-method-icon" }, index.h("sc-icon", { style: { 'fontSize': '36px', '--height': '0.63em' }, name: type })), index.h("span", null, (_j = this === null || this === void 0 ? void 0 : this.paymentMethod) === null || _j === void 0 ? void 0 : _j.payment_method_name), this.renderExternalLink()));
             }
             if (type === 'paypal') {
                 return (index.h("div", { class: "payment-method", part: "instrument" }, index.h("sc-icon", { style: { fontSize: '56px', lineHeight: '1', height: '28px' }, name: "paypal" })));
+            }
+            // Razorpay method types — explicit label/icon so acronyms stay uppercase ("UPI", not "Upi").
+            const razorpayLabel = razorpay.getRazorpayMethodLabel(type);
+            if (razorpayLabel) {
+                return (index.h("div", { class: "payment-method", part: "instrument" }, index.h("sc-icon", { style: { fontSize: '24px' }, name: razorpay.getRazorpayMethodIcon(type), "aria-hidden": "true" }), index.h("span", null, razorpayLabel), this.renderExternalLink()));
             }
             return (index.h("div", { class: "payment-method", part: "instrument" }, index.h("sc-tag", { exportparts: "base:payment_instrument", type: "info", pill: true }, index.h("span", { style: { textTransform: 'capitalize' } }, type, " ")), this.renderExternalLink()));
         }
@@ -79,7 +85,7 @@ const ScProse = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return (index.h(index.Host, { key: 'af56f2b4925036e9ec6587d02567d79b45e56163' }, index.h("slot", { key: '612d8214f1d71eed316d9a959d961c12f6bf5189' })));
+        return (index.h(index.Host, { key: 'fc09f2a70a88fba941d700198eb5ce2f2bd910f6' }, index.h("slot", { key: '81a882616b35d4a76ee874ad42fda591d78e25c0' })));
     }
 };
 ScProse.style = ScProseStyle0;

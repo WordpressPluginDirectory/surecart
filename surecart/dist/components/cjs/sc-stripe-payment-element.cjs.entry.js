@@ -5,23 +5,23 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const index = require('./index-8acc3c89.js');
 const pure = require('./pure-bd6f0a6e.js');
 const watchers = require('./watchers-b4c5fc51.js');
-const mutations = require('./mutations-10a18c83.js');
-const store = require('./store-4a539aea.js');
-require('./watchers-6d49f403.js');
-const getters = require('./getters-ae03ef93.js');
-const getters$1 = require('./getters-87b7ef91.js');
+const mutations = require('./mutations-c848334c.js');
+const store = require('./store-b57d9911.js');
+require('./watchers-785ff95c.js');
+const getters = require('./getters-ee413912.js');
+const getters$1 = require('./getters-028b3c54.js');
 const mutations$1 = require('./mutations-11c8f9a8.js');
-const getters$2 = require('./getters-a5fb26bc.js');
+const getters$2 = require('./getters-c16ecf9a.js');
 const addQueryArgs = require('./add-query-args-49dcb630.js');
 require('./index-bcdafe6e.js');
-require('./utils-2e91d46c.js');
+require('./utils-a9d13080.js');
 require('./remove-query-args-b57e8cd3.js');
 require('./index-fb76df07.js');
 require('./google-59d23803.js');
 require('./currency-71fce0f0.js');
-require('./price-5b1afcfe.js');
+require('./price-da3cab3d.js');
 require('./util-b877b2bd.js');
-require('./address-258a7497.js');
+require('./address-7404695f.js');
 
 const scStripePaymentElementCss = "sc-stripe-payment-element{display:block}sc-stripe-payment-element [hidden]{display:none}.loader{display:grid;height:128px;gap:2em}.loader__row{display:flex;align-items:flex-start;justify-content:space-between;gap:1em}.loader__details{display:grid;gap:0.5em}";
 const ScStripePaymentElementStyle0 = scStripePaymentElementCss;
@@ -190,13 +190,14 @@ const ScStripePaymentElement = class {
         if (!getters.state.instances.stripeElements) {
             // we have what we need, load elements.
             getters.state.instances.stripeElements = getters.state.instances.stripe.elements(this.getElementsConfig());
-            const { line1, line2, city, state, country, postal_code } = (_d = getters$2.getCompleteAddress('shipping')) !== null && _d !== void 0 ? _d : {};
+            const address = getters$2.toStripeAddress(getters$2.getResolvedBillingAddress());
             const options = this.maybeApplyFilters({
                 defaultValues: {
                     billingDetails: {
-                        name: (_e = mutations.state.checkout) === null || _e === void 0 ? void 0 : _e.name,
-                        email: (_f = mutations.state.checkout) === null || _f === void 0 ? void 0 : _f.email,
-                        ...(line1 && { address: { line1, line2, city, state, country, postal_code } }),
+                        ...(((_d = mutations.state.checkout) === null || _d === void 0 ? void 0 : _d.name) ? { name: mutations.state.checkout.name } : {}),
+                        ...(((_e = mutations.state.checkout) === null || _e === void 0 ? void 0 : _e.email) ? { email: mutations.state.checkout.email } : {}),
+                        ...(((_f = mutations.state.checkout) === null || _f === void 0 ? void 0 : _f.phone) ? { phone: mutations.state.checkout.phone } : {}),
+                        ...(address ? { address } : {}),
                     },
                 },
                 fields: {
@@ -237,26 +238,19 @@ const ScStripePaymentElement = class {
     }
     /** Update the default attributes of the element when they cahnge. */
     handleUpdateElement() {
-        var _a, _b;
+        var _a, _b, _c, _d;
         if (!this.element)
             return;
         if (((_a = mutations.state.checkout) === null || _a === void 0 ? void 0 : _a.status) !== 'draft')
             return;
-        const { name, email } = mutations.state.checkout;
-        const { line_1: line1, line_2: line2, city, state, country, postal_code } = ((_b = mutations.state.checkout) === null || _b === void 0 ? void 0 : _b.shipping_address) || {};
+        const address = getters$2.toStripeAddress(getters$2.getResolvedBillingAddress());
         const options = this.maybeApplyFilters({
             defaultValues: {
                 billingDetails: {
-                    name,
-                    email,
-                    address: {
-                        line1,
-                        line2,
-                        city,
-                        state,
-                        country,
-                        postal_code,
-                    },
+                    ...(((_b = mutations.state.checkout) === null || _b === void 0 ? void 0 : _b.name) ? { name: mutations.state.checkout.name } : {}),
+                    ...(((_c = mutations.state.checkout) === null || _c === void 0 ? void 0 : _c.email) ? { email: mutations.state.checkout.email } : {}),
+                    ...(((_d = mutations.state.checkout) === null || _d === void 0 ? void 0 : _d.phone) ? { phone: mutations.state.checkout.phone } : {}),
+                    ...(address ? { address } : {}),
                 },
             },
             fields: {
@@ -302,7 +296,8 @@ const ScStripePaymentElement = class {
         return await this.confirm((_p = (_o = (_m = (_l = mutations.state.checkout) === null || _l === void 0 ? void 0 : _l.payment_intent) === null || _m === void 0 ? void 0 : _m.processor_data) === null || _o === void 0 ? void 0 : _o.stripe) === null || _p === void 0 ? void 0 : _p.type);
     }
     async confirm(type, args = {}) {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e, _f, _g;
+        const address = getters$2.toStripeAddress(getters$2.getResolvedBillingAddress());
         const confirmArgs = {
             elements: getters.state.instances.stripeElements,
             clientSecret: (_d = (_c = (_b = (_a = mutations.state.checkout) === null || _a === void 0 ? void 0 : _a.payment_intent) === null || _b === void 0 ? void 0 : _b.processor_data) === null || _c === void 0 ? void 0 : _c.stripe) === null || _d === void 0 ? void 0 : _d.client_secret,
@@ -312,7 +307,10 @@ const ScStripePaymentElement = class {
                 }),
                 payment_method_data: {
                     billing_details: {
-                        email: mutations.state.checkout.email,
+                        ...(((_e = mutations.state.checkout) === null || _e === void 0 ? void 0 : _e.email) ? { email: mutations.state.checkout.email } : {}),
+                        ...(((_f = mutations.state.checkout) === null || _f === void 0 ? void 0 : _f.name) ? { name: mutations.state.checkout.name } : {}),
+                        ...(((_g = mutations.state.checkout) === null || _g === void 0 ? void 0 : _g.phone) ? { phone: mutations.state.checkout.phone } : {}),
+                        ...(address ? { address } : {}),
                     },
                 },
             },
@@ -351,11 +349,11 @@ const ScStripePaymentElement = class {
         }
     }
     render() {
-        return (index.h("div", { key: '4e59c0f97fa05f84bcb05cafb308de1d8c3fadde', class: "sc-stripe-payment-element", "data-testid": "stripe-payment-element" }, !!this.error && (index.h("sc-text", { key: 'bff4a65222d72f0a89b5b7b3e040a397992a331a', style: {
+        return (index.h("div", { key: '7955ae00cd4f2fdde5e816847c5b0df1fcf9a6d6', class: "sc-stripe-payment-element", "data-testid": "stripe-payment-element" }, !!this.error && (index.h("sc-text", { key: '3ae7da488f54a88056323bbfb52c6a2d1cffd838', style: {
                 'color': 'var(--sc-color-danger-500)',
                 '--font-size': 'var(--sc-font-size-small)',
                 'marginBottom': '0.5em',
-            } }, this.error)), index.h("div", { key: '93fef4873fae589a409c1de37d819f69a3deb1e4', class: "loader", hidden: this.loaded }, index.h("div", { key: 'fa5da12c304a1674d847037af3ec937a4bd51cb7', class: "loader__row" }, index.h("div", { key: 'b56cd977777c0ddc901a9d6cb2f9f1e9b1dcd920', style: { width: '50%' } }, index.h("sc-skeleton", { key: '3e1f2e4b565bb0d747b22ced628834efec9f55a8', style: { width: '50%', marginBottom: '0.5em' } }), index.h("sc-skeleton", { key: '4e3f07f2684da62f8835625c7e3388de908209a3' })), index.h("div", { key: '59c6a3596f0b0afd9e5656eb470e35efdb5bbe1c', style: { flex: '1' } }, index.h("sc-skeleton", { key: '2e10a2812c3bfdcfcc654ebccac5d2bdf8361d71', style: { width: '50%', marginBottom: '0.5em' } }), index.h("sc-skeleton", { key: '48b3117fa68feb8f772ce2f2d4404a56c0236360' })), index.h("div", { key: '4341421dec29dbf8ba5ff4d50daba3619962ffe3', style: { flex: '1' } }, index.h("sc-skeleton", { key: 'e158f7b5e0cf3db41ffeb54a44e7b86ca55ad56b', style: { width: '50%', marginBottom: '0.5em' } }), index.h("sc-skeleton", { key: '416a22e21cd2939b5a4530de6fd5f5862cf34a35' }))), index.h("div", { key: 'c555f4a10b59c645def4d43f7663211c2f130736', class: "loader__details" }, index.h("sc-skeleton", { key: '58638677650f34369d320c73ab64fd656f9e6660', style: { height: '1rem' } }), index.h("sc-skeleton", { key: 'd12f1cf08f95ac227d92240ee375c483c5749684', style: { height: '1rem', width: '30%' } }))), index.h("div", { key: 'ba6b34adfa1b3ada66e5ba1b918905a655588985', hidden: !this.loaded, class: "sc-payment-element-container", ref: el => (this.container = el) })));
+            } }, this.error)), index.h("div", { key: '21f0e3063a25caf9c1f25b4948232243ea2f44da', class: "loader", hidden: this.loaded }, index.h("div", { key: '9605b7216858bc5b9d22057b323ff3da661477db', class: "loader__row" }, index.h("div", { key: '7959143f5a2164e6ce7c12033abd208ff6c3a5fd', style: { width: '50%' } }, index.h("sc-skeleton", { key: 'fe2d24098dc2c6fdcfdc57128b12aa49df4d1abd', style: { width: '50%', marginBottom: '0.5em' } }), index.h("sc-skeleton", { key: '34be131b2e8914319d43c91df584f9fa2bcd5759' })), index.h("div", { key: 'f7228bf1501d5ff1fae4247f36ca3cbf940845d7', style: { flex: '1' } }, index.h("sc-skeleton", { key: 'ab254b751fa6f16c92333f81bc732531eec667cb', style: { width: '50%', marginBottom: '0.5em' } }), index.h("sc-skeleton", { key: '6dc904e81a1ffec1379b38665e8f1ccffb35fd36' })), index.h("div", { key: 'f4a12ac2959ef439132ea4418721cb338ad4947c', style: { flex: '1' } }, index.h("sc-skeleton", { key: '6822090184804a9761fcd8b78c486394f4923798', style: { width: '50%', marginBottom: '0.5em' } }), index.h("sc-skeleton", { key: '064c32f90335c210621477510965ea171188455e' }))), index.h("div", { key: '766dacb84f664d851b5e8f0ab80200673172a543', class: "loader__details" }, index.h("sc-skeleton", { key: '961aa80687e3b6df1948a1f46118d1aa47291f8b', style: { height: '1rem' } }), index.h("sc-skeleton", { key: '381b86acf7e6e9e31961b7f84e89f8a63230c023', style: { height: '1rem', width: '30%' } }))), index.h("div", { key: 'a981219d6470e8845b653cbeeb4459a3030d718d', hidden: !this.loaded, class: "sc-payment-element-container", ref: el => (this.container = el) })));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {

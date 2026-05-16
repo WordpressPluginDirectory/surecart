@@ -8,7 +8,7 @@ const ScVisuallyHidden = class {
         registerInstance(this, hostRef);
     }
     render() {
-        return h("slot", { key: 'c766bc10439c2b87b15ff09403321c7f222f6e13' });
+        return h("slot", { key: '81367219cf6f2294bda782a860340688f59ebe80' });
     }
 };
 ScVisuallyHidden.style = ScVisuallyHiddenStyle0;

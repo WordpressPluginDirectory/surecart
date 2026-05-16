@@ -1,19 +1,19 @@
 import { r as registerInstance, c as createEvent, h, a as getElement } from './index-745b6bec.js';
-import { u as updateFormState, s as state } from './mutations-6bbbe793.js';
-import { d as updateCheckout } from './index-a7f5e198.js';
+import { u as updateFormState, s as state } from './mutations-bf2ff1cb.js';
+import { d as updateCheckout } from './index-eb1528a8.js';
 import { c as createErrorNotice, s as state$1 } from './mutations-ed6d0770.js';
-import { c as clearCheckout } from './mutations-404760eb.js';
-import { s as setDefaultAnimation, g as getAnimation, b as animateTo, a as stopAnimations } from './animation-registry-adf65203.js';
+import { c as clearCheckout } from './mutations-e0d3e111.js';
+import { s as setDefaultAnimation, g as getAnimation, b as animateTo, a as stopAnimations } from './animation-registry-de37bd7e.js';
 import { g as getAdditionalErrorMessages } from './getters-a7eec27c.js';
 import './index-06061d4e.js';
-import './utils-cd1431df.js';
+import './utils-f84b2118.js';
 import './remove-query-args-938c53ea.js';
 import './add-query-args-0e2a8393.js';
 import './index-c5a96d53.js';
 import './google-a86aa761.js';
 import './currency-a0c9bff4.js';
-import './store-627acec4.js';
-import './price-af9f0dbf.js';
+import './store-7766e96f.js';
+import './price-1ff6aa07.js';
 import './fetch-bc141774.js';
 
 const ScCartSessionProvider = class {
@@ -91,7 +91,7 @@ const ScCartSessionProvider = class {
     get el() { return getElement(this); }
 };
 
-const scDrawerCss = ":host {\n  display: contents;\n}\n.drawer {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  font-family: var(--sc-font-sans);\n  font-weight: var(--sc-font-weight-normal);\n}\n.drawer--contained {\n  position: absolute;\n  z-index: initial;\n}\n.drawer--fixed {\n  position: fixed;\n  z-index: var(--sc-z-index-drawer);\n}\n.drawer__panel {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  z-index: 2;\n  max-width: 100%;\n  max-height: 100%;\n  background-color: var(--sc-panel-background-color);\n  box-shadow: var(--sc-shadow-x-large);\n  transition: var(--sc-transition-medium) transform;\n  overflow: auto;\n  pointer-events: all;\n}\n.drawer__panel:focus {\n  outline: none;\n}\n.drawer--top .drawer__panel {\n  top: 0;\n  right: auto;\n  bottom: auto;\n  left: 0;\n  width: 100%;\n  height: var(--sc-drawer-size, 400px);\n}\n.drawer--end .drawer__panel {\n  top: 0;\n  right: 0;\n  bottom: auto;\n  left: auto;\n  width: 100%;\n  max-width: var(--sc-drawer-size, 400px);\n  height: 100%;\n}\n.drawer--bottom .drawer__panel {\n  top: auto;\n  right: auto;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: var(--sc-drawer-size, 400px);\n}\n.drawer--start .drawer__panel {\n  top: 0;\n  right: auto;\n  bottom: auto;\n  left: 0;\n  width: var(--sc-drawer-size, 400px);\n  height: 100%;\n}\n.header__sticky {\n  position: sticky;\n  top: 0;\n  z-index: 10;\n  background: #fff;\n}\n.drawer__header {\n  display: flex;\n  align-items: center;\n  padding: var(--sc-drawer-header-spacing);\n  border-bottom: var(--sc-drawer-border);\n}\n\n.drawer__title {\n  flex: 1 1 auto;\n  font: inherit;\n  font-size: var(--sc-font-size-large);\n  line-height: var(--sc-line-height-dense);\n  margin: 0;\n}\n.drawer__close {\n  flex: 0 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: var(--sc-font-size-x-large);\n  color: var(--sc-color-gray-500);\n  cursor: pointer;\n}\n.drawer__body {\n  flex: 1 1 auto;\n}\n\n.drawer--has-footer .drawer__footer {\n  border-top: var(--sc-drawer-border);\n  padding: var(--sc-drawer-footer-spacing);\n\n  &.is-sticky {\n    position: sticky;\n    bottom: 0;\n    background: #fff;\n  }\n}\n\n.drawer__overlay {\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: var(--sc-overlay-background-color);\n  pointer-events: all;\n}\n.drawer--contained .drawer__overlay {\n  position: absolute;\n}\n";
+const scDrawerCss = ":host {\n  display: contents;\n}\n.drawer {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  font-family: var(--sc-font-sans);\n  font-weight: var(--sc-font-weight-normal);\n}\n.drawer--contained {\n  position: absolute;\n  z-index: initial;\n}\n.drawer--fixed {\n  position: fixed;\n  z-index: var(--sc-z-index-drawer);\n}\n.drawer__panel {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  z-index: 2;\n  max-width: 100%;\n  max-height: 100%;\n  background-color: var(--sc-panel-background-color);\n  box-shadow: var(--sc-shadow-x-large);\n  transition: var(--sc-transition-medium) transform;\n  overflow: auto;\n  pointer-events: all;\n}\n.drawer__panel:focus {\n  outline: none;\n}\n.drawer--top .drawer__panel {\n  top: 0;\n  right: auto;\n  bottom: auto;\n  left: 0;\n  width: 100%;\n  height: var(--sc-drawer-size, 400px);\n}\n.drawer--end .drawer__panel {\n  top: 0;\n  inset-inline-end: 0;\n  bottom: auto;\n  inset-inline-start: auto;\n  width: 100%;\n  max-width: var(--sc-drawer-size, 400px);\n  height: 100%;\n}\n.drawer--bottom .drawer__panel {\n  top: auto;\n  right: auto;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: var(--sc-drawer-size, 400px);\n}\n.drawer--start .drawer__panel {\n  top: 0;\n  inset-inline-end: auto;\n  bottom: auto;\n  inset-inline-start: 0;\n  width: var(--sc-drawer-size, 400px);\n  height: 100%;\n}\n.header__sticky {\n  position: sticky;\n  top: 0;\n  z-index: 10;\n  background: #fff;\n}\n.drawer__header {\n  display: flex;\n  align-items: center;\n  padding: var(--sc-drawer-header-spacing);\n  border-bottom: var(--sc-drawer-border);\n}\n\n.drawer__title {\n  flex: 1 1 auto;\n  font: inherit;\n  font-size: var(--sc-font-size-large);\n  line-height: var(--sc-line-height-dense);\n  margin: 0;\n}\n.drawer__close {\n  flex: 0 0 auto;\n  display: flex;\n  align-items: center;\n  font-size: var(--sc-font-size-x-large);\n  color: var(--sc-color-gray-500);\n  cursor: pointer;\n}\n.drawer__body {\n  flex: 1 1 auto;\n}\n\n.drawer--has-footer .drawer__footer {\n  border-top: var(--sc-drawer-border);\n  padding: var(--sc-drawer-footer-spacing);\n\n  &.is-sticky {\n    position: sticky;\n    bottom: 0;\n    background: #fff;\n  }\n}\n\n.drawer__overlay {\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: var(--sc-overlay-background-color);\n  pointer-events: all;\n}\n.drawer--contained .drawer__overlay {\n  position: absolute;\n}\n";
 const ScDrawerStyle0 = scDrawerCss;
 
 const ScDrawer = class {
@@ -141,10 +141,13 @@ const ScDrawer = class {
         }
         this.open = false;
     }
+    getDirection() {
+        return getComputedStyle(this.el).direction === 'rtl' ? 'rtl' : 'ltr';
+    }
     async requestClose(source = 'method') {
         const slRequestClose = this.scRequestClose.emit(source);
         if (slRequestClose.defaultPrevented) {
-            const animation = getAnimation(this.el, 'drawer.denyClose');
+            const animation = getAnimation(this.el, 'drawer.denyClose', { dir: this.getDirection() });
             animateTo(this.panel, animation.keyframes, animation.options);
             return;
         }
@@ -193,8 +196,9 @@ const ScDrawer = class {
                     autoFocusTarget.setAttribute('autofocus', '');
                 }
             });
-            const panelAnimation = getAnimation(this.el, `drawer.show${this.placement.charAt(0).toUpperCase() + this.placement.slice(1)}`);
-            const overlayAnimation = getAnimation(this.el, 'drawer.overlay.show');
+            const dir = this.getDirection();
+            const panelAnimation = getAnimation(this.el, `drawer.show${this.placement.charAt(0).toUpperCase() + this.placement.slice(1)}`, { dir });
+            const overlayAnimation = getAnimation(this.el, 'drawer.overlay.show', { dir });
             await Promise.all([animateTo(this.panel, panelAnimation.keyframes, panelAnimation.options), animateTo(this.overlay, overlayAnimation.keyframes, overlayAnimation.options)]);
             this.scAfterShow.emit();
         }
@@ -203,8 +207,9 @@ const ScDrawer = class {
             this.scHide.emit();
             this.unLockBodyScrolling();
             await Promise.all([stopAnimations(this.drawer), stopAnimations(this.overlay)]);
-            const panelAnimation = getAnimation(this.el, `drawer.hide${this.placement.charAt(0).toUpperCase() + this.placement.slice(1)}`);
-            const overlayAnimation = getAnimation(this.el, 'drawer.overlay.hide');
+            const dir = this.getDirection();
+            const panelAnimation = getAnimation(this.el, `drawer.hide${this.placement.charAt(0).toUpperCase() + this.placement.slice(1)}`, { dir });
+            const overlayAnimation = getAnimation(this.el, 'drawer.overlay.hide', { dir });
             await Promise.all([animateTo(this.panel, panelAnimation.keyframes, panelAnimation.options), animateTo(this.overlay, overlayAnimation.keyframes, overlayAnimation.options)]);
             this.drawer.hidden = true;
             // Restore focus to the original trigger
@@ -216,7 +221,7 @@ const ScDrawer = class {
         }
     }
     render() {
-        return (h("div", { key: 'fd9d19fbb4b040abf64a554be868ed303cff4198', part: "base", class: {
+        return (h("div", { key: '50bbb5b40ec4e8b2fdb6cb44f0e7f4524f50e5e3', part: "base", class: {
                 'drawer': true,
                 'drawer--open': this.open,
                 'drawer--top': this.placement === 'top',
@@ -226,9 +231,9 @@ const ScDrawer = class {
                 'drawer--contained': this.contained,
                 'drawer--fixed': !this.contained,
                 'drawer--has-footer': this.el.querySelector('[slot="footer"]') !== null,
-            }, ref: el => (this.drawer = el), onKeyDown: (e) => this.handleKeyDown(e) }, h("div", { key: 'e7a31405d8aa6ffc3b0cbd25a2dbe595b77cb7df', part: "overlay", class: "drawer__overlay", onClick: () => this.requestClose('overlay'), tabindex: "-1", ref: el => (this.overlay = el) }), h("div", { key: '0133489a2a011d0ea4be82ae9c110cdfc9fe364c', part: "panel", class: "drawer__panel", role: "dialog", "aria-modal": "true", "aria-hidden": this.open ? 'false' : 'true', "aria-label": this.noHeader ? this.label : undefined, "aria-labelledby": !this.noHeader ? 'title' : undefined, tabindex: "0", ref: el => (this.panel = el) }, !this.noHeader && (h("header", { key: 'b39c2621b4f54bf42b410547c293c79553eb9a12', part: "header", class: this.stickyHeader ? 'header__sticky' : '' }, h("slot", { key: '6a3b95a966d2fb6b2a06f24b753cd0189674929b', name: "header" }, h("div", { key: '2dcc3e248d4d1178b3ed8a8c7789ff971232b32f', class: "drawer__header" }, h("h2", { key: '791ef3ea52c7f68bc8467a9fb17137d4856995c7', part: "title", class: "drawer__title", id: "title" }, h("slot", { key: '607cb2a818610adacf3248768445e35ba6f435f8', name: "label" }, this.label.length > 0 ? this.label : ' ', " ")), h("sc-icon", { key: 'e32c1efd56d0dd9521a23120cc9071f454db2629', part: "close-button", exportparts: "base:close-button__base", class: "drawer__close", name: "x", label: 
+            }, ref: el => (this.drawer = el), onKeyDown: (e) => this.handleKeyDown(e) }, h("div", { key: '3589987e0a49785d60cd9d542dc256dcf2005aeb', part: "overlay", class: "drawer__overlay", onClick: () => this.requestClose('overlay'), tabindex: "-1", ref: el => (this.overlay = el) }), h("div", { key: '698065cacf8c93ade8f66ba88a10e2f0155ba289', part: "panel", class: "drawer__panel", role: "dialog", "aria-modal": "true", "aria-hidden": this.open ? 'false' : 'true', "aria-label": this.noHeader ? this.label : undefined, "aria-labelledby": !this.noHeader ? 'title' : undefined, tabindex: "0", ref: el => (this.panel = el) }, !this.noHeader && (h("header", { key: 'd5ee9be6a6b43f75171143be04c4d5efa13b5b98', part: "header", class: this.stickyHeader ? 'header__sticky' : '' }, h("slot", { key: '2701a6eebd68e1a170a935d7d139cb58735d1c07', name: "header" }, h("div", { key: '9cd11c1e9739ee5e8a45e2e656d0c6c853d5139c', class: "drawer__header" }, h("h2", { key: '0c0c2b9dae73c6498b8e2625d460c1231abb4079', part: "title", class: "drawer__title", id: "title" }, h("slot", { key: '67ea20e8d5f8e33d3ed3d5615ec321965c4a0f8f', name: "label" }, this.label.length > 0 ? this.label : ' ', " ")), h("sc-icon", { key: 'f1f4be42c4e46457475d2f0686739b6607de1ff0', part: "close-button", exportparts: "base:close-button__base", class: "drawer__close", name: "x", label: 
             /** translators: Close this modal window. */
-            wp.i18n.__('Close', 'surecart'), onClick: () => this.requestClose('close-button') }))))), h("footer", { key: '4840babea63501921234b79d0076486a55415f50', part: "header-suffix", class: "drawer__header-suffix" }, h("slot", { key: 'e6f17c8be5b274fd7fd866d0879304d105469eef', name: "header-suffix" })), h("div", { key: 'c1ae76af464f7c6519b9902268eb522a89395d0b', part: "body", class: "drawer__body" }, h("slot", { key: 'deb939000349220e317e0cd583294325ffdfb71a' })), h("footer", { key: 'c0eca95c41981b30d0dc2bbf4e620817953c77d5', part: "footer", class: this.stickyFooter ? 'drawer__footer is-sticky' : 'drawer__footer' }, h("slot", { key: '588c72abb3bcd20c63a4ecc105c3cdda6489eae3', name: "footer" })))));
+            wp.i18n.__('Close', 'surecart'), onClick: () => this.requestClose('close-button') }))))), h("footer", { key: '9bec9e5777595947b07ced550f6527064608e1aa', part: "header-suffix", class: "drawer__header-suffix" }, h("slot", { key: 'f815d024421d8c8ea2cc9e66c5365e3f92c0e784', name: "header-suffix" })), h("div", { key: 'f5d969dc97be58e5ffa75d48dd1b80b616cce895', part: "body", class: "drawer__body" }, h("slot", { key: '736f297d56241e0202385d8598431ee3e838f2c3' })), h("footer", { key: '5411377f620b8e921e6205b8f38569d7b1c1b4b7', part: "footer", class: this.stickyFooter ? 'drawer__footer is-sticky' : 'drawer__footer' }, h("slot", { key: '67e7ac81ba6fdcc3160ca0c2e2b8542e0ebb63eb', name: "footer" })))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -250,10 +255,15 @@ setDefaultAnimation('drawer.hideTop', {
     ],
     options: { duration: 250, easing: 'ease' },
 });
-// End
+// End — in LTR the panel rests on the right and slides in from the right (translateX 100%). In RTL the panel rests on
+// the left (because `inset-inline-end` flips), so it must slide in from the left (translateX -100%).
 setDefaultAnimation('drawer.showEnd', {
     keyframes: [
         { opacity: 0, transform: 'translateX(100%)' },
+        { opacity: 1, transform: 'translateX(0)' },
+    ],
+    rtlKeyframes: [
+        { opacity: 0, transform: 'translateX(-100%)' },
         { opacity: 1, transform: 'translateX(0)' },
     ],
     options: { duration: 250, easing: 'ease' },
@@ -262,6 +272,10 @@ setDefaultAnimation('drawer.hideEnd', {
     keyframes: [
         { opacity: 1, transform: 'translateX(0)' },
         { opacity: 0, transform: 'translateX(100%)' },
+    ],
+    rtlKeyframes: [
+        { opacity: 1, transform: 'translateX(0)' },
+        { opacity: 0, transform: 'translateX(-100%)' },
     ],
     options: { duration: 250, easing: 'ease' },
 });
@@ -280,10 +294,15 @@ setDefaultAnimation('drawer.hideBottom', {
     ],
     options: { duration: 250, easing: 'ease' },
 });
-// Start
+// Start — mirrors End. In LTR slides in from the left; in RTL the panel rests on the right (because `inset-inline-start`
+// flips), so it must slide in from the right.
 setDefaultAnimation('drawer.showStart', {
     keyframes: [
         { opacity: 0, transform: 'translateX(-100%)' },
+        { opacity: 1, transform: 'translateX(0)' },
+    ],
+    rtlKeyframes: [
+        { opacity: 0, transform: 'translateX(100%)' },
         { opacity: 1, transform: 'translateX(0)' },
     ],
     options: { duration: 250, easing: 'ease' },
@@ -292,6 +311,10 @@ setDefaultAnimation('drawer.hideStart', {
     keyframes: [
         { opacity: 1, transform: 'translateX(0)' },
         { opacity: 0, transform: 'translateX(-100%)' },
+    ],
+    rtlKeyframes: [
+        { opacity: 1, transform: 'translateX(0)' },
+        { opacity: 0, transform: 'translateX(100%)' },
     ],
     options: { duration: 250, easing: 'ease' },
 });

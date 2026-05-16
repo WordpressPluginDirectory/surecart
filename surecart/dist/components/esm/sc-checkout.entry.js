@@ -1,19 +1,19 @@
 import { r as registerInstance, c as createEvent, h, a as getElement } from './index-745b6bec.js';
-import { s as state } from './mutations-6bbbe793.js';
-import { s as state$1 } from './store-627acec4.js';
-import { s as state$3 } from './store-f54d1b1f.js';
-import './watchers-8bf2246f.js';
-import { s as state$2 } from './getters-b5084f91.js';
+import { s as state } from './mutations-bf2ff1cb.js';
+import { s as state$1 } from './store-7766e96f.js';
+import { s as state$3 } from './store-4896d2c9.js';
+import './watchers-b2e30654.js';
+import { s as state$2 } from './getters-680a7848.js';
+import './watchers-86705798.js';
 import { U as Universe } from './universe-5a73abb7.js';
 import './index-06061d4e.js';
-import './utils-cd1431df.js';
+import './utils-f84b2118.js';
 import './remove-query-args-938c53ea.js';
 import './add-query-args-0e2a8393.js';
 import './index-c5a96d53.js';
 import './google-a86aa761.js';
 import './currency-a0c9bff4.js';
-import './price-af9f0dbf.js';
-import './watchers-86705798.js';
+import './price-1ff6aa07.js';
 import './util-50af2a83.js';
 
 const scCheckoutCss = "sc-checkout{--sc-form-focus-within-z-index:5;display:block;font-family:var(--sc-font-sans);font-size:var(--sc-checkout-font-size, 16px);position:relative}sc-checkout h3{font-size:var(--sc-input-label-font-size-medium)}sc-alert{margin-bottom:var(--sc-form-row-spacing)}.sc-checkout-container.sc-align-center{max-width:500px;margin-left:auto;margin-right:auto}.sc-checkout-container.sc-align-wide{max-width:800px;margin-left:auto;margin-right:auto}::slotted(*){font-family:var(--sc-font-sans)}";

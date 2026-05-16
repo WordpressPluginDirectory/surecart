@@ -1,6 +1,6 @@
 import { r as registerInstance, c as createEvent, h, F as Fragment, a as getElement } from './index-745b6bec.js';
 import { a as apiFetch } from './fetch-bc141774.js';
-import { a as getHumanDiscount } from './price-af9f0dbf.js';
+import { a as getHumanDiscount } from './price-1ff6aa07.js';
 import { a as addQueryArgs } from './add-query-args-0e2a8393.js';
 import { F as FormSubmitController } from './form-data-76641f16.js';
 import './remove-query-args-938c53ea.js';
@@ -395,12 +395,12 @@ const ScTextarea = class {
     }
     render() {
         var _a;
-        return (h("div", { key: 'e14d29c69d62db386872439fbd584633769e00ab', part: "form-control", class: {
+        return (h("div", { key: '8a0b27b85b0be26b37ee0b9dd48505685a2b59ab', part: "form-control", class: {
                 'form-control': true,
                 'form-control--small': this.size === 'small',
                 'form-control--medium': this.size === 'medium',
                 'form-control--large': this.size === 'large',
-            } }, h("sc-form-control", { key: 'e1c6811e413365bc6879f94efb67b80cd3b4977f', exportparts: "label, help-text, form-control", size: this.size, required: this.required, label: this.label, showLabel: this.showLabel, help: this.help, inputId: this.inputId, helpId: this.helpId, labelId: this.labelId, name: this.name }, h("div", { key: 'd4e1446249999debfa2f923a59e96feae368a46a', part: "form-control-input", class: "form-control-input" }, h("div", { key: 'df9331c9b03ec0beca7467e5525aebdcc411e9c7', part: "base", class: {
+            } }, h("sc-form-control", { key: '74c9a7ba6d2e847a9442545c8637fb1ffd081e5c', exportparts: "label, help-text, form-control", size: this.size, required: this.required, label: this.label, showLabel: this.showLabel, help: this.help, inputId: this.inputId, helpId: this.helpId, labelId: this.labelId, name: this.name }, h("div", { key: 'ba8f2fdf3b0c4d8c9f9bd301bfe32ff36cb18744', part: "form-control-input", class: "form-control-input" }, h("div", { key: 'f41454e1a2240532e37d0766c553d6f2ac5bafdd', part: "base", class: {
                 'textarea': true,
                 'textarea--small': this.size === 'small',
                 'textarea--medium': this.size === 'medium',
@@ -414,7 +414,7 @@ const ScTextarea = class {
                 'textarea--resize-none': this.resize === 'none',
                 'textarea--resize-vertical': this.resize === 'vertical',
                 'textarea--resize-auto': this.resize === 'auto',
-            } }, h("textarea", { key: 'c4eadcb47162e1586d11248d6d6059fedd86031c', part: "textarea", ref: el => (this.input = el), id: "input", class: "textarea__control", name: this.name, value: this.value, disabled: this.disabled, readonly: this.readonly, required: this.required, placeholder: this.placeholder, rows: this.rows, minlength: this.minlength, maxlength: this.maxlength, autocapitalize: this.autocapitalize, autocorrect: this.autocorrect, autofocus: this.autofocus, spellcheck: this.spellcheck, enterkeyhint: this.enterkeyhint, inputmode: this.inputmode, "aria-describedby": "help-text", onChange: () => this.handleChange(), onInput: () => this.handleInput(), onFocus: () => this.handleFocus(), onBlur: () => this.handleBlur(), onKeyDown: (e) => e.stopPropagation() })), this.showCharLimit && (h("div", { key: '5a0b8f8bd8ef7a84db0d8202b91a9f2c85f3e602', slot: "help", class: 'textarea__char-limit-warning' }, wp.i18n.sprintf(wp.i18n.__('%d characters remaining', 'surecart'), this.maxlength && ((_a = this.input) === null || _a === void 0 ? void 0 : _a.value) ? this.maxlength - this.input.value.length : this.maxlength)))))));
+            } }, h("textarea", { key: '499b37300cff2e350ba3360340023c24f7690d52', part: "textarea", ref: el => (this.input = el), id: "input", class: "textarea__control", name: this.name, value: this.value, disabled: this.disabled, readonly: this.readonly, required: this.required, placeholder: this.placeholder, rows: this.rows, minlength: this.minlength, maxlength: this.maxlength, autocapitalize: this.autocapitalize, autocorrect: this.autocorrect, autofocus: this.autofocus, spellcheck: this.spellcheck, enterkeyhint: this.enterkeyhint, inputmode: this.inputmode, "aria-describedby": "help-text", onChange: () => this.handleChange(), onInput: () => this.handleInput(), onFocus: () => this.handleFocus(), onBlur: () => this.handleBlur(), onKeyDown: (e) => e.stopPropagation() })), this.showCharLimit && (h("div", { key: 'c47f1e6bec7e7538f3e2ace905f63e589f65a8d7', slot: "help", class: 'textarea__char-limit-warning' }, wp.i18n.sprintf(wp.i18n.__('%d characters remaining', 'surecart'), this.maxlength && ((_a = this.input) === null || _a === void 0 ? void 0 : _a.value) ? this.maxlength - this.input.value.length : this.maxlength)))))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {

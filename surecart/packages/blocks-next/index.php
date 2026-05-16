@@ -22,6 +22,10 @@ add_action(
 add_filter(
 	'block_type_metadata_settings',
 	function ( $settings, $metadata ) {
+		if ( empty( $metadata['file'] ) ) {
+			return $settings;
+		}
+
 		// if there is a controller file, use it.
 		$controller_path = wp_normalize_path(
 			realpath(
@@ -165,12 +169,12 @@ add_action(
 			data-wp-class--show-closing-animation="state.showClosingAnimation"
 			data-wp-watch="callbacks.setOverlayFocus"
 			data-wp-on--keydown="actions.handleKeydown"
-			data-wp-on-async--touchstart="actions.handleTouchStart"
+			data-wp-on--touchstart="actions.handleTouchStart"
 			data-wp-on--touchmove="actions.handleTouchMove"
-			data-wp-on-async--touchend="actions.handleTouchEnd"
-			data-wp-on-async--click="actions.hideLightbox"
-			data-wp-on-async-window--resize="callbacks.setOverlayStyles"
-			data-wp-on-async-window--scroll="actions.handleScroll"
+			data-wp-on--touchend="actions.handleTouchEnd"
+			data-wp-on--click="actions.hideLightbox"
+			data-wp-on-window--resize="callbacks.setOverlayStyles"
+			data-wp-on-window--scroll="actions.handleScroll"
 			tabindex="-1"
 			>
 				<button type="button" aria-label="$close_button_label" style="fill: $close_button_color" class="sc-lightbox-close-button">
@@ -325,7 +329,7 @@ add_action(
 					'import' => 'dynamic',
 				],
 				[
-					'id'     => '@surecart/a11y',
+					'id'     => '@wordpress/a11y',
 					'import' => 'dynamic',
 				],
 			],
@@ -347,7 +351,7 @@ add_action(
 					'import' => 'dynamic',
 				],
 				[
-					'id'     => '@surecart/a11y',
+					'id'     => '@wordpress/a11y',
 					'import' => 'dynamic',
 				],
 			],

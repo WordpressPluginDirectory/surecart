@@ -1,20 +1,21 @@
 import { r as registerInstance, c as createEvent, h, a as getElement, H as Host, F as Fragment } from './index-745b6bec.js';
-import { g as getCountryDetails, c as countryChoices } from './address-058376bf.js';
+import { g as getCountryDetails, c as countryChoices } from './address-b8e2e4c8.js';
 import { r as reportChildrenValidity, F as FormSubmitController } from './form-data-76641f16.js';
-import { o as onChange, s as state, u as updateFormState } from './mutations-6bbbe793.js';
-import { f as formBusy, a as formLoading } from './getters-487612aa.js';
-import { s as state$1 } from './store-627acec4.js';
+import { g as getCurrentUserCountryCode } from './google-maps-e8b00ffd.js';
+import { o as onChange, s as state, u as updateFormState } from './mutations-bf2ff1cb.js';
+import { f as formBusy, a as formLoading } from './getters-2e8ab64f.js';
+import { s as state$1 } from './store-7766e96f.js';
 import { o as openWormhole } from './consumer-e06b16d3.js';
-import { l as lockCheckout, b as unLockCheckout, r as removeCheckoutLineItem, a as addCheckoutLineItem, t as trackOrderBump } from './mutations-404760eb.js';
-import { c as createOrUpdateCheckout } from './index-a7f5e198.js';
+import { l as lockCheckout, b as unLockCheckout, r as removeCheckoutLineItem, a as addCheckoutLineItem, t as trackOrderBump } from './mutations-e0d3e111.js';
+import { c as createOrUpdateCheckout } from './index-eb1528a8.js';
 import { s as speak } from './index-c5a96d53.js';
-import { i as intervalString, g as getFormattedPrice } from './price-af9f0dbf.js';
-import { f as fullShippingAddressRequired, s as shippingAddressRequired, a as checkoutIsLocked } from './getters-5eb19bdc.js';
+import { i as intervalString, g as getFormattedPrice } from './price-1ff6aa07.js';
+import { f as fullShippingAddressRequired, s as shippingAddressRequired, a as checkoutIsLocked } from './getters-dda6aa71.js';
 import { c as createErrorNotice } from './mutations-ed6d0770.js';
 import { i as isRtl } from './page-align-0cdacf32.js';
 import './add-query-args-0e2a8393.js';
 import './index-06061d4e.js';
-import './utils-cd1431df.js';
+import './utils-f84b2118.js';
 import './remove-query-args-938c53ea.js';
 import './google-a86aa761.js';
 import './currency-a0c9bff4.js';
@@ -107,6 +108,17 @@ const ScCompactAddress = class {
         if (country) {
             this.updateAddress({ country });
         }
+        this.fetchUserCountry();
+    }
+    async fetchUserCountry() {
+        var _a;
+        if ((_a = this.address) === null || _a === void 0 ? void 0 : _a.country) {
+            return;
+        }
+        const countryCode = await getCurrentUserCountryCode();
+        if (countryCode) {
+            this.updateAddress({ country: countryCode });
+        }
     }
     async initCountryChoices() {
         this.countryChoices = await countryChoices();
@@ -116,10 +128,10 @@ const ScCompactAddress = class {
     }
     render() {
         var _a, _b, _c, _d, _e, _f, _g;
-        return (h("div", { key: '8687cbecb1a38ba04e1f2c69aef18cb22fd917fc', class: "sc-address", part: "base" }, h("sc-form-control", { key: '4f6393b874e426edc81b01cd2be153bb31d2a3f2', exportparts: "label, help-text, form-control", label: this.label, class: "sc-address__control", part: "control", required: this.required }, h("sc-select", { key: '152c3a52c5edf68ed04f2eea2dd1e6154f4c8b27', exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", value: (_a = this.address) === null || _a === void 0 ? void 0 : _a.country, onScChange: (e) => {
+        return (h("div", { key: '24227f5fe3c7bf0cadea174000c888ec6b0d4eeb', class: "sc-address", part: "base" }, h("sc-form-control", { key: 'b321ed9f1fff54c91190dd7e2c754fda6dd65db2', exportparts: "label, help-text, form-control", label: this.label, class: "sc-address__control", part: "control", required: this.required }, h("sc-select", { key: 'f03be8dde04aa633f1d43d1e4f6b699d4228532d', exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", value: (_a = this.address) === null || _a === void 0 ? void 0 : _a.country, onScChange: (e) => {
                 this.clearAddress();
                 this.updateAddress({ country: e.target.value || null });
-            }, choices: this.countryChoices, autocomplete: 'country-name', placeholder: ((_b = this.placeholders) === null || _b === void 0 ? void 0 : _b.country) || wp.i18n.__('Select Your Country', 'surecart'), name: this.names.country, search: true, unselect: false, "squared-bottom": this.showState || this.showPostal, required: this.required }), h("div", { key: '28951980bb4b4aea4ed910e193b4031368d5bc6b', class: "sc-address__columns" }, this.showState && (h("sc-select", { key: 'db96d3a73a474d51e4134052be25e1cc60f1610b', exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", placeholder: (_c = this.placeholders) === null || _c === void 0 ? void 0 : _c.state, name: this.names.state, autocomplete: 'address-level1', value: (_d = this === null || this === void 0 ? void 0 : this.address) === null || _d === void 0 ? void 0 : _d.state, onScChange: (e) => this.updateAddress({ state: e.target.value || null }), choices: this.regions, required: this.required, search: true, "squared-top": true, unselect: false, "squared-right": this.showPostal })), this.showPostal && (h("sc-input", { key: '79a8cbeb564a4763ca1fc885eed584b3d05e012b', exportparts: "base:input__base, input, form-control, label, help-text", placeholder: ((_e = this.placeholders) === null || _e === void 0 ? void 0 : _e.postal_code) || wp.i18n.__('Postal Code/Zip', 'surecart'), name: this.names.postal_code, onScChange: (e) => this.updateAddress({ postal_code: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ postal_code: e.target.value || null }), autocomplete: 'postal-code', required: this.required, value: (_f = this === null || this === void 0 ? void 0 : this.address) === null || _f === void 0 ? void 0 : _f.postal_code, "squared-top": true, maxlength: ((_g = this.address) === null || _g === void 0 ? void 0 : _g.country) === 'US' ? 5 : undefined, pattern: this.postalCodeRegex, customValidity: this.postalCodeRegex ? wp.i18n.__('Please enter a valid postal code', 'surecart') : undefined, "squared-left": this.showState })))), this.loading && h("sc-block-ui", { key: '791a244a3fb4af36c07b9c614cdb657565109f87', exportparts: "base:block-ui, content:block-ui__content" })));
+            }, choices: this.countryChoices, autocomplete: 'country-name', placeholder: ((_b = this.placeholders) === null || _b === void 0 ? void 0 : _b.country) || wp.i18n.__('Select Your Country', 'surecart'), name: this.names.country, search: true, unselect: false, "squared-bottom": this.showState || this.showPostal, required: this.required }), h("div", { key: '61c97c8a4455168c63cc120c621092128eec071f', class: "sc-address__columns" }, this.showState && (h("sc-select", { key: '4ae2428e19cf6c6880143418ede77d728e370956', exportparts: "base:select__base, input, form-control, label, help-text, trigger, panel, caret, search__base, search__input, search__form-control, menu__base, spinner__base, empty", placeholder: (_c = this.placeholders) === null || _c === void 0 ? void 0 : _c.state, name: this.names.state, autocomplete: 'address-level1', value: (_d = this === null || this === void 0 ? void 0 : this.address) === null || _d === void 0 ? void 0 : _d.state, onScChange: (e) => this.updateAddress({ state: e.target.value || null }), choices: this.regions, required: this.required, search: true, "squared-top": true, unselect: false, "squared-right": this.showPostal })), this.showPostal && (h("sc-input", { key: '22a638599a196116bcff77bae362aa80c842385b', exportparts: "base:input__base, input, form-control, label, help-text", placeholder: ((_e = this.placeholders) === null || _e === void 0 ? void 0 : _e.postal_code) || wp.i18n.__('Postal Code/Zip', 'surecart'), name: this.names.postal_code, onScChange: (e) => this.updateAddress({ postal_code: e.target.value || null }), onScInput: (e) => this.handleAddressInput({ postal_code: e.target.value || null }), autocomplete: 'postal-code', required: this.required, value: (_f = this === null || this === void 0 ? void 0 : this.address) === null || _f === void 0 ? void 0 : _f.postal_code, "squared-top": true, maxlength: ((_g = this.address) === null || _g === void 0 ? void 0 : _g.country) === 'US' ? 5 : undefined, pattern: this.postalCodeRegex, customValidity: this.postalCodeRegex ? wp.i18n.__('Please enter a valid postal code', 'surecart') : undefined, "squared-left": this.showState })))), this.loading && h("sc-block-ui", { key: 'f231ac7289be6bff54b54c45f10bb1b476b3fbca', exportparts: "base:block-ui, content:block-ui__content" })));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -532,7 +544,7 @@ const ScOrderBump = class {
             wp.i18n.sprintf(wp.i18n.__('Originally priced at %s.', 'surecart'), (_e = this.bump) === null || _e === void 0 ? void 0 : _e.subtotal_display_amount), class: "bump__original-price" }, (_f = this.bump) === null || _f === void 0 ? void 0 : _f.subtotal_display_amount)), h("span", null, h("span", { "aria-hidden": "true" }, ((_g = this.bump) === null || _g === void 0 ? void 0 : _g.total_amount) === 0 && wp.i18n.__('Free', 'surecart'), ((_h = this.bump) === null || _h === void 0 ? void 0 : _h.total_amount) > 0 && h("span", { class: "bump__new-price" }, (_j = this.bump) === null || _j === void 0 ? void 0 : _j.total_display_amount), this.renderInterval()))));
     }
     renderDiscount() {
-        var _a, _b, _c, _d, _e, _f, _g;
+        var _a, _b, _c, _d, _e;
         if (!!((_a = this.bump) === null || _a === void 0 ? void 0 : _a.amount_off)) {
             return (h("div", { class: "bump__tag", "aria-label": 
                 /** translators: %1$s: amount off, %2$s: currency */
@@ -540,17 +552,18 @@ const ScOrderBump = class {
                 _d.amount_off_display_amount)));
         }
         if (!!((_e = this.bump) === null || _e === void 0 ? void 0 : _e.percent_off)) {
+            const percent = `${this.bump.percent_off}%`;
             return (h("div", { class: "bump__tag", "aria-label": 
-                /** translators: %s: amount percent off */
-                wp.i18n.sprintf(wp.i18n.__('You save %s%%.', 'surecart'), (_f = this.bump) === null || _f === void 0 ? void 0 : _f.percent_off) }, h("span", { "aria-hidden": "true" }, wp.i18n.sprintf(
-            /** translators: %s: amount percent off */
-            wp.i18n._x('Save %s%%', 'Save money', 'surecart'), (_g = this.bump) === null || _g === void 0 ? void 0 : _g.percent_off))));
+                /** translators: %s is the discount percentage (e.g. "10%"). */
+                wp.i18n.sprintf(wp.i18n.__('You save %s.', 'surecart'), percent) }, h("span", { "aria-hidden": "true" }, wp.i18n.sprintf(
+            /** translators: %s is the discount percentage (e.g. "10%"). */
+            wp.i18n._x('Save %s', 'Save money', 'surecart'), percent))));
         }
     }
     render() {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
         const product = (_b = (_a = this.bump) === null || _a === void 0 ? void 0 : _a.price) === null || _b === void 0 ? void 0 : _b.product;
-        return (h("sc-choice", { key: '983d78c5de4e40b4d66f6e755e49000c3ba2e07f', value: (_c = this.bump) === null || _c === void 0 ? void 0 : _c.id, type: "checkbox", showControl: this.showControl, checked: !!this.lineItem(), onClick: e => {
+        return (h("sc-choice", { key: '05bb127936345059e4a693ffb801f1d6f379b236', value: (_c = this.bump) === null || _c === void 0 ? void 0 : _c.id, type: "checkbox", showControl: this.showControl, checked: !!this.lineItem(), onClick: e => {
                 e.preventDefault();
                 e.stopImmediatePropagation();
                 this.updateLineItem();
@@ -560,11 +573,11 @@ const ScOrderBump = class {
                     e.stopImmediatePropagation();
                     this.updateLineItem();
                 }
-            }, exportparts: "base, control, checked-icon, title" }, h("div", { key: '54a1819dbbfc23855d4a0920cd853973077fcb58', part: "base-content", class: "bump" }, h("div", { key: '6261d9ede9267a35093f1271bcf48c98840cd605', class: "bump__text" }, h("div", { key: '8eb1bd33b2592dc8358720b53ca3640bd03fd8b0', class: "bump__title", "aria-label": wp.i18n.sprintf(
+            }, exportparts: "base, control, checked-icon, title" }, h("div", { key: '631d30b5e3653656c7931271bf75a3cd202aa04f', part: "base-content", class: "bump" }, h("div", { key: '10f22d4a4189c1a1a308c736c4b6e55d58cc0168', class: "bump__text" }, h("div", { key: 'ce19233d17e2760f9316c78c15f4f36a052bbd0c', class: "bump__title", "aria-label": wp.i18n.sprintf(
             /* translators: %s: order bump name */
-            wp.i18n.__('Product: %s.', 'surecart'), ((_e = (_d = this.bump) === null || _d === void 0 ? void 0 : _d.metadata) === null || _e === void 0 ? void 0 : _e.cta) || ((_f = this.bump) === null || _f === void 0 ? void 0 : _f.name) || (product === null || product === void 0 ? void 0 : product.name)) }, h("span", { key: 'fd3214f1fc3f0e0bdd909d92d96339cc2a1b86a4', "aria-hidden": "true" }, ((_h = (_g = this.bump) === null || _g === void 0 ? void 0 : _g.metadata) === null || _h === void 0 ? void 0 : _h.cta) || ((_j = this.bump) === null || _j === void 0 ? void 0 : _j.name) || (product === null || product === void 0 ? void 0 : product.name))), h("div", { key: 'ef1e4657efc6dc4755641de2154d49e405f4d484', class: "bump__amount" }, this.renderPrice(), this.renderDiscount()))), ((_l = (_k = this.bump) === null || _k === void 0 ? void 0 : _k.metadata) === null || _l === void 0 ? void 0 : _l.description) && (h("div", { key: '2e3a416ed1918562a4c1f49113cba05729b87ec3', slot: "footer", class: "bump__product--wrapper" }, h("sc-divider", { key: '4d06a09e82fd1ecd41c01bdb048c5a76b0e33d69', style: { '--spacing': 'var(--sc-spacing-medium)' } }), h("div", { key: '38c660a40700423b3f3a727f1db8f164a736daeb', class: "bump__product" }, !!((_m = product === null || product === void 0 ? void 0 : product.line_item_image) === null || _m === void 0 ? void 0 : _m.src) && h("img", { key: 'df9c423d1eceadc3e61bc3530ae79c8bbb44a684', ...product === null || product === void 0 ? void 0 : product.line_item_image, class: "bump__image" }), h("div", { key: '0698bdcb6b3029cdccb97c5e7dc356cd60d3dab9', class: "bump__product-text" }, !!((_p = (_o = this.bump) === null || _o === void 0 ? void 0 : _o.metadata) === null || _p === void 0 ? void 0 : _p.cta) && (h("div", { key: '6f717ff6352c7fc1c48a4e29a934435bbb9406f1', class: "bump__product-title", "aria-hidden": "true" }, this.bump.name || (product === null || product === void 0 ? void 0 : product.name))), !!((_r = (_q = this.bump) === null || _q === void 0 ? void 0 : _q.metadata) === null || _r === void 0 ? void 0 : _r.description) && (h("div", { key: '4747ed4352a726279216fe07b174fd446b69b165', class: "bump__product-description", "aria-label": wp.i18n.sprintf(
+            wp.i18n.__('Product: %s.', 'surecart'), ((_e = (_d = this.bump) === null || _d === void 0 ? void 0 : _d.metadata) === null || _e === void 0 ? void 0 : _e.cta) || ((_f = this.bump) === null || _f === void 0 ? void 0 : _f.name) || (product === null || product === void 0 ? void 0 : product.name)) }, h("span", { key: 'e8b7c15c9b778ac317f7543d174af16f6eaa3851', "aria-hidden": "true" }, ((_h = (_g = this.bump) === null || _g === void 0 ? void 0 : _g.metadata) === null || _h === void 0 ? void 0 : _h.cta) || ((_j = this.bump) === null || _j === void 0 ? void 0 : _j.name) || (product === null || product === void 0 ? void 0 : product.name))), h("div", { key: 'bfbec3b44de2eec1db920bb02ab4dc9ffe748629', class: "bump__amount" }, this.renderPrice(), this.renderDiscount()))), ((_l = (_k = this.bump) === null || _k === void 0 ? void 0 : _k.metadata) === null || _l === void 0 ? void 0 : _l.description) && (h("div", { key: '9ec1e3641218dfe944a6be2371c71e3012470ce6', slot: "footer", class: "bump__product--wrapper" }, h("sc-divider", { key: '3c7dc55682f85184d55abbb968ba3da807b894a4', style: { '--spacing': 'var(--sc-spacing-medium)' } }), h("div", { key: '369ec1658d2a6fca96c474c8a5b77a23f7a8e09d', class: "bump__product" }, !!((_m = product === null || product === void 0 ? void 0 : product.line_item_image) === null || _m === void 0 ? void 0 : _m.src) && h("img", { key: 'a52a16131bf388ae077d1f08975ac016919ca577', ...product === null || product === void 0 ? void 0 : product.line_item_image, class: "bump__image" }), h("div", { key: 'b25efd0119129c0b333f209aec14cae92419d225', class: "bump__product-text" }, !!((_p = (_o = this.bump) === null || _o === void 0 ? void 0 : _o.metadata) === null || _p === void 0 ? void 0 : _p.cta) && (h("div", { key: '0944412683e898b10ff10dff88d88a0663efdc95', class: "bump__product-title", "aria-hidden": "true" }, this.bump.name || (product === null || product === void 0 ? void 0 : product.name))), !!((_r = (_q = this.bump) === null || _q === void 0 ? void 0 : _q.metadata) === null || _r === void 0 ? void 0 : _r.description) && (h("div", { key: '05e8ce6ea11990b1a8be39c290a80dd499a46032', class: "bump__product-description", "aria-label": wp.i18n.sprintf(
             /* translators: %s: Product description */
-            wp.i18n.__('Product description: %s.', 'surecart'), (_s = this.bump) === null || _s === void 0 ? void 0 : _s.rendered_description) }, h("span", { key: 'f863722bbe36276c26bc2da9f0381f8917f800f6', "aria-hidden": "true", innerHTML: (_t = this.bump) === null || _t === void 0 ? void 0 : _t.rendered_description })))))))));
+            wp.i18n.__('Product description: %s.', 'surecart'), (_s = this.bump) === null || _s === void 0 ? void 0 : _s.rendered_description) }, h("span", { key: '30986f3ce04ac536b55660e021af758634886ca7', "aria-hidden": "true", innerHTML: (_t = this.bump) === null || _t === void 0 ? void 0 : _t.rendered_description })))))))));
     }
 };
 ScOrderBump.style = ScOrderBumpStyle0;
@@ -853,13 +866,13 @@ const ScRadio = class {
     }
     render() {
         const Tag = this.edit ? 'div' : 'label';
-        return (h(Tag, { key: '279850402a98c8dcbead030c05940f00cf50e112', part: "base", class: {
+        return (h(Tag, { key: 'd40e693b02a79c675fbaea55f0f786dafa50c0a9', part: "base", class: {
                 'radio': true,
                 'radio--checked': this.checked,
                 'radio--disabled': this.disabled,
                 'radio--focused': this.hasFocus,
                 'radio--editing': this.edit,
-            }, htmlFor: this.inputId, onKeyDown: e => this.handleKeyDown(e), onMouseDown: e => this.handleMouseDown(e) }, h("span", { key: '528e2f64e039cf16036542e42a598e66725b41fb', part: "control", class: "radio__control" }, h("span", { key: 'ed0dcb9db17f2db1de417a46314f8f040d07c873', part: "checked-icon", class: "radio__icon" }, h("svg", { key: '38f991f164553b997af4c714cb26c87a849db598', viewBox: "0 0 16 16" }, h("g", { key: 'a72c718051e0b1749f2639a31f267c1b3f992e4e', stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd" }, h("g", { key: '4463e21d6385436ed3226911caa4ca0d6e10d3db', fill: "currentColor" }, h("circle", { key: '8850c201408b775f4414b871de6e730ab585b693', cx: "8", cy: "8", r: "3.42857143" }))))), h("input", { key: 'cc27a88371757a3d0acac394db0c5cd7095348db', id: this.inputId, ref: el => (this.input = el), type: "radio", name: this.name, value: this.value, checked: this.checked, disabled: this.disabled, required: this.required, "aria-checked": this.checked ? 'true' : 'false', "aria-disabled": this.disabled ? 'true' : 'false', "aria-labelledby": this.labelId, onClick: () => this.handleClick(), onBlur: () => this.handleBlur(), onFocus: () => this.handleFocus() })), h("span", { key: 'a56662a22274192f74d2dc7b357f118ac67c7968', part: "label", id: this.labelId, class: "radio__label" }, h("slot", { key: 'b4eb8d98ef7fb600f2ae475bd84884d930d93a85' }), h("slot", { key: '7a822f13ef6274c1aa4329479069dd9ce91461ad', name: "description" }))));
+            }, htmlFor: this.inputId, onKeyDown: e => this.handleKeyDown(e), onMouseDown: e => this.handleMouseDown(e) }, h("span", { key: '57fd03d650b2229fd7974c4f1a468945f306892e', part: "control", class: "radio__control" }, h("span", { key: '8fa368561a15a292bcd3d920f17b394affacbb30', part: "checked-icon", class: "radio__icon" }, h("svg", { key: 'd77e5fd47e4f59f5bc61264f0882714d2f2787da', viewBox: "0 0 16 16" }, h("g", { key: '09fd7dc9ddab0e33e1a01083291a887be7a6587c', stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd" }, h("g", { key: 'a48f7919d831f4d816d978de8db3696ff3a53de0', fill: "currentColor" }, h("circle", { key: '8660654ee5be9b4bac9e2f2929c4bb6548934e01', cx: "8", cy: "8", r: "3.42857143" }))))), h("input", { key: '783c3904aeb68fb87cfe0c81ba4ef94f4bd1a59b', id: this.inputId, ref: el => (this.input = el), type: "radio", name: this.name, value: this.value, checked: this.checked, disabled: this.disabled, required: this.required, "aria-checked": this.checked ? 'true' : 'false', "aria-disabled": this.disabled ? 'true' : 'false', "aria-labelledby": this.labelId, onClick: () => this.handleClick(), onBlur: () => this.handleBlur(), onFocus: () => this.handleFocus() })), h("span", { key: 'b5ae5c8413d1fd7ef0a32458445693b4d1f6f60c', part: "label", id: this.labelId, class: "radio__label" }, h("slot", { key: '546b03b6ea522b62b5eafce7ab95f4b080ea8d40' }), h("slot", { key: '48586efb9759410ae6c84a9e94c3e7719b9da5de', name: "description" }))));
     }
     get el() { return getElement(this); }
     static get watchers() { return {
@@ -907,12 +920,12 @@ const ScRadioGroup = class {
         });
     }
     render() {
-        return (h("fieldset", { key: '5b49f18dc4a05d87f0fa6a5492b068c46f0aba03', part: "base", class: {
+        return (h("fieldset", { key: 'aa7c0ca666970c8a942f2125d2fbe24ca53a545a', part: "base", class: {
                 'radio-group': true,
                 'radio-group--invalid': this.invalid,
                 'radio-group--is-required': this.required,
                 'radio-group--is-rtl': isRtl(),
-            }, "aria-invalid": this.invalid, role: "radiogroup" }, h("legend", { key: '2528e85f4e44dd522c67e6365d906da39f46214a', part: "label", class: "radio-group__label" }, h("slot", { key: '77dfe4244914ceb81f9e1c16a63423756462da5e', name: "label" }, this.label)), h("input", { key: '231db95f2fedbe072631e07ba6880a365ade2d65', type: "text", class: "radio-group__hidden-input", ref: el => (this.input = el), required: this.required, value: this.value, tabindex: "-1" }), h("div", { key: '02a666723e7d58f9b9f3f9d9c94f8d8b2371d981', part: "items", class: "radio-group__items" }, h("slot", { key: '43538863b10715646b500d8ed075b5e91833ca4d' }))));
+            }, "aria-invalid": this.invalid, role: "radiogroup" }, h("legend", { key: '3547170ef8dfaa178d8f5853155f0978b5cbd62d', part: "label", class: "radio-group__label" }, h("slot", { key: 'c3690d8d230c302402cd510a961f65ee899c64f2', name: "label" }, this.label)), h("input", { key: '3656a3a87c3dc61bda3f04e1f612fb84a59d51e3', type: "text", class: "radio-group__hidden-input", ref: el => (this.input = el), required: this.required, value: this.value, tabindex: "-1" }), h("div", { key: 'acee8e4b51d77fa1864d11b6e269b7c45b35b891', part: "items", class: "radio-group__items" }, h("slot", { key: '355a1b0c07a78be70c47f736a0cb4823acde9f58' }))));
     }
     get el() { return getElement(this); }
 };
@@ -926,6 +939,7 @@ const ScShippingChoices = class {
         registerInstance(this, hostRef);
         this.label = undefined;
         this.showDescription = true;
+        this.shippingChoices = undefined;
     }
     /** Maybe update the order. */
     async updateCheckout(selectedShippingChoiceId) {
@@ -953,20 +967,24 @@ const ScShippingChoices = class {
         }
     }
     render() {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-        // shipping choice is not rewquired.
-        if (!((_a = state === null || state === void 0 ? void 0 : state.checkout) === null || _a === void 0 ? void 0 : _a.selected_shipping_choice_required)) {
-            return h(Host, { style: { display: 'none' } });
+        var _a, _b, _c, _d, _e;
+        const choices = this.shippingChoices || ((_b = (_a = state === null || state === void 0 ? void 0 : state.checkout) === null || _a === void 0 ? void 0 : _a.shipping_choices) === null || _b === void 0 ? void 0 : _b.data);
+        // When not using prop override, apply checkout state guards.
+        if (!this.shippingChoices) {
+            // shipping choice is not required.
+            if (!((_c = state === null || state === void 0 ? void 0 : state.checkout) === null || _c === void 0 ? void 0 : _c.selected_shipping_choice_required)) {
+                return h(Host, { style: { display: 'none' } });
+            }
+            // no shipping choices but no country either
+            if (!(choices === null || choices === void 0 ? void 0 : choices.length) && !((_e = (_d = state === null || state === void 0 ? void 0 : state.checkout) === null || _d === void 0 ? void 0 : _d.shipping_address) === null || _e === void 0 ? void 0 : _e.country)) {
+                return (h("sc-form-control", { label: this.label || wp.i18n.__('Shipping', 'surecart') }, h("div", { class: "shipping-choice__empty" }, wp.i18n.__('To check available shipping choices, please provide your shipping country in the address section.', 'surecart'))));
+            }
+            // no shipping choices yet.
+            if (!(choices === null || choices === void 0 ? void 0 : choices.length)) {
+                return (h("sc-form-control", { part: "empty", label: this.label || wp.i18n.__('Shipping', 'surecart') }, h("div", { class: "shipping-choice__empty" }, wp.i18n.__('Sorry, we are not able to ship to your address.', 'surecart'))));
+            }
         }
-        // no shipping choices but no country either
-        if (!((_d = (_c = (_b = state === null || state === void 0 ? void 0 : state.checkout) === null || _b === void 0 ? void 0 : _b.shipping_choices) === null || _c === void 0 ? void 0 : _c.data) === null || _d === void 0 ? void 0 : _d.length) && !((_f = (_e = state === null || state === void 0 ? void 0 : state.checkout) === null || _e === void 0 ? void 0 : _e.shipping_address) === null || _f === void 0 ? void 0 : _f.country)) {
-            return (h("sc-form-control", { label: this.label || wp.i18n.__('Shipping', 'surecart') }, h("div", { class: "shipping-choice__empty" }, wp.i18n.__('To check available shipping choices, please provide your shipping country in the address section.', 'surecart'))));
-        }
-        // no shipping choices yet.
-        if (!((_j = (_h = (_g = state === null || state === void 0 ? void 0 : state.checkout) === null || _g === void 0 ? void 0 : _g.shipping_choices) === null || _h === void 0 ? void 0 : _h.data) === null || _j === void 0 ? void 0 : _j.length)) {
-            return (h("sc-form-control", { part: "empty", label: this.label || wp.i18n.__('Shipping', 'surecart') }, h("div", { class: "shipping-choice__empty" }, wp.i18n.__('Sorry, we are not able to ship to your address.', 'surecart'))));
-        }
-        return (h(Host, null, h("sc-radio-group", { part: "base", label: this.label || wp.i18n.__('Shipping', 'surecart'), class: "shipping-choices", onScChange: e => this.updateCheckout(e.detail) }, (((_l = (_k = state === null || state === void 0 ? void 0 : state.checkout) === null || _k === void 0 ? void 0 : _k.shipping_choices) === null || _l === void 0 ? void 0 : _l.data) || []).map(({ id, display_amount, shipping_method }) => {
+        return (h(Host, null, h("sc-radio-group", { part: "base", label: this.label || wp.i18n.__('Shipping', 'surecart'), class: "shipping-choices", onScChange: e => this.updateCheckout(e.detail) }, (choices || []).map(({ id, display_amount, shipping_method }) => {
             var _a;
             return (h("sc-radio", { key: id, checked: ((_a = state === null || state === void 0 ? void 0 : state.checkout) === null || _a === void 0 ? void 0 : _a.selected_shipping_choice) === id, exportparts: "base:radio__base,label:radio__label,control:radio__control,checked-icon:radio__checked-icon", class: "shipping-choice", value: id }, h("div", { class: "shipping-choice__text" }, h("div", { class: "shipping-choice__name" }, (shipping_method === null || shipping_method === void 0 ? void 0 : shipping_method.name) || wp.i18n.__('Standard Shipping', 'surecart')), this.showDescription && !!(shipping_method === null || shipping_method === void 0 ? void 0 : shipping_method.description) && (h("div", { class: "shipping-choice__description" }, shipping_method === null || shipping_method === void 0 ? void 0 : shipping_method.description))), h("div", { class: "shipping-choice__price" }, !!display_amount ? display_amount : wp.i18n.__('Free', 'surecart'))));
         })), checkoutIsLocked('selected_shipping_choice') && h("sc-block-ui", null)));

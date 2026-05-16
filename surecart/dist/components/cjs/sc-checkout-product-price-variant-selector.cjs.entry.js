@@ -3,21 +3,21 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-8acc3c89.js');
-const getters = require('./getters-a5fb26bc.js');
-const mutations = require('./mutations-10a18c83.js');
+const getters = require('./getters-c16ecf9a.js');
+const mutations = require('./mutations-c848334c.js');
 const util = require('./util-b877b2bd.js');
-const index$1 = require('./index-e60e3177.js');
+const index$1 = require('./index-325f2916.js');
 const mutations$1 = require('./mutations-11c8f9a8.js');
-const utils = require('./utils-2e91d46c.js');
-require('./address-258a7497.js');
+const utils = require('./utils-a9d13080.js');
+require('./address-7404695f.js');
 require('./add-query-args-49dcb630.js');
 require('./index-bcdafe6e.js');
 require('./remove-query-args-b57e8cd3.js');
 require('./index-fb76df07.js');
 require('./google-59d23803.js');
 require('./currency-71fce0f0.js');
-require('./store-4a539aea.js');
-require('./price-5b1afcfe.js');
+require('./store-b57d9911.js');
+require('./price-da3cab3d.js');
 require('./fetch-d374a251.js');
 
 const scCheckoutProductPriceVariantSelectorCss = "sc-checkout-product-price-variant-selector{display:block}.sc-form-label{font-family:var(--sc-font-sans);font-size:var(--sc-font-size-medium);font-weight:var(--sc-font-weight-normal);margin-bottom:var(--sc-input-label-margin);display:inline-block;color:var(--sc-input-label-color);font-weight:var(--sc-input-label-font-weight);text-transform:var(--sc-input-label-text-transform, none);letter-spacing:var(--sc-input-label-letter-spacing, 0)}.sc-form-select{--sc-form-select-bg-img:url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23374151' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e\");display:block;width:100%;padding:0 var(--sc-input-spacing-medium);height:calc(var(--sc-input-height-medium) - var(--sc-input-border-width) * 2);font-size:var(--sc-input-font-size-medium);font-family:var(--sc-input-font-family);font-weight:var(--sc-input-font-weight);color:var(--sc-color-gray-700);box-sizing:border-box;background-color:var(--sc-input-background-color);background-image:var(--sc-form-select-bg-img), var(--sc-form-select-bg-icon, none);background-repeat:no-repeat;background-position:right calc(var(--sc-input-spacing-medium) - 2px) center;background-size:16px 12px;border:var(--sc-input-border-width) solid var(--sc-input-border-color);border-radius:var(--sc-border-radius-medium);box-shadow:var(--sc-input-box-shadow);transition:var(--sc-input-transition, var(--sc-transition-medium)) color, var(--sc-input-transition, var(--sc-transition-medium)) border, var(--sc-input-transition, var(--sc-transition-medium)) box-shadow;appearance:none}.sc-form-select:hover{color:var(--sc-input-color-hover);background-color:var(--sc-input-background-color-hover);border-color:var(--sc-input-border-color-hover);z-index:7}.sc-form-select:focus{color:var(--sc-input-color-focus);background-color:var(--sc-input-background-color-focus) !important;border-color:var(--sc-input-border-color-focus) !important;outline:0;box-shadow:0 0 0 var(--sc-focus-ring-width) var(--sc-focus-ring-color-primary)}.sc-form-select[multiple],.sc-form-select[size]:not([size=\"1\"]){padding-right:var(--sc-input-spacing-medium);background-image:none}.sc-form-select:disabled{color:var(--sc-input-color-disabled);background-color:var(--sc-input-background-color-disabled);border-color:var(--sc-input-border-color-disabled)}.sc-form-select:-moz-focusring{color:transparent;text-shadow:0 0 0 var(--sc-input-color)}.form-select-sm{padding-top:var(--sc-input-spacing-small);padding-bottom:var(--sc-input-spacing-small);padding-left:var(--sc-input-spacing-small);font-size:var(--sc-input-font-size-small);border-radius:var(--sc-border-radius-small)}.form-select-lg{padding-top:var(--sc-input-spacing-large);padding-bottom:var(--sc-input-spacing-large);padding-left:var(--sc-input-spacing-large);font-size:var(--sc-input-font-size-large);border-radius:var(--sc-border-radius-large)}.sc-checkout-product-price-variant-selector{position:relative}.sc-checkout-product-price-variant-selector>*:not(:last-child){display:block;margin-bottom:var(--sc-form-row-spacing, 0.75em)}.sc-checkout-product-price-variant-selector__pills-wrapper{display:flex;flex-wrap:wrap;gap:var(--sc-spacing-x-small)}.sc-checkout-product-price-variant-selector__hidden-input{position:absolute !important;top:0 !important;left:0 !important;opacity:0 !important;padding:0px !important;margin:0px !important;pointer-events:none !important;width:0 !important}";
@@ -53,7 +53,10 @@ const ScProductCheckoutSelectVariantOption = class {
      */
     isSelectedVariantOutOfStock() {
         var _a, _b;
-        return ((_a = this.product) === null || _a === void 0 ? void 0 : _a.stock_enabled) && this.hasVariants() && !((_b = this.product) === null || _b === void 0 ? void 0 : _b.allow_out_of_stock_purchases) && this.selectedVariant.available_stock < 1;
+        if (!this.selectedVariant)
+            return false;
+        const hasUnlimitedStock = (_a = this.selectedVariant.has_unlimited_stock) !== null && _a !== void 0 ? _a : (_b = this.product) === null || _b === void 0 ? void 0 : _b.has_unlimited_stock;
+        return this.hasVariants() && !hasUnlimitedStock && this.selectedVariant.available_stock < 1;
     }
     /**
      * Do we have the required selected variant?
@@ -217,12 +220,12 @@ const ScProductCheckoutSelectVariantOption = class {
     }
     render() {
         var _a, _b, _c, _d, _e;
-        return (index.h("sc-form-control", { key: '461b978789aa5d4cbedf2a73e751690fce87a686', class: "sc-checkout-product-price-variant-selector", label: this.selectorTitle }, (this.product.variant_options.data || []).map(({ name, values, display_type }, index) => {
+        return (index.h("sc-form-control", { key: 'bc386bb3f7dddc9398d91a3a5be20b04cf7522e0', class: "sc-checkout-product-price-variant-selector", label: this.selectorTitle }, (this.product.variant_options.data || []).map(({ name, values, display_type }, index) => {
             if (display_type === 'dropdown') {
                 return this.renderDropdown({ name, values, index });
             }
             return this.renderPills({ name, values, index });
-        }), ((_c = (_b = (_a = this.product) === null || _a === void 0 ? void 0 : _a.prices) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.length) > 1 && (index.h("sc-form-control", { key: '710dacae832e154690c7a29c0badb450a0b4552a', label: !!((_d = this.product.variant_options.data) === null || _d === void 0 ? void 0 : _d.length) ? this.label : null }, index.h("sc-choices", { key: 'bae8821a607043516f2c572f51689e0dad21aa37' }, (this.product.prices.data || [])
+        }), ((_c = (_b = (_a = this.product) === null || _a === void 0 ? void 0 : _a.prices) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.length) > 1 && (index.h("sc-form-control", { key: '05c3e8e77c0124bdce010da052424b5f156504d8', label: !!((_d = this.product.variant_options.data) === null || _d === void 0 ? void 0 : _d.length) ? this.label : null }, index.h("sc-choices", { key: 'ea8ccb814d69be2567207b8c7e71c7a987962a75' }, (this.product.prices.data || [])
             .sort((a, b) => (a === null || a === void 0 ? void 0 : a.position) - (b === null || b === void 0 ? void 0 : b.position))
             .map(price => {
             var _a, _b, _c;
@@ -231,7 +234,7 @@ const ScProductCheckoutSelectVariantOption = class {
                         this.selectedPrice = price;
                     }
                 } }));
-        })))), index.h("input", { key: '2ce25324f8defdd723d576e21d87d2ecefbfafa1', class: "sc-checkout-product-price-variant-selector__hidden-input", ref: el => (this.input = el), value: (_e = this.selectedVariant) === null || _e === void 0 ? void 0 : _e.id })));
+        })))), index.h("input", { key: '10c20682af9416a25f293d004dc811b0127e65c6', class: "sc-checkout-product-price-variant-selector__hidden-input", ref: el => (this.input = el), value: (_e = this.selectedVariant) === null || _e === void 0 ? void 0 : _e.id })));
     }
     get el() { return index.getElement(this); }
     static get watchers() { return {
